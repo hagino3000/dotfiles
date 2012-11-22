@@ -1,67 +1,67 @@
 [user]
-	name = hagino3000
-	email = hagino.3000@gmail.com
+  name = hagino3000
+  email = hagino.3000@gmail.com
 [color]
-  # color$B$N@_Dj(B($B0J2<$N%3%^%s%I$O<+F0$G?'$D$1$k(B)
+  # colorの設定(以下のコマンドは自動で色つける)
   status = auto
   diff = auto
   branch = auto
   interactive = auto
   grep = auto
 [push]
-  default = tracking       # default$B$N(Bpush$B@h$O(Btracking$B$7$F$$$k%j%]%8%H%j(B
+  default = tracking       # defaultのpush先はtrackingしているリポジトリ
 [core]
-	excludesfile = ~/.gitignore_global
-  autocrlf = input         # CRLF$B$r<+F0JQ49(B
-  mergeoptions = --no-ff   # $BI,$:%^!<%8%3%_%C%H$r;D$9(B
+  excludesfile = ~/.gitignore_global
+  autocrlf = input         # CRLFを自動変換
+  mergeoptions = --no-ff   # 必ずマージコミットを残す
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [alias]
   st = status
   sh = show
   so = remote show origin
   ft = fetch
   up = pull --rebase       # pull rebase
-  #rbm = rebase master      # master$B$X$N(Brebase$B$O$h$/;H$&$N$G(Balias
+  #rbm = rebase master     # masterへのrebaseはよく使うのでalias
   ad = add
-  ci = commit -a           # modified$B$J%U%!%$%k$rA4$F(Bstage$B$X(B
-  cam = commit -a --amend  # $BD>A0$N(Bcommit$B$r=$@5(B
+  ci = commit -a           # modifiedなファイルを全てstageへ
+  cam = commit -a --amend  # 直前のcommitを修正
   co = checkout
-  # branch$B4XO"(B
+  # branch関連
   br = branch
-  ba = branch -a           # origin$B$b4^$a$?A4$F$N(Bbranch$B$rI=<((B
-  bm = branch --merged     # merge$B:Q$_$N(Bbranch$B$rI=<((B
-  bn = branch --no-merged  # merge$B$7$F$J$$(Bbranch$B$rI=<((B
-  # log$B4XO"(B
-  wc = whatchanged         # log$B$KJQ99$5$l$?%U%!%$%k$b0l=o$K=P$9(B
-  ls = log --stat          # log$B$KJQ99$5$l$?%U%!%$%k$b0l=o$K=P$9(B
-  lp = log -p              # diff$B$b0l=o$K=P$9(B
-  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # $B$6$C$/$j%m%0=P$9(B
-  lr = log origin          # origin$B$N(Blog
+  ba = branch -a           # originも含めた全てのbranchを表示
+  bm = branch --merged     # merge済みのbranchを表示
+  bn = branch --no-merged  # mergeしてないbranchを表示
+  # log関連
+  wc = whatchanged         # logに変更されたファイルも一緒に出す
+  ls = log --stat          # logに変更されたファイルも一緒に出す
+  lp = log -p              # diffも一緒に出す
+  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
+  lr = log origin          # originのlog
   oneline = log --pretty=oneline
   ranking = shortlog -s -n --no-merges
-  # log$B$r(Btree$BI=<((B
+  # logをtree表示
   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   lt = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-  # diff$B4XO"(B
-  dm = diff master           # master$B$H$N(Bdiff
-  dw = diff --color-words    # $BC18lC10L$G$$$m$D$1$F(Bdiff
-  dc = diff --cached         # add$B$5$l$F$$$k$b$N$H$N(Bdiff
-  ds = diff --staged         # $BF1>e(B(1.6.1$B0\9T(B)
-  d1 = diff HEAD~            # HEAD$B$+$i(B1$B$DA0$H(Bdiff
-  d2 = diff HEAD~~           # HEAD$B$+$i(B2$B$DA0$H(Bdiff
-  d3 = diff HEAD~~~          # HEAD$B$+$i(B3$B$DA0$H(Bdiff
-  d4 = diff HEAD~~~~         # HEAD$B$+$i(B4$B$DA0$H(Bdiff
-  d5 = diff HEAD~~~~~        # HEAD$B$+$i(B5$B$DA0$H(Bdiff
-  d10 = diff HEAD~~~~~~~~~~  # HEAD$B$+$i(B10$BA0$H(Bdiff
-  # merge$B$N:]$K(Bconflict$B$,5/$-$?%U%!%$%k$rJT=8(B
+  # diff関連
+  dm = diff master           # masterとのdiff
+  dw = diff --color-words    # 単語単位でいろつけてdiff
+  dc = diff --cached         # addされているものとのdiff
+  ds = diff --staged         # 同上(1.6.1移行)
+  d1 = diff HEAD~            # HEADから1つ前とdiff
+  d2 = diff HEAD~~           # HEADから2つ前とdiff
+  d3 = diff HEAD~~~          # HEADから3つ前とdiff
+  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+  # mergeの際にconflictが起きたファイルを編集
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-  # merge$B$N:]$K(Bconflict$B$,5/$-$?%U%!%$%k$r(Badd
+  # mergeの際にconflictが起きたファイルをadd
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-  # grep$B4XO"(B
+  # grep関連
   gr = grep
   gn = grep -n
