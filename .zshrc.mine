@@ -1,0 +1,96 @@
+alias u="cd ../"
+alias l="ls -lh"
+alias less="less -M"
+alias screen='screen -U'
+alias sc='screen -D -RR'
+alias cp='cp -Riva'
+alias mv='mv -iv'
+alias wl='wc -l'
+alias psa='ps aux'
+alias psa='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
+alias pyserver='python -m SimpleHTTPServer'
+alias ant='/usr/share/ant/bin/ant'
+alias coffee='~/node_modules/coffee-script/bin/coffee'
+alias cake='~/node_modules/coffee-script/bin/cake'
+alias gosh='rlwrap gosh'
+
+alias gitlog="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
+alias gitst="git status"
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+export GREP_OPTIONS='--binary-files=without-match'
+
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+################################################
+# Add path
+################################################
+# brew
+export PATH=/usr/local/bin/:$PATH
+export PATH=/usr/local/share/python/:$PATH
+# python brew
+export PATH=$HOME/.pythonbrew/bin:$PATH
+# node brew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+# node modules
+export PATH=~/node_modules/mocha/bin/:$PATH
+
+export PATH=$PATH:~/dev/lib/android-sdk-macosx/tools
+
+export MANPATH=/opt/local/man:$MANPATH
+export BITBUCKET=http://hagino_3000@bitbucket.org/hagino_3000/
+
+#export JAVA_HOME=/Library/Java/Home
+#export CATALINA_HOME=/usr/local/tomcat
+
+
+autoload -U promptinit
+promptinit
+prompt adam2
+
+show_window_title() {
+    if [ "$TERM" = "screen" ]; then
+      chpwd() { echo -n "_`dirs`\\" }
+      preexec() {
+        emulate -L zsh
+        local -a cmd; cmd=(${(z)2})
+        case $cmd[1] in
+          fg)
+              if (( $#cmd == 1 )); then
+                cmd=(builtin jobs -l %+)
+              else
+                cmd=(builtin jobs -l $cmd[2])
+              fi
+              ;;
+          %*)
+              cmd=(builtin jobs -l $cmd[1])
+              ;;
+          cd)
+              if (( $#cmd == 2 )); then
+                cmd[1]=$cmd[2]
+              fi
+              ;;
+          ls|clear)
+              echo -n "k$ZSH_NAME\\"
+              return
+              ;;
+          screen|pwd)
+              return
+              ;;
+          *)
+              echo -n "k$cmd[1]:t\\"
+              return
+              ;;
+        esac
+        local -A jt; jt=(${(kv)jobtexts})
+        $cmd >>(read num rest
+                cmd=(${(z)${(e):-\$jt$num}})
+                echo -n "k$cmd[1]:t\\") 2>/dev/null
+      }
+      chpwd
+    fi
+}
+
+show_window_title
+
+export EDITOR="vim"

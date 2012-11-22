@@ -1,0 +1,6 @@
+hardstatus alwayslastline "%w"
+bind s # reset s key
+startup_message off  # off sprite screen
+autodetach on 
+defscrollback 2048
+
