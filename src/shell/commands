@@ -1,0 +1,2 @@
+
+openssl pkcs12 -in xxxx.p12  -out xxxx.pem -nodes -clcerts
