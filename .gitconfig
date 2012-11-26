@@ -12,7 +12,7 @@
   default = tracking       # defaultのpush先はtrackingしているリポジトリ
 [core]
   excludesfile = ~/.gitignore_global
-  autocrlf = input         # CRLFを自動変換
+#  autocrlf = input         # CRLFを自動変換
   mergeoptions = --no-ff   # 必ずマージコミットを残す
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
