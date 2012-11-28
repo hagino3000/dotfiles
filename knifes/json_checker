@@ -1,0 +1,21 @@
+#!/opt/local/bin/python
+
+import sys
+import json
+
+
+argvs = sys.argv
+argc = len(argvs)
+
+print argvs
+
+if argc == 1:
+    print "Give me file name"
+else:
+    f = open(argvs[1])
+    json.loads(f.read())
+
+    print "OK"
+
+
+

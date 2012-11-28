@@ -25,6 +25,10 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 ################################################
 # Add path
 ################################################
+
+# my knifes
+export PATH=~/dev/dotfiles/knifes/:$PATH
+
 # brew
 export PATH=/usr/local/bin/:$PATH
 export PATH=/usr/local/share/python/:$PATH
