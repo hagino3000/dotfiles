@@ -52,6 +52,8 @@ set imdisable
 set iminsert=1
 set imsearch=1
 
+set splitbelow "新しいウィンドウを下に開く
+set splitright "新しいウィンドウを右に開く
 
 syntax on
 
@@ -88,6 +90,7 @@ Bundle 'skk.vim-B'
 Bundle 'sudo.vim'
 Bundle 'The-NERD-tree'
 Bundle 'neocomplcache'
+Bundle 'thinca/vim-quickrun'
 Bundle 'Syntastic'
 Bundle 'vim-coffee-script'
 " non github repos
@@ -150,6 +153,12 @@ autocmd BufRead,BufNewFile *.twig set syntax=htmldjango
 " =========================================
 let format_join_spaces = 4
 let format_allow_over_tw = 1
+
+" Quickrun.vim
+let g:quickrun_config={'*': {
+\'hook/time/enable': '1',
+\'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+\}}
 
 " rails.vim
 let g:rails_level=4
