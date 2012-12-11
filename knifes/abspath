@@ -1,2 +1,2 @@
 #!/bin/sh
-echo $(cd $(dirname $0) && pwd)/$(basename $0)
+echo $(cd $(dirname $1) && pwd)/$(basename $1)
