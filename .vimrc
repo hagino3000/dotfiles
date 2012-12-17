@@ -92,6 +92,7 @@ Bundle 'neocomplcache'
 Bundle 'thinca/vim-quickrun'
 Bundle 'Syntastic'
 Bundle 'vim-coffee-script'
+Bundle 'ack.vim'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
