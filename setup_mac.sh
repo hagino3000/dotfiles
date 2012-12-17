@@ -6,7 +6,10 @@ brew install -f vim
 brew install python
 brew install wget
 brew install tree
-brew install octave
+brew install automake
+brew install ack
+
+
 
 pip install virtualenv
 pip install sphinx
@@ -20,3 +23,4 @@ curl https://raw.github.com/hokaccha/nodebrew/master/nodebrew | perl - setup
 #pythonbrew
 curl -kL http://xrl.us/pythonbrewinstall | bash
 
+brew install octave
