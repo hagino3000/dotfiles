@@ -175,6 +175,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_auto_completion_start_length = 4
 let g:neocomplcache_manual_completion_start_length = 4
+let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_enable_ignore_case = 1
 let g:neocomplcache_enable_smart_case = 1
 
