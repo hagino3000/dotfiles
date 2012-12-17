@@ -1,7 +1,6 @@
 set nocompatible
 
 set enc=utf-8
-set fencs=iso-2022-jp,euc-jp,cp932,utf-8
 set ambiwidth=double
 
 set ignorecase
@@ -95,6 +94,10 @@ Bundle 'Syntastic'
 Bundle 'vim-coffee-script'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
+
+" Show undo history
+Bundle 'Gundo'
+nnoremap <F5> :GundoToggle<CR>
 
  " Brief help
  " :BundleList          - list configured bundles
