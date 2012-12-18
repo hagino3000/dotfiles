@@ -16,6 +16,7 @@ alias ant='/usr/share/ant/bin/ant'
 alias coffee='~/node_modules/coffee-script/bin/coffee'
 alias cake='~/node_modules/coffee-script/bin/cake'
 alias gosh='rlwrap gosh'
+alias virtualenv='/usr/local/share/python/virtualenv'
 
 alias gl="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 alias gs="git status"
