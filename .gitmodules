@@ -2,3 +2,6 @@
 	path = .vim/bundle/vundle
 	url = http://github.com/gmarik/vundle.git
   ignore = dirty
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen.git

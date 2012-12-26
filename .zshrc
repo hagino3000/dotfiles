@@ -13,6 +13,10 @@ export LANG=ja_JP.UTF-8
 autoload colors
 colors
 
+source ~/dev/dotfiles/antigen/antigen.zsh
+antigen-lib
+antigen-bundle autojump
+antigen-apply
 
 # VCS version and branch info in RPROMPT
 autoload -Uz vcs_info
@@ -106,7 +110,7 @@ compinit
 setopt complete_aliases # aliased ls needs if file/dir completions work
 
 alias where="command -v"
-alias j="jobs -l"
+alias jo="jobs -l"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)

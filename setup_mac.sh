@@ -6,10 +6,12 @@ brew install -f vim
 brew install python
 brew install wget
 brew install tree
+brew install pstree
 brew install automake
 brew install ack
 brew install rlwrap
 brew install --use-llvm gauche
+brew install autojump
 
 pip install virtualenv
 pip install sphinx

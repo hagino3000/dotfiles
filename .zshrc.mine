@@ -11,25 +11,31 @@ alias cp='cp -Riva'
 alias mv='mv -iv'
 alias wl='wc -l'
 alias psa='ps aux'
-alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
-
-alias pyserver='python -m SimpleHTTPServer'
-alias ant='/usr/share/ant/bin/ant'
-alias coffee='~/node_modules/coffee-script/bin/coffee'
-alias cake='~/node_modules/coffee-script/bin/cake'
-alias gosh='rlwrap gosh'
-alias virtualenv='/usr/local/share/python/virtualenv'
-
-alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
 alias gl="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 alias gs="git status"
 alias gd="git diff"
 
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+alias pyserver='python -m SimpleHTTPServer'
 export GREP_OPTIONS='--binary-files=without-match'
 
-export LSCOLORS=gxfxcxdxbxegedabagacad
+case "${OSTYPE}" in
+freebsd*|darwin*)
+  alias pst='ptree'
+  alias ant='/usr/share/ant/bin/ant'
+  alias coffee='~/node_modules/coffee-script/bin/coffee'
+  alias cake='~/node_modules/coffee-script/bin/cake'
+  alias gosh='rlwrap gosh'
+  alias virtualenv='/usr/local/share/python/virtualenv'
+  alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
+
+  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+  ;;
+linux*)
+  alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
+  ;;
+esac
+
 
 # Add path
 ################################################
@@ -48,7 +54,6 @@ export PATH=~/node_modules/mocha/bin/:$PATH
 
 #export JAVA_HOME=/Library/Java/Home
 #export CATALINA_HOME=/usr/local/tomcat
-
 
 autoload -U promptinit
 promptinit
