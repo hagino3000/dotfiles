@@ -1,3 +1,5 @@
+# Add alias
+################################################
 alias u="cd ../"
 alias uu="cd ../../"
 alias uuu="cd ../../../"
@@ -18,6 +20,8 @@ alias cake='~/node_modules/coffee-script/bin/cake'
 alias gosh='rlwrap gosh'
 alias virtualenv='/usr/local/share/python/virtualenv'
 
+alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
+
 alias gl="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 alias gs="git status"
 alias gd="git diff"
@@ -27,7 +31,6 @@ export GREP_OPTIONS='--binary-files=without-match'
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-################################################
 # Add path
 ################################################
 # my knifes
@@ -42,11 +45,6 @@ export PATH=$HOME/.pythonbrew/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # node modules
 export PATH=~/node_modules/mocha/bin/:$PATH
-
-export PATH=$PATH:~/dev/lib/android-sdk-macosx/tools
-
-export MANPATH=/opt/local/man:$MANPATH
-export BITBUCKET=http://hagino_3000@bitbucket.org/hagino_3000/
 
 #export JAVA_HOME=/Library/Java/Home
 #export CATALINA_HOME=/usr/local/tomcat
