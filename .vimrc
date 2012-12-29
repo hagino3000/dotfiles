@@ -58,12 +58,16 @@ syntax on
 
 " ====================================================
 " vundle settings
-" 
-" To install vundle
-" mkdir .vim/bundle
-" cd .vim/bundle
-" git clone http://github.com/gmarik/vundle.git
 " ====================================================
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -98,24 +102,49 @@ Bundle 'git://git.wincent.com/command-t.git'
 
 " Show undo history
 Bundle 'Gundo'
+
+" =========================================
+" Plugin settings
+" =========================================
+let format_join_spaces = 4
+let format_allow_over_tw = 1
+
+" Quickrun.vim
+let g:quickrun_config={'*': {
+\'hook/time/enable': '1',
+\'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+\}}
+
+" Gundo
 nnoremap <F5> :GundoToggle<CR>
 
- " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+" rails.vim
+let g:rails_level=4
+let g:rails_default_file="app/controllers/application.rb"
+let g:rails_default_database="sqlite3"
 
-" ====================================================
+" rubycomplete.vim
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+" neocomplecache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_auto_completion_start_length = 4
+let g:neocomplcache_manual_completion_start_length = 4
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
 
 " SKK
 let skk_jisyo = "/Users/t-nishibayashi/Library/Application Support/AquaSKK/skk-jisyo.utf8"
 let skk_large_jisyo = "/Users/t-nishibayashi/Library/Application Support/AquaSKK/SKK-JISYO.L"
 let skk_egg_like_newline = 1
 
+" ====================================================
+" Fily type settings
+" ====================================================
 
 filetype indent on
 filetype plugin indent on
@@ -151,37 +180,6 @@ autocmd BufRead,BufNewFile *.twig set syntax=htmldjango
 "function! didSaveFile()
 "
 "endfunction
-
-" =========================================
-" Plugin settings
-" =========================================
-let format_join_spaces = 4
-let format_allow_over_tw = 1
-
-" Quickrun.vim
-let g:quickrun_config={'*': {
-\'hook/time/enable': '1',
-\'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
-\}}
-
-" rails.vim
-let g:rails_level=4
-let g:rails_default_file="app/controllers/application.rb"
-let g:rails_default_database="sqlite3"
-
-" rubycomplete.vim
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
-" neocomplecache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_auto_completion_start_length = 4
-let g:neocomplcache_manual_completion_start_length = 4
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
 
 
 " path
