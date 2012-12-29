@@ -30,11 +30,13 @@ freebsd*|darwin*)
   alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+  export GNUTERM=x11
   ;;
 linux*)
   alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
   ;;
 esac
+
 
 
 # Add path
