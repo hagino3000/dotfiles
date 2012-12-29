@@ -1,3 +1,6 @@
+" ====================================================
+" Basic settings
+" ====================================================
 set nocompatible
 
 set enc=utf-8
@@ -7,7 +10,7 @@ set ignorecase
 set smartcase
 set wrapscan
 set incsearch
-set hlsearch
+set nohlsearch
 
 set autoindent
 set smartindent
@@ -41,26 +44,23 @@ set restorescreen
 set hidden
 
 set browsedir=current
-set nohlsearch
 set nowrapscan
 
 " set tags=~/dev/study/_vim/.tags
-
 
 set imdisable
 set iminsert=1
 set imsearch=1
 
-set splitbelow "新しいウィンドウを下に開く
-set splitright "新しいウィンドウを右に開く
+set splitbelow "Open new window below
+set splitright "Open new window right
 
+colorscheme ron
 syntax on
 
 " ====================================================
 " vundle settings
 " ====================================================
-
-" Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
@@ -75,32 +75,43 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
+" Git commands
 Bundle 'tpope/vim-fugitive'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" vim-scripts repos
+" Need for FuzzyFinder
 Bundle 'L9'
+" File Search
 Bundle 'FuzzyFinder'
+" Integrate hg and git and svn
 Bundle 'vcscommand.vim'
+" Octave
 Bundle 'octave.vim'
+" Manipulate buffer
 Bundle 'QuickBuf'
+" Enable scratch buffer
 Bundle 'scratch'
+" Use SKK
 Bundle 'skk.vim-B'
+" Enable :SudoRead :SudoWrite
 Bundle 'sudo.vim'
+" Tree Viewer
 Bundle 'The-NERD-tree'
+" Complete
 Bundle 'neocomplcache'
+" Run with ,r
 Bundle 'thinca/vim-quickrun'
+" Syntax check
 Bundle 'Syntastic'
+" Coffee
 Bundle 'vim-coffee-script'
+" Ack
 Bundle 'ack.vim'
+" Shoe redo undo tree
+Bundle 'Gundo'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
-" Show undo history
-Bundle 'Gundo'
+" Input likes zencoding
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " =========================================
 " Plugin settings
@@ -149,31 +160,29 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
-autocmd FileType ruby set tabstop=2 tw=0 sw=2 expandtab
-autocmd FileType eruby set tabstop=2 tw=0 sw=2 expandtab
-autocmd FileType html set tabstop=2 tw=0 sw=2 expandtab fenc=utf-8
-autocmd BufNewFile,BufRead *.ejs set filetype=html
-autocmd FileType javascript set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
-autocmd FileType python set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab fileencoding=utf-8
+autocmd BufNewFile,BufRead *.ejs          set filetype=html
+autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
+autocmd BufNewFile,BufRead app/**/*.rb    set ft=ruby fenc=utf-8
+autocmd BufNewFile,BufRead app/**/*.yml   set ft=ruby fenc=utf-8
+autocmd BufNewFile,BufRead *.twig         set syntax=htmldjango
 
-autocmd FileType c hi Comment ctermfg=darkcyan
+autocmd FileType ruby       set tabstop=2 tw=0 sw=2 expandtab
+autocmd FileType eruby      set tabstop=2 tw=0 sw=2 expandtab
+autocmd FileType html       set tabstop=2 tw=0 sw=2 expandtab fenc=utf-8
+autocmd FileType javascript set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
+autocmd FileType coffee     set tabstop=2 tw=2
+autocmd FileType python     set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab fileencoding=utf-8
+autocmd FileType rst        set fenc=utf-8
+autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+
+autocmd FileType c   hi Comment ctermfg=darkcyan
 autocmd FileType cpp hi Comment ctermfg=darkcyan
 autocmd FileType cpp set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
-autocmd FileType coffee set tabstop=2 tw=2
-
-autocmd FileType rst set fenc=utf-8
-
-autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
-
-autocmd BufNewFile,BufRead app/*/*.rhtml set ft=mason fenc=utf-8
-autocmd BufNewFile,BufRead app/**/*.rb set ft=ruby fenc=utf-8
-autocmd BufNewFile,BufRead app/**/*.yml set ft=ruby fenc=utf-8
 
 autocmd FileType GITCOMMIT set fenc=utf-8
 autocmd FileType VCSCOMMIT set fenc=utf-8
 
-autocmd FileType php set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
-autocmd BufRead,BufNewFile *.twig set syntax=htmldjango
+autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 
 "autocmd BufWrite *.* :call didSaveFile()
 "function! didSaveFile()
@@ -185,8 +194,9 @@ autocmd BufRead,BufNewFile *.twig set syntax=htmldjango
 let &path="~/dev/workspace,~"
 let main_syntax="html"
 
-
-"======================= Key Mappings ======================
+" ====================================================
+" Key Mappings
+" ====================================================
 let mapleader = ','
 nnoremap <Space>w :<C-u>update<CR>
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
@@ -287,14 +297,6 @@ nnoremap <leader>rc :<C-u>!rake concat<CR>
 nnoremap <leader>rd :<C-u>!rake debug<CR>
 nnoremap <leader>rt :<C-u>!rake test<CR>
 
-if has('multi_byte_ime') || has('xim')
-	" 日本語入力ON時のカーソルの色を設定
-	highlight CursorIM guibg=Purple guifg=NONE
-endif
-
-hi Search term=reverse ctermbg=Darkcyan ctermfg=NONE
-
-colorscheme ron
 
 " edit binary file
 "augroup BinaryXXD
@@ -343,7 +345,17 @@ augroup vimrc-auto-cursorline
   endfunction
 augroup END
 
-" memo
+" ===================================
+" memo 
+" ===================================
 " show messages
 " :messages
+"
+" Git commands
+" :Gbrame
+" :Gstatus
+" :Gadd
+" :Gdiff
+" :Gcommit
 
+" autocmd QuickFixCmdPost grep,vimgrep cw
