@@ -29,3 +29,4 @@ curl -kL http://xrl.us/perlbrewinstall | bash
 
 brew install gfortran
 brew install octave
+brew install R
