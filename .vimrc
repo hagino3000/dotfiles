@@ -10,7 +10,7 @@ set ignorecase
 set smartcase
 set wrapscan
 set incsearch
-set nohlsearch
+set hlsearch
 
 set autoindent
 set smartindent
@@ -201,6 +201,9 @@ let mapleader = ','
 nnoremap <Space>w :<C-u>update<CR>
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+
+" clear highlight
+nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " help
 nnoremap <expr> <Space>h ':<C-u>help ' . expand('<cword>') . '<CR>'
