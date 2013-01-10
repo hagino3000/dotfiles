@@ -12,6 +12,7 @@ brew install ack
 brew install rlwrap
 brew install --use-llvm gauche
 brew install autojump
+brew install phantomjs
 
 pip install virtualenv
 pip install sphinx
