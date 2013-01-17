@@ -13,9 +13,11 @@ brew install rlwrap
 brew install --use-llvm gauche
 brew install autojump
 brew install phantomjs
+brew install tig
 
 pip install virtualenv
 pip install sphinx
+pip install nose
 
 
 #nodebrew
