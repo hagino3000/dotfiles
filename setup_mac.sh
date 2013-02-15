@@ -14,10 +14,13 @@ brew install --use-llvm gauche
 brew install autojump
 brew install phantomjs
 brew install tig
+brew install opencv
+
 
 pip install virtualenv
 pip install sphinx
 pip install nose
+pip install numpy
 
 
 #nodebrew
