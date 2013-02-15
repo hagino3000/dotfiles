@@ -14,13 +14,14 @@ brew install --use-llvm gauche
 brew install autojump
 brew install phantomjs
 brew install tig
+brew install mongo
 brew install opencv
-
 
 pip install virtualenv
 pip install sphinx
 pip install nose
 pip install numpy
+pip install ipython
 
 
 #nodebrew
@@ -32,6 +33,8 @@ curl -kL http://xrl.us/pythonbrewinstall | bash
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash
 
-brew install gfortran
-brew install octave
 brew install R
+
+brew install gfortran
+brew install gnuplot
+brew install octave
