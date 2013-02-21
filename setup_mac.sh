@@ -23,6 +23,7 @@ pip install sphinx
 pip install nose
 pip install numpy
 pip install ipython
+pip install pylint
 
 
 #nodebrew
