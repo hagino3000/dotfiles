@@ -15,6 +15,7 @@ brew install autojump
 brew install phantomjs
 brew install tig
 brew install mongo
+brew install mysql
 brew install opencv
 
 pip install virtualenv
