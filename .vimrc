@@ -170,12 +170,14 @@ autocmd BufNewFile,BufRead *.twig         set syntax=htmldjango
 
 autocmd FileType ruby       set tabstop=2 tw=0 sw=2 expandtab
 autocmd FileType eruby      set tabstop=2 tw=0 sw=2 expandtab
-autocmd FileType html       set tabstop=2 tw=0 sw=2 expandtab fenc=utf-8
+autocmd FileType html       set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
 autocmd FileType javascript set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
 autocmd FileType coffee     set tabstop=2 tw=2
-autocmd FileType python     set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab fileencoding=utf-8
+autocmd FileType python     set sw=4 fenc=utf-8
 autocmd FileType rst        set fenc=utf-8
 autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+
+" Also python settings are ftplygin/python
 
 autocmd FileType c   hi Comment ctermfg=darkcyan
 autocmd FileType cpp hi Comment ctermfg=darkcyan
