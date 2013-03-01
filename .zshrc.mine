@@ -16,6 +16,9 @@ alias gl="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 alias gs="git status"
 alias gd="git diff"
 
+alias -g G='| grep'
+alias -g HIS='history 2000 | grep'
+
 alias pyserver='python -m SimpleHTTPServer'
 export GREP_OPTIONS='--binary-files=without-match'
 
