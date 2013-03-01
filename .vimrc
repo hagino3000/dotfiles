@@ -163,6 +163,7 @@ filetype plugin indent on
 filetype plugin on
 
 autocmd BufNewFile,BufRead *.ejs          set filetype=html
+autocmd BufNewFile,BufRead *.pm           set filetype=perl
 autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
 autocmd BufNewFile,BufRead app/**/*.rb    set ft=ruby fenc=utf-8
 autocmd BufNewFile,BufRead app/**/*.yml   set ft=ruby fenc=utf-8
@@ -176,6 +177,7 @@ autocmd FileType coffee     set tabstop=2 tw=2
 autocmd FileType python     set sw=4 fenc=utf-8
 autocmd FileType rst        set fenc=utf-8
 autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+autocmd FileType perl       set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 
 " Also python settings are ftplygin/python
 
@@ -236,6 +238,9 @@ autocmd FileType javascript inoremap <buffer> eee assert.equal(
 autocmd FileType javascript inoremap <buffer> iie console.error();<LEFT><LEFT>
 autocmd FileType javascript inoremap <buffer> iii console.log();<LEFT><LEFT>
 autocmd FileType javascript inoremap <buffer> iid console.dir();<LEFT><LEFT>
+
+" perl
+autocmd FileType perl       inoremap <buffer> iii use Data::Dumper; warn Dumper
 
 " python
 autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
