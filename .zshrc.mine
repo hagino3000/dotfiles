@@ -17,7 +17,6 @@ alias gs="git status"
 alias gd="git diff"
 
 alias -g G='| grep'
-alias -g HIS='history 2000 | grep'
 
 alias pyserver='python -m SimpleHTTPServer'
 export GREP_OPTIONS='--binary-files=without-match'
@@ -32,11 +31,14 @@ freebsd*|darwin*)
   alias virtualenv='/usr/local/share/python/virtualenv'
   alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
+  alias -g HIS='history | grep'
+
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
   export GNUTERM=x11
   ;;
 linux*)
   alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
+  alias -g HIS='history 2000 | grep'
   ;;
 esac
 
