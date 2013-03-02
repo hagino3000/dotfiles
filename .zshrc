@@ -13,10 +13,12 @@ export LANG=ja_JP.UTF-8
 autoload colors
 colors
 
-source ~/dev/dotfiles/antigen/antigen.zsh
-antigen-lib
-antigen-bundle autojump
-antigen-apply
+if [ -s "~/dev/dotfiles/antigen/antigen.zsh" ]; then
+  source ~/dev/dotfiles/antigen/antigen.zsh
+  antigen-lib
+  antigen-bundle autojump
+  antigen-apply
+fi
 
 # VCS version and branch info in RPROMPT
 autoload -Uz vcs_info
@@ -169,8 +171,4 @@ esac
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-
-
-
 
