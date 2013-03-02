@@ -31,6 +31,7 @@ curl https://raw.github.com/hokaccha/nodebrew/master/nodebrew | perl - setup
 
 #pythonbrew
 curl -kL http://xrl.us/pythonbrewinstall | bash
+pythonbrew venv init
 
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash
