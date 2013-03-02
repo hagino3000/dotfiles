@@ -32,9 +32,8 @@ freebsd*|darwin*)
     alias mkvirtualenv="pythonbrew venv create"
     alias rmvirtualenv="pythonbrew venv delete"
     alias workon="pythonbrew venv use"
-  else
-    alias virtualenv='/usr/local/share/python/virtualenv'
   fi
+  alias virtualenv='/usr/local/share/python/virtualenv'
   alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
   alias -g HIS='history | grep'
