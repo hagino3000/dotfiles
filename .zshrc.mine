@@ -121,3 +121,11 @@ show_window_title() {
 show_window_title
 
 export EDITOR="vim"
+
+if [ "$TERM" = "screen" ]; then
+    echo "You are on the" `hostname`
+    echo "In the screen sesson"
+else
+    echo "You are on the" `hostname`
+    screen -list
+fi
