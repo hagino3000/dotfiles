@@ -172,4 +172,5 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 [ -f ~/.zshrc.aws ] && source ~/.zshrc.aws
+[ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
 
