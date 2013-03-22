@@ -13,8 +13,8 @@ export LANG=ja_JP.UTF-8
 autoload colors
 colors
 
-if [ -s "~/dev/dotfiles/antigen/antigen.zsh" ]; then
-  source ~/dev/dotfiles/antigen/antigen.zsh
+if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
+  source $HOME/dev/dotfiles/antigen/antigen.zsh
   antigen-lib
   antigen-bundle autojump
   antigen-apply
@@ -95,10 +95,26 @@ bindkey "\\en" history-beginning-search-forward-end
 ## Command history configuration
 #
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt hist_ignore_dups # ignore duplication command history list
-setopt share_history # share command history data
+HISTSIZE=100000
+SAVEHIST=100000
+setopt hist_ignore_dups  # ignore duplication command history list
+setopt share_history     # share command history data
+setopt extended_history  # save history with time
+setopt hist_ignore_space # ignore space started command
+
+zshaddhistory() {
+    local line=${1%%$'\n'}
+    local cmd=${line%% *}
+
+    # filter commands before add history
+    [[ ${#line} -ge 4
+        && ${cmd} != (l|l[sal])
+        && ${cmd} != (u)
+        && ${cmd} != (c|cd)
+        && ${cmd} != (m|man)
+    ]]
+}
+
 
 ## Completion configuration
 #
