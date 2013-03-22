@@ -8,14 +8,14 @@
   branch = auto
   interactive = auto
   grep = auto
+[merge]
+  ff = false # マージコミットを残す
 [push]
-  default = tracking       # defaultのpush先はtrackingしているリポジトリ
+  default = tracking
 [core]
   excludesfile = ~/.gitignore_global
-  mergeoptions = --no-ff   # 必ずマージコミットを残す
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
