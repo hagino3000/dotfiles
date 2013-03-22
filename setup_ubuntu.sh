@@ -37,6 +37,7 @@ sudo apt-get install -y libfreetype6-dev
 
 #For ipython extension
 sudo apt-get install -y r-base-core ruby
+sudo apt-get install -y pandoc
 
 #pythonbrew
 curl -kL http://xrl.us/pythonbrewinstall | bash
