@@ -1,0 +1,41 @@
+################################################
+# For OSX
+################################################
+alias pst='ptree'
+alias ant='/usr/share/ant/bin/ant'
+alias coffee='~/node_modules/coffee-script/bin/coffee'
+alias cake='~/node_modules/coffee-script/bin/cake'
+alias gosh='rlwrap gosh'
+alias virtualenv='/usr/local/share/python/virtualenv'
+alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
+
+alias -g HIS='history | grep'
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+export GNUTERM=x11
+
+# Add path
+# my knifes
+export PATH=~/dev/dotfiles/knifes/:$PATH
+
+# brew
+export PATH=/usr/local/bin/:$PATH
+export PATH=/usr/local/share/python/:$PATH
+
+# python brew
+export PATH=$HOME/.pythonbrew/bin:$PATH
+if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+  source $HOME/.pythonbrew/etc/bashrc
+  alias mkvirtualenv="pythonbrew venv create"
+  alias rmvirtualenv="pythonbrew venv delete"
+  alias workon="pythonbrew venv use"
+fi
+
+# node brew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+# node modules
+export PATH=~/node_modules/mocha/bin/:$PATH
+
+#export JAVA_HOME=/Library/Java/Home
+#export CATALINA_HOME=/usr/local/tomcat
+
