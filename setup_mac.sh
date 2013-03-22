@@ -18,12 +18,14 @@ brew install mongo
 brew install mysql
 brew install opencv
 
+# install to system python
 pip install virtualenv
 pip install sphinx
 pip install nose
 pip install numpy
 pip install ipython
 pip install pylint
+pip install httpie
 
 
 #nodebrew
