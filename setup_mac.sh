@@ -17,6 +17,7 @@ brew install tig
 brew install mongo
 brew install mysql
 brew install opencv
+brew install the_silver_searcher
 
 # install to system python
 pip install virtualenv
