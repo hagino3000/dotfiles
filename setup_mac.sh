@@ -26,6 +26,7 @@ pip install numpy
 pip install ipython
 pip install pylint
 pip install httpie
+pip install requests
 
 
 #nodebrew
