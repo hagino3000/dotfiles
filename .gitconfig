@@ -10,6 +10,8 @@
   grep = auto
 [merge]
   ff = false # マージコミットを残す
+[pull]
+  rebase = true
 [push]
   default = tracking
 [core]
