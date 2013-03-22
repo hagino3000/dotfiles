@@ -17,6 +17,7 @@ if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   source $HOME/dev/dotfiles/antigen/antigen.zsh
   antigen-lib
   antigen-bundle autojump
+  antigen-bundle screen
   antigen-apply
 fi
 
@@ -133,12 +134,17 @@ alias jo="jobs -l"
 case "${OSTYPE}" in
 freebsd*|darwin*)
   alias ls="ls -G -w"
+  alias pst='ptree'
+  alias -g HIS='history | grep'
   ;;
 linux*)
   alias ls="ls --color"
+  alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
+  alias -g HIS='history 5000 | grep'
   ;;
 esac
 
+alias l="ls -lh"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -lhA"
@@ -151,7 +157,6 @@ alias su="su -l"
 alias u="cd ../"
 alias uu="cd ../../"
 alias uuu="cd ../../../"
-alias l="ls -lh"
 alias less="less -M"
 alias screen='screen -U'
 alias sc='screen -D -RR'
@@ -167,9 +172,9 @@ alias gd="git diff"
 alias -g G='| grep'
 
 alias pyserver='python -m SimpleHTTPServer'
+
 export GREP_OPTIONS='--binary-files=without-match'
 export EDITOR="vim"
-
 
 ## terminal configuration
 #
@@ -215,51 +220,6 @@ esac
 autoload -U promptinit
 promptinit
 prompt adam2
-
-show_window_title() {
-    if [ "$TERM" = "screen" ]; then
-      chpwd() { echo -n "_`dirs`\\" }
-      preexec() {
-        emulate -L zsh
-        local -a cmd; cmd=(${(z)2})
-        case $cmd[1] in
-          fg)
-              if (( $#cmd == 1 )); then
-                cmd=(builtin jobs -l %+)
-              else
-                cmd=(builtin jobs -l $cmd[2])
-              fi
-              ;;
-          %*)
-              cmd=(builtin jobs -l $cmd[1])
-              ;;
-          cd)
-              if (( $#cmd == 2 )); then
-                cmd[1]=$cmd[2]
-              fi
-              ;;
-          ls|clear)
-              echo -n "k$ZSH_NAME\\"
-              return
-              ;;
-          screen|pwd)
-              return
-              ;;
-          *)
-              echo -n "k$cmd[1]:t\\"
-              return
-              ;;
-        esac
-        local -A jt; jt=(${(kv)jobtexts})
-        $cmd >>(read num rest
-                cmd=(${(z)${(e):-\$jt$num}})
-                echo -n "k$cmd[1]:t\\") 2>/dev/null
-      }
-      chpwd
-    fi
-}
-
-show_window_title
 
 if [ "$TERM" = "screen" ]; then
     echo "You are on the" `hostname`

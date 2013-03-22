@@ -1,7 +1,6 @@
 ################################################
 # For OSX
 ################################################
-alias pst='ptree'
 alias ant='/usr/share/ant/bin/ant'
 alias coffee='~/node_modules/coffee-script/bin/coffee'
 alias cake='~/node_modules/coffee-script/bin/cake'
@@ -9,7 +8,6 @@ alias gosh='rlwrap gosh'
 alias virtualenv='/usr/local/share/python/virtualenv'
 alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
-alias -g HIS='history | grep'
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 export GNUTERM=x11
