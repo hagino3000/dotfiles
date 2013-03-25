@@ -213,10 +213,10 @@ esac
 
 ## load user .zshrc configuration file
 #
-[ -f ~/.zshrc.osx ] && source ~/.zshrc.osx
-[ -f ~/.zshrc.aws ] && source ~/.zshrc.aws
+[ -f ~/.zshrc.osx ]    && source ~/.zshrc.osx
+[ -f ~/.zshrc.aws ]    && source ~/.zshrc.aws
 [ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
-[ -f ~/.zshrc.perl ] && source ~/.zshrc.perl
+[ -f ~/.zshrc.perl ]   && source ~/.zshrc.perl
 
 autoload -U promptinit
 promptinit
