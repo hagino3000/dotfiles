@@ -24,7 +24,9 @@ pip install virtualenv
 pip install sphinx
 pip install nose
 pip install numpy
+pip install pygments
 pip install ipython
+pip install bpython
 pip install pylint
 pip install httpie
 pip install requests
