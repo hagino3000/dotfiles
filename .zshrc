@@ -173,7 +173,31 @@ alias -g G='| grep'
 
 alias pyserver='python -m SimpleHTTPServer'
 
-export GREP_OPTIONS='--binary-files=without-match'
+####################################################
+# grep options
+if type ggrep > /dev/null 2>&1; then
+    alias grep=ggrep
+fi
+
+export GREP_OPTIONS
+## Don't match binary files
+GREP_OPTIONS="--binary-files=without-match"
+## Recursive grep if directory specified to target
+GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
+## ignore tmp files
+GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
+## ignore directories
+if grep --help | grep -q -- --exclude-dir; then
+    GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
+fi
+## Add colors
+if grep --help | grep -q -- --color; then
+    GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+fi
+
 export EDITOR="vim"
 
 ## terminal configuration
