@@ -175,15 +175,15 @@ alias pyserver='python -m SimpleHTTPServer'
 
 ####################################################
 # grep options
-if type ggrep > /dev/null 2>&1; then
-    alias grep=ggrep
-fi
+#if type ggrep > /dev/null 2>&1; then
+#    alias grep=ggrep
+#fi
 
 export GREP_OPTIONS
 ## Don't match binary files
 GREP_OPTIONS="--binary-files=without-match"
 ## Recursive grep if directory specified to target
-GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
+#GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
 ## ignore tmp files
 GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
 ## ignore directories
