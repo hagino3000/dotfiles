@@ -11,4 +11,5 @@ fi
 
 if [ -s "$HOME/.nodebrew/nodebrew" ]; then
   export PATH=$HOME/.nodebrew/default/bin:$PATH
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
