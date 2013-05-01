@@ -10,3 +10,4 @@ install.packages("reshape", dependencies = TRUE);
 install.packages("RJSONIO", dependencies = TRUE);
 install.packages("XML", dependencies = TRUE);
 install.packages("scatterplot3d", dependencies = TRUE);
+imstall.packages("rgl", dependencies = TRUE);
