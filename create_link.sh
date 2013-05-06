@@ -11,4 +11,5 @@ ln -s ~/dev/dotfiles/.hgignore_global ~/.hgignore_global
 ln -s ~/dev/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dev/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/dev/dotfiles/.screenrc ~/.screenrc
+ln -s ~/dev/dotfiles/.vim ~/.vim
 
