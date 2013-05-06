@@ -109,6 +109,8 @@ Bundle 'vim-coffee-script'
 Bundle 'ack.vim'
 " Shoe redo undo tree
 Bundle 'Gundo'
+" JavaScript Indent
+Bundle 'Javascript-Indentation'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
