@@ -152,8 +152,8 @@ let g:neocomplcache_enable_ignore_case = 1
 let g:neocomplcache_enable_smart_case = 1
 
 " SKK
-let skk_jisyo = "/Users/t-nishibayashi/Library/Application Support/AquaSKK/skk-jisyo.utf8"
-let skk_large_jisyo = "/Users/t-nishibayashi/Library/Application Support/AquaSKK/SKK-JISYO.L"
+let skk_jisyo = "~/Library/Application Support/AquaSKK/skk-jisyo.utf8"
+let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
 let skk_egg_like_newline = 1
 
 " ====================================================
