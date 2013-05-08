@@ -170,6 +170,9 @@ alias gs="git status"
 alias gd="git diff"
 
 alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g J='| python -mjson.tool'
 
 alias pyserver='python -m SimpleHTTPServer'
 
