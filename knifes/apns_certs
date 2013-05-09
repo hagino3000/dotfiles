@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+cat <<__EOT__
+Give me file base name!!
+
+Usage:
+  apns_certs xxxx
+__EOT__
+  exit 1
+fi
+
+if [ ! -e $1.p12 ]; then
+  echo I need $1.p12 but not found!! 
+  exit 1
+fi
+
+echo Create pem, key, cert from $1.p12
+
+openssl pkcs12 -in $1.p12 -out $1.pem -nodes -clcerts
+if [ -e $1.pem ]; then
+  echo Generated $1.pem 
+else
+  echo Failed to generate $1.pem 
+fi
+
+openssl pkcs12 -in $1.p12 -out $1.key -nodes -nocerts
+if [ -e $1.key ]; then
+  echo Generated $1.key
+else
+  echo Failed to generate $1.key
+fi
+
+openssl pkcs12 -in $1.p12 -out $1.cert -nodes -clcerts -nokeys
+if [ -e $1.cert ]; then
+  echo Generated $1.cert
+else
+  echo Failed to generate $1.cert
+fi
+
+
