@@ -6,6 +6,7 @@ if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
   source $HOME/.pythonbrew/etc/bashrc
   alias mkvirtualenv="pythonbrew venv create"
   alias rmvirtualenv="pythonbrew venv delete"
+  alias listvirtualenv="tree ~/.pythonbrew/venvs/ -L 2"
   alias workon="pythonbrew venv use"
 fi
 

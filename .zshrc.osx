@@ -21,8 +21,8 @@ export PATH=/usr/local/bin/:$PATH
 export PATH=/usr/local/share/python/:$PATH
 
 # python brew
-export PATH=$HOME/.pythonbrew/bin:$PATH
 if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+  export PATH=$HOME/.pythonbrew/bin:$PATH
   source $HOME/.pythonbrew/etc/bashrc
   alias mkvirtualenv="pythonbrew venv create"
   alias rmvirtualenv="pythonbrew venv delete"
