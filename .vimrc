@@ -277,11 +277,17 @@ nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 nnoremap <F3> :bd<CR>
 
-" window
+" window move
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+
+" window resize
+nnoremap + <C-W>>
+nnoremap ; <C-W><
+nnoremap = <C-W>+
+nnoremap - <C-W>-
 
 " tab
 nnoremap <Space>n :<C-u>tabn<CR>
