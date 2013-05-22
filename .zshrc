@@ -130,17 +130,16 @@ setopt complete_aliases # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias jo="jobs -l"
+alias -g HIS='history | grep'
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
   alias ls="ls -G -w"
   alias pst='ptree'
-  alias -g HIS='history | grep'
   ;;
 linux*)
   alias ls="ls --color"
   alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
-  alias -g HIS='history 5000 | grep'
   ;;
 esac
 
