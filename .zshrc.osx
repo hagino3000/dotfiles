@@ -29,6 +29,8 @@ if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
   alias listvirtualenv="tree ~/.pythonbrew/venvs/ -L 2"
   alias workon="pythonbrew venv use"
 fi
+alias use_current_virtualenv="export VIRTUAL_ENV=`pwd`"
+alias leave_current_virtualenv="unset VIRTUAL_ENV"
 
 # node brew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
