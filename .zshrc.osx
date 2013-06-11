@@ -41,6 +41,7 @@ export PATH=~/node_modules/mocha/bin/:$PATH
 #export CATALINA_HOME=/usr/local/tomcat
 
 if [ -d "/usr/local/Cellar/mysql/5.5.28/support-files" ]; then
-  export DYLD_LIBRARY_PATH=/usr/local/Cellar/mysql/5.5.28/lib
+  export PATH=/usr/local/Cellar/mysql/5.5.28/bin/:$PATH
   export PATH=/usr/local/Cellar/mysql/5.5.28/support-files/:$PATH
+  export DYLD_LIBRARY_PATH=/usr/local/Cellar/mysql/5.5.28/lib:$DYLD_LIBRARY_PATH
 fi
