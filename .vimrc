@@ -110,7 +110,7 @@ Bundle 'ack.vim'
 " Shoe redo undo tree
 Bundle 'Gundo'
 " JavaScript Indent
-Bundle 'Better-Javascript-Indentation'
+Bundle 'OOP-javascript-indentation'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
@@ -174,7 +174,7 @@ autocmd BufNewFile,BufRead *.twig         set syntax=htmldjango
 autocmd FileType ruby       set tabstop=2 tw=0 sw=2 expandtab
 autocmd FileType eruby      set tabstop=2 tw=0 sw=2 expandtab
 autocmd FileType html       set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
-autocmd FileType javascript set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
+autocmd FileType javascript set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 autocmd FileType coffee     set tabstop=2 tw=2
 autocmd FileType python     set sw=4 fenc=utf-8
 autocmd FileType rst        set fenc=utf-8
