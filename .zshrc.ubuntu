@@ -1,15 +1,5 @@
 export LD_LIBRARY_PATH='/usr/local/lib'
 
-# python brew
-if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
-  export PATH=$HOME/.pythonbrew/bin:$PATH
-  source $HOME/.pythonbrew/etc/bashrc
-  alias mkvirtualenv="pythonbrew venv create"
-  alias rmvirtualenv="pythonbrew venv delete"
-  alias listvirtualenv="tree ~/.pythonbrew/venvs/ -L 2"
-  alias workon="pythonbrew venv use"
-fi
-
 if [ -s "$HOME/.nodebrew/nodebrew" ]; then
   export PATH=$HOME/.nodebrew/default/bin:$PATH
   export PATH=$HOME/.nodebrew/current/bin:$PATH
