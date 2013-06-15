@@ -233,6 +233,51 @@ kterm*|xterm*)
   ;;
 esac
 
+## python settings
+#
+# python brew
+if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+  export PATH=$HOME/.pythonbrew/bin:$PATH
+  source $HOME/.pythonbrew/etc/bashrc
+  alias mkvirtualenv="pythonbrew venv create"
+  alias rmvirtualenv="pythonbrew venv delete"
+  alias listvirtualenv="tree ~/.pythonbrew/venvs/ -L 2"
+
+  function workon() {
+    pythonbrew venv use $1
+    update_venv_prompt
+  }
+
+  function update_prompt_when_deactivate() {
+    if [ "${_pre}" = "deactivate" ]; then
+      update_venv_prompt
+    fi
+  }
+  add-zsh-hook precmd update_prompt_when_deactivate
+fi
+
+function workon_current_virtualenv() {
+  export VIRTUAL_ENV=`pwd`
+  update_venv_prompt
+}
+
+function deactivate_current_virtualenv() {
+  unset VIRTUAL_ENV
+  update_venv_prompt
+}
+
+
+function update_venv_prompt()
+{
+  # virtualenvの情報取得
+  if [ -n "$VIRTUAL_ENV" ]; then
+  RPROMPT=" %{${fg_bold[white]}%} (env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%} ${RPROMPT}"
+  else
+  RPROMPT="%1(v|%F{green}%1v%f|)"
+  fi
+}
+
+
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.osx ]    && source ~/.zshrc.osx

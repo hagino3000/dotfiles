@@ -20,18 +20,6 @@ export PATH=~/dev/dotfiles/knifes/:$PATH
 export PATH=/usr/local/bin/:$PATH
 export PATH=/usr/local/share/python/:$PATH
 
-# python brew
-if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
-  export PATH=$HOME/.pythonbrew/bin:$PATH
-  source $HOME/.pythonbrew/etc/bashrc
-  alias mkvirtualenv="pythonbrew venv create"
-  alias rmvirtualenv="pythonbrew venv delete"
-  alias listvirtualenv="tree ~/.pythonbrew/venvs/ -L 2"
-  alias workon="pythonbrew venv use"
-fi
-alias use_current_virtualenv="export VIRTUAL_ENV=`pwd`"
-alias leave_current_virtualenv="unset VIRTUAL_ENV"
-
 # node brew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # node modules
