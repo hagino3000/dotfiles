@@ -48,3 +48,6 @@ brew install R
 brew install gfortran
 brew install gnuplot
 brew install octave
+
+# vagrant
+# virtualbox
