@@ -115,6 +115,8 @@ Bundle 'Gundo'
 Bundle 'OOP-javascript-indentation'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
+" ag
+Bundle 'rking/ag.vim'
 
 " Input likes zencoding
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
