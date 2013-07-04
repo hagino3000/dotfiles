@@ -159,10 +159,13 @@ alias uuu="cd ../../../"
 alias less="less -M"
 alias screen='screen -U'
 alias sc='screen -D -RR'
+alias sl='screen -list'
 alias cp='cp -Riva'
 alias mv='mv -iv'
 alias wl='wc -l'
 alias psa='ps aux'
+
+alias listen='netstat -na | grep tcp | grep LISTEN'
 
 alias gl="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 alias gs="git status"
