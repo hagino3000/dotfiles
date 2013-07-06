@@ -33,4 +33,9 @@ if [ -d "/usr/local/Cellar/mysql/5.5.28/support-files" ]; then
   export PATH=/usr/local/Cellar/mysql/5.5.28/support-files/:$PATH
   export DYLD_LIBRARY_PATH=/usr/local/Cellar/mysql/5.5.28/lib:$DYLD_LIBRARY_PATH
 fi
+
 export PATH="$HOME/.git-hook/bin:$PATH"
+
+if [ -d "/usr/local/Cellar/ruby/1.9.3-p286" ]; then
+  export PATH=/usr/local/Cellar/ruby/1.9.3-p286/bin:$PATH
+fi

@@ -19,6 +19,7 @@ brew install mysql
 brew install opencv
 brew install the_silver_searcher
 brew install bvi
+brew install ruby
 
 # install to system python
 pip install virtualenv
@@ -49,5 +50,10 @@ brew install gfortran
 brew install gnuplot
 brew install octave
 
-# vagrant
+#sudo gem install chef
+#sudo gem install knife-solo
+#sudo gem install librarian-chef
+
 # virtualbox
+# vagrant
+# vagrant plugin install sahara
