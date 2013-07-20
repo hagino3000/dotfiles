@@ -3,7 +3,7 @@
 " ====================================================
 set nocompatible
 
-set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
+set fileencodings=iso-2022-jp,utf-8,euc-jp,cp932,ucs-bom,default,latin1
 
 set enc=utf-8
 set ambiwidth=double
