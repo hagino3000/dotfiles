@@ -161,7 +161,7 @@ let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
 let skk_egg_like_newline = 1
 
 " ====================================================
-" Fily type settings
+" File type settings
 " ====================================================
 
 filetype indent on
