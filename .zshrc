@@ -283,24 +283,19 @@ if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
     pythonbrew venv use $1
     update_venv_prompt
   }
-
-  function update_prompt_when_deactivate() {
-    if [ "${_pre}" = "deactivate" ]; then
-      update_venv_prompt
-    fi
-  }
-  add-zsh-hook precmd update_prompt_when_deactivate
 fi
 
 function workon_current_virtualenv() {
-  export VIRTUAL_ENV=`pwd`
+  source ./bin/activate
   update_venv_prompt
 }
 
-function deactivate_current_virtualenv() {
-  unset VIRTUAL_ENV
-  update_venv_prompt
+function update_prompt_when_deactivate() {
+  if [ "${_pre}" = "deactivate" ]; then
+    update_venv_prompt
+  fi
 }
+add-zsh-hook precmd update_prompt_when_deactivate
 
 
 function update_venv_prompt()
