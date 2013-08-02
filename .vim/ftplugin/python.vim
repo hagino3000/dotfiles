@@ -35,7 +35,6 @@ elif venv_python.find('/bin/python') != -1:
     project_base_dir = python_path
     sys.path.insert(0, project_base_dir)
     sys.path.insert(0, project_base_dir + '/lib/python2.7/site-packages')
-    print(sys.path)
 
 if project_base_dir:
     # Save virtual environment name to VIM variable
