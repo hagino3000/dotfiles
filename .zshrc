@@ -269,44 +269,6 @@ ls_abbrev() {
     fi
 }
 
-## python settings
-#
-# python brew
-if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
-  export PATH=$HOME/.pythonbrew/bin:$PATH
-  source $HOME/.pythonbrew/etc/bashrc
-  alias mkvirtualenv="pythonbrew venv create"
-  alias rmvirtualenv="pythonbrew venv delete"
-  alias listvirtualenv="tree ~/.pythonbrew/venvs/ -L 2"
-
-  function workon() {
-    pythonbrew venv use $1
-    update_venv_prompt
-  }
-fi
-
-function workon_current_virtualenv() {
-  source ./bin/activate
-  update_venv_prompt
-}
-
-function update_prompt_when_deactivate() {
-  if [ "${_pre}" = "deactivate" ]; then
-    update_venv_prompt
-  fi
-}
-add-zsh-hook precmd update_prompt_when_deactivate
-
-
-function update_venv_prompt()
-{
-  # virtualenvの情報取得
-  if [ -n "$VIRTUAL_ENV" ]; then
-  RPROMPT=" %{${fg_bold[white]}%} (env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%} ${RPROMPT}"
-  else
-  RPROMPT="%1(v|%F{green}%1v%f|)"
-  fi
-}
 
 # Bindkeys
 function do_enter() {
@@ -335,6 +297,36 @@ bindkey '^m' do_enter
 [ -f ~/.zshrc.aws ]    && source ~/.zshrc.aws
 [ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
 [ -f ~/.zshrc.perl ]   && source ~/.zshrc.perl
+
+#### python settings
+
+# For pyenv
+if [ -s "$HOME/.pyenv" ]; then
+  eval "$(pyenv init -)"
+fi
+
+function workon() {
+  source ./bin/activate
+  update_venv_prompt
+}
+
+function update_prompt_when_deactivate() {
+  if [ "${_pre}" = "deactivate" ]; then
+    update_venv_prompt
+  fi
+}
+add-zsh-hook precmd update_prompt_when_deactivate
+
+
+function update_venv_prompt()
+{
+  # virtualenvの情報取得
+  if [ -n "$VIRTUAL_ENV" ]; then
+  RPROMPT=" %{${fg_bold[white]}%} (env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%} ${RPROMPT}"
+  else
+  RPROMPT="%1(v|%F{green}%1v%f|)"
+  fi
+}
 
 autoload -U promptinit
 promptinit

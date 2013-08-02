@@ -20,6 +20,7 @@ brew install opencv
 brew install the_silver_searcher
 brew install bvi
 brew install ruby
+brew install pyenv
 
 # install to system python
 pip install virtualenv
@@ -36,10 +37,6 @@ pip install requests
 
 #nodebrew
 curl https://raw.github.com/hokaccha/nodebrew/master/nodebrew | perl - setup
-
-#pythonbrew
-curl -kL http://xrl.us/pythonbrewinstall | bash
-pythonbrew venv init
 
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash

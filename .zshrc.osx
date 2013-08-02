@@ -5,7 +5,6 @@ alias ant='/usr/share/ant/bin/ant'
 alias coffee='~/node_modules/coffee-script/bin/coffee'
 alias cake='~/node_modules/coffee-script/bin/cake'
 alias gosh='rlwrap gosh'
-alias virtualenv='/usr/local/share/python/virtualenv'
 alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
 
@@ -14,25 +13,20 @@ export GNUTERM=x11
 
 # Add path
 # my knifes
-export PATH=~/dev/dotfiles/knifes/:$PATH
+export PATH=~/dev/dotfiles/knifes:$PATH
 
 # brew
-export PATH=/usr/local/bin/:$PATH
-export PATH=/usr/local/share/python/:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/share/python:$PATH
 
 # node brew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # node modules
-export PATH=~/node_modules/mocha/bin/:$PATH
+export PATH=~/node_modules/mocha/bin:$PATH
 
 #export JAVA_HOME=/Library/Java/Home
 #export CATALINA_HOME=/usr/local/tomcat
-
-if [ -d "/usr/local/Cellar/mysql/5.5.28/support-files" ]; then
-  export PATH=/usr/local/Cellar/mysql/5.5.28/bin/:$PATH
-  export PATH=/usr/local/Cellar/mysql/5.5.28/support-files/:$PATH
-  export DYLD_LIBRARY_PATH=/usr/local/Cellar/mysql/5.5.28/lib:$DYLD_LIBRARY_PATH
-fi
 
 export PATH="$HOME/.git-hook/bin:$PATH"
 
