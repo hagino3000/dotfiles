@@ -21,6 +21,7 @@ brew install the_silver_searcher
 brew install bvi
 brew install ruby
 brew install pyenv
+brew install tmux
 
 # install to system python
 pip install virtualenv
