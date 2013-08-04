@@ -334,12 +334,18 @@ prompt adam2
 
 if [ "$TERM" = "screen" ]; then
     echo "You are on the" `hostname`
-    echo "In the screen sesson"
+    echo "In the screen/tmux sesson"
 else
     echo "You are on the" `hostname`
-    echo "Check screen session..."
-    screen -list
-    echo "Check tmux session...."
-    tmux list-sessions
-    echo "Done"
+    if which screen &> /dev/null
+      then
+      echo "Check screen session..."
+      screen -list
+    fi
+
+    if which tmux &> /dev/null
+      then
+      echo "Check tmux session...."
+      tmux list-sessions
+    fi
 fi
