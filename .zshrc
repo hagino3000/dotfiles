@@ -164,6 +164,7 @@ alias cp='cp -Riva'
 alias mv='mv -iv'
 alias wl='wc -l'
 alias psa='ps aux'
+alias ag="ag --pager 'less -R'"
 
 alias listen='netstat -na | grep tcp | grep LISTEN'
 
