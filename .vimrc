@@ -136,6 +136,14 @@ let g:quickrun_config={'*': {
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
+" syntastic
+let g:syntastic_mode_map = {
+      \'mode':'active',
+      \'active_filetypes':['javascript','vim','sh','ruby'],
+      \'passive_filetypes':['html','python']
+      \}
+
+
 " rails.vim
 let g:rails_level=4
 let g:rails_default_file="app/controllers/application.rb"
