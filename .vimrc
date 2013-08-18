@@ -19,8 +19,8 @@ set hlsearch
 set autoindent
 set smartindent
 set cindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 set number
@@ -120,6 +120,11 @@ Bundle 'rking/ag.vim'
 
 " Input likes zencoding
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"
+" 結構良いらしい
+" Bundle 'jscomplete-vim'
+" Bundle 'vim-javascript-syntax'
+" Bundle 'Simple-Javascript-Identer'
 
 " =========================================
 " Plugin settings
@@ -187,8 +192,8 @@ autocmd FileType ruby       set tabstop=2 tw=0 sw=2 expandtab
 autocmd FileType eruby      set tabstop=2 tw=0 sw=2 expandtab
 autocmd FileType html       set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
 autocmd FileType javascript set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
-autocmd FileType coffee     set tabstop=2 tw=2
-autocmd FileType python     set sw=4 fenc=utf-8
+autocmd FileType coffee     set tabstop=2 tw=0
+autocmd FileType python     set fenc=utf-8
 autocmd FileType rst        set fenc=utf-8
 autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 autocmd FileType perl       set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
@@ -258,6 +263,7 @@ autocmd FileType perl       inoremap <buffer> iii use Data::Dumper; warn Dumper
 
 " python
 autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
+autocmd FileType python nnoremap <leader>ln :call Flake8()<CR>
 autocmd FileType python inoremap <buffer> ccc # -*- coding: utf-8 -*-
 autocmd FileType python inoremap <buffer> iii logging.info(
 
@@ -289,7 +295,7 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 " buffer control
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
-nnoremap <F3> :bd<CR>
+nnoremap <C-W> :bd<CR>
 
 " window move
 nnoremap <C-J> <C-W>j
