@@ -2,3 +2,5 @@
 .DS_Store
 .*.swo
 .*.swp
+*.pyc
+*.pyo
