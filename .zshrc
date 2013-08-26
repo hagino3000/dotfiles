@@ -158,6 +158,7 @@ alias uu="cd ../../"
 alias uuu="cd ../../../"
 alias less="less -M"
 alias screen='screen -U'
+alias eixt='exit'
 alias sc='screen -D -RR'
 alias tm='tmux attach-session -t'
 alias cp='cp -Riva'
