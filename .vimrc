@@ -264,8 +264,13 @@ autocmd FileType perl       inoremap <buffer> iii use Data::Dumper; warn Dumper
 " python
 autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
 autocmd FileType python nnoremap <leader>ln :call Flake8()<CR>
+let g:flake8_ignore = 'E128,E126,E123'
 autocmd FileType python inoremap <buffer> ccc # -*- coding: utf-8 -*-
-autocmd FileType python inoremap <buffer> iii logging.info(
+autocmd FileType python inoremap <buffer> iid logger.debug()<LEFT>
+autocmd FileType python inoremap <buffer> iii logger.info()<LEFT>
+autocmd FileType python inoremap <buffer> iiw logger.warning()<LEFT>
+autocmd FileType python inoremap <buffer> iie logger.error()<LEFT>
+autocmd FileType python inoremap <buffer> iic logger.critical()<LEFT>
 
 " insert date
 inoremap <expr> ,df strftime('%Y-%m-%dT%H:%M:%S')
