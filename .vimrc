@@ -79,42 +79,83 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
+
 " Git commands
 Bundle 'tpope/vim-fugitive'
+
 " Need for FuzzyFinder
 Bundle 'L9'
+
 " File Search
 Bundle 'FuzzyFinder'
+let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|swp|swo|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_mrufile_exclude = '\v\~$|\.pyc$|\.pyo$|\.o$|\.exe$|\.bak$|\.swp$|\.swo$|\.class$'
+let g:fuf_file_exclude = '\v\~$|\.(o|exe|swp|swo|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+
 " Integrate hg and git and svn
 Bundle 'vcscommand.vim'
+
 " Octave
 Bundle 'octave.vim'
+
 " Manipulate buffer
 Bundle 'QuickBuf'
+
 " Enable scratch buffer
 Bundle 'scratch'
+
 " Use SKK
 Bundle 'skk.vim-B'
+let skk_jisyo = "~/Library/Application Support/AquaSKK/skk-jisyo.utf8"
+let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
+let skk_egg_like_newline = 1
+
 " Enable :SudoRead :SudoWrite
 Bundle 'sudo.vim'
+
 " Tree Viewer
 Bundle 'The-NERD-tree'
+let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.swp$']
+
 " Complete
 Bundle 'neocomplcache'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_auto_completion_start_length = 4
+let g:neocomplcache_manual_completion_start_length = 4
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+
 " Run with ,r
 Bundle 'thinca/vim-quickrun'
+let g:quickrun_config={'*': {
+\'hook/time/enable': '1',
+\'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+\}}
+
 " Syntax check
 Bundle 'Syntastic'
+let g:syntastic_mode_map = {
+      \'mode':'active',
+      \'active_filetypes':['javascript','vim','sh','ruby'],
+      \'passive_filetypes':['html','python']
+      \}
+
 " Coffee
 Bundle 'vim-coffee-script'
+
 " Ack
 Bundle 'ack.vim'
+
 " Shoe redo undo tree
 Bundle 'Gundo'
+
 " JavaScript Indent
 Bundle 'OOP-javascript-indentation'
+
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
+
 " ag
 Bundle 'rking/ag.vim'
 
@@ -126,52 +167,8 @@ Bundle 'rking/ag.vim'
 " Bundle 'vim-javascript-syntax'
 " Bundle 'Simple-Javascript-Identer'
 
-" =========================================
-" Plugin settings
-" =========================================
 let format_join_spaces = 4
 let format_allow_over_tw = 1
-
-" Quickrun.vim
-let g:quickrun_config={'*': {
-\'hook/time/enable': '1',
-\'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
-\}}
-
-" Gundo
-nnoremap <F5> :GundoToggle<CR>
-
-" syntastic
-let g:syntastic_mode_map = {
-      \'mode':'active',
-      \'active_filetypes':['javascript','vim','sh','ruby'],
-      \'passive_filetypes':['html','python']
-      \}
-
-
-" rails.vim
-let g:rails_level=4
-let g:rails_default_file="app/controllers/application.rb"
-let g:rails_default_database="sqlite3"
-
-" rubycomplete.vim
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
-" neocomplecache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_auto_completion_start_length = 4
-let g:neocomplcache_manual_completion_start_length = 4
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-
-" SKK
-let skk_jisyo = "~/Library/Application Support/AquaSKK/skk-jisyo.utf8"
-let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
-let skk_egg_like_newline = 1
 
 " ====================================================
 " File type settings
@@ -229,6 +226,9 @@ nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 
 " clear highlight
 nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
 
 " help
 nnoremap <expr> <Space>h ':<C-u>help ' . expand('<cword>') . '<CR>'
@@ -318,8 +318,8 @@ nnoremap - <C-W>-
 nnoremap <Space>n :<C-u>tabn<CR>
 nnoremap <Space>p :<C-u>tabp<CR>
 
-" filefinder
-nnoremap <leader>fr :<C-u>FufBuffer<CR>
+" fuzzy finder
+nnoremap <leader>fb :<C-u>FufBuffer<CR>
 nnoremap <leader>fe :<C-u>FufFile<CR>
 nnoremap <leader>ff :<C-u>FufCoverageFile<CR>
 
