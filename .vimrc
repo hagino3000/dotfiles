@@ -297,6 +297,7 @@ nmap g* g*zz
 nmap g# g#zz
 
 " Auto complete
+vnoremap ` "zdi`<C-R>z`<ESC>
 vnoremap { "zdi{<C-R>z}<ESC>
 vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
