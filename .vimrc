@@ -10,6 +10,12 @@ set ambiwidth=double
 
 set nobackup
 
+let OSTYPE = system('uname')
+if OSTYPE == "Darwin\n"
+    set noswapfile
+    set nowritebackup
+endif
+
 set ignorecase
 set smartcase
 set wrapscan
