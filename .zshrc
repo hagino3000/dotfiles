@@ -83,6 +83,10 @@ setopt pushd_ignore_dups
 #
 bindkey -v
 
+# same to emacs mode
+bindkey '^F' history-incremental-search-backward
+bindkey '^R' history-incremental-pattern-search-backward
+
 # historical backward/forward search with linehead string binded to ^P/^N
 #
 autoload history-search-end
@@ -92,6 +96,10 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
+
+autoload -Uz history-beginning-search-menu
+zle -N history-beginning-search-menu
+bindkey '^X^X' history-beginning-search-menu
 
 ## Command history configuration
 #
