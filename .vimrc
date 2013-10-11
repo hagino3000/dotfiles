@@ -349,6 +349,15 @@ nnoremap <leader>rc :<C-u>!rake concat<CR>
 nnoremap <leader>rd :<C-u>!rake debug<CR>
 nnoremap <leader>rt :<C-u>!rake test<CR>
 
+autocmd BufRead svn* call TemplateSVN()
+function! TemplateSVN()
+        set fileencoding=utf-8
+endfunction
+
+" ====================================================
+" Commands
+" ====================================================
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 " edit binary file
 "augroup BinaryXXD
@@ -362,10 +371,6 @@ nnoremap <leader>rt :<C-u>!rake test<CR>
 "augroup END
 "
 "
-autocmd BufRead svn* call TemplateSVN()
-function! TemplateSVN()
-        set fileencoding=utf-8
-endfunction
 
 " create directory automatically
 augroup vimrc-auto-mkdir
@@ -423,3 +428,4 @@ augroup END
 " :Gcommit
 
 " autocmd QuickFixCmdPost grep,vimgrep cw
+"
