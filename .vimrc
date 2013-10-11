@@ -302,7 +302,7 @@ vnoremap { "zdi{<C-R>z}<ESC>
 vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
 
 " buffer control
 nnoremap <C-N> :bn<CR>
