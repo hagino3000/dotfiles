@@ -128,7 +128,7 @@ zshaddhistory() {
 ## Completion configuration
 #
 autoload -U compinit
-compinit
+compinit -u
 
 ## Alias configuration
 #
