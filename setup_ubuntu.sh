@@ -39,6 +39,11 @@ sudo apt-get install -y libfreetype6-dev
 sudo apt-get install -y r-base-core ruby
 sudo apt-get install -y pandoc
 
+#For growthforecast
+sudo apt-get install -y libxml2-dev
+sudo apt-get install -y libpango-perl
+sudo apt-get install -ylibpango1.0-dev
+
 #pythonbrew
 curl -kL http://xrl.us/pythonbrewinstall | bash
 pythonbrew venv init
