@@ -338,6 +338,12 @@ function update_venv_prompt()
   fi
 }
 
+#### Perl settings
+if [ -d "$HOME/perl5/perlbrew" ]; then
+  alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
+fi
+
+
 autoload -U promptinit
 promptinit
 prompt adam2

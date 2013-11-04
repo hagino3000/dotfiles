@@ -11,7 +11,7 @@ if [ $os = "Linux" ]; then
     ln -s ~/dev/dotfiles/.zshrc.ubuntu ~/.zshrc.ubuntu
 fi
 
-ln -s ~/dev/dotfiles/.zshrc.perl ~/.zshrc.perl
+ln -s ~/dev/dotfiles/.zshenv ~/.zshenv
 ln -s ~/dev/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dev/dotfiles/.gvimrc ~/.gvimrc
 ln -s ~/dev/dotfiles/.vim ~/.vim
