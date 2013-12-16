@@ -180,6 +180,7 @@ alias listen='netstat -na | grep tcp | grep LISTEN'
 alias gl="git log --graph --all --pretty=format:'%x09%Cred%h%Creset %cn %x09%s %C(yellow)%d%Creset' --abbrev-commit --date=relative"
 alias gs="git status"
 alias gd="git diff"
+alias gremove_all='git status -s | awk '\''/^ D/{print "git rm "$2}'\'''
 
 alias -g G='| grep'
 alias -g H='| head'
