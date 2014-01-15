@@ -141,11 +141,11 @@ let g:quickrun_config={'*': {
 
 " Syntax check
 Bundle 'Syntastic'
-let g:syntastic_mode_map = {
-      \'mode':'active',
-      \'active_filetypes':['javascript','vim','sh','ruby'],
-      \'passive_filetypes':['html','python']
-      \}
+"let g:syntastic_mode_map = {
+"      \'mode':'passive',
+"      \'active_filetypes':['vim','sh','ruby'],
+"      \'passive_filetypes':['html','python','javascript']
+"      \}
 
 " Coffee
 Bundle 'vim-coffee-script'
@@ -200,6 +200,7 @@ autocmd FileType python     set fenc=utf-8
 autocmd FileType rst        set fenc=utf-8
 autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 autocmd FileType perl       set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+autocmd FileType scss       set fenc=utf-8 tw=0 sw=4
 
 " Also python settings are ftplygin/python
 
@@ -255,7 +256,7 @@ map <silent> sp v:!pbpaste<CR>
 
 " javascript
 " autocmd FileType javascript nnoremap ,jsl :!gjslint --custom_jsdoc_tags 'xtype,event,singleton' %<CR>
-autocmd FileType javascript nnoremap ,jsl :!SyntasticCheck<CR>
+autocmd FileType javascript nnoremap ,jsl :SyntasticCheck<CR>
 autocmd FileType javascript nnoremap ,jsf :!fixjsstyle --custom_jsdoc_tags 'xtype,event,singleton' %<CR>
 
 autocmd FileType javascript inoremap <buffer> fff function(
