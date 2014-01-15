@@ -165,6 +165,9 @@ Bundle 'git://git.wincent.com/command-t.git'
 " ag
 Bundle 'rking/ag.vim'
 
+" flake8
+Bundle 'hynek/vim-python-pep8-indent'
+
 " Input likes zencoding
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "
