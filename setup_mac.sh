@@ -34,6 +34,7 @@ pip install bpython
 pip install pylint
 pip install httpie
 pip install requests
+pip install percol
 
 
 #nodebrew
