@@ -114,6 +114,23 @@ else
     " Enable :SudoRead :SudoWrite
     NeoBundle 'sudo.vim'
 
+    " For Python
+    NeoBundle 'davidhalter/jedi-vim', {
+            \ "autoload": {
+            \   "insert": 1,
+            \   "filetypes": ["python", "python3", "djangohtml"]},
+            \ "build": {
+            \   "mac"       : "git submodule update --init",
+            \   "unix"      : "git submodule update --init"
+            \ }}
+    let g:jedi#auto_vim_configuration = 0
+    let g:jedi#popup_select_first = 0
+    let g:jedi#completions_command = "<C-N>"
+    let g:jedi#goto_definitions_command = '<Leader>jd'
+    let g:jedi#rename_command = '<Leader>jr'
+    let g:jedi#goto_assignments_command = '<Leader>jg'
+    let g:jedi#documentation_command = '<Leader>jk'
+
     NeoBundle "Shougo/vimproc", {
             \ "build": {
             \   "windows"   : "make -f make_mingw32.mak",
@@ -140,10 +157,10 @@ else
         nnoremap [unite] <Nop>
         nmap <leader>f [unite]
         nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-        nnoremap <silent> [unite]b :<C-u>Unite file_mru buffer<CR>
+        nnoremap <silent> [unite]v :<C-u>Unite file_mru buffer<CR>
         nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
         nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
-        nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+        nnoremap <silent> [unite]b :<C-u>Unite bookmark<CR>
 
         " Use vimfiler to open directory
         call unite#custom_default_action("source/bookmark/directory", "vimfiler")
@@ -160,9 +177,14 @@ else
 
 
     " Complete
-    NeoBundleLazy 'Shougo/neocomplete.vim', {
+    NeoBundleLazy 'Shougo/neocomplcache.vim', {
                 \ "autoload": {"insert": 1}}
-    let g:neocomplete#enable_smart_case = 1
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_enable_underbar_completion = 1
+    inoremap <expr><C-g> neocomplcache#undo_completion()
+    inoremap <expr><C-e> neocomplcache#cancel_popup()
+
 
     " Filer Viewer
     NeoBundleLazy 'Shougo/vimfiler', {
@@ -194,18 +216,21 @@ else
     " Run with ,r
     NeoBundle 'thinca/vim-quickrun'
     let g:quickrun_config={'*': {
-    \'hook/time/enable': '1',
-    \'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
-    \}}
+                \'hook/time/enable': '1',
+                \'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+                \}}
 
     " Syntax check
-    NeoBundleLazy 'Syntastic', {
-                \ "autoload": {"insert": 1}}
+    "NeoBundleLazy 'Syntastic', {
+    "            \ "autoload": {"insert": 1}}
     "let g:syntastic_mode_map = {
     "      \'mode':'passive',
     "      \'active_filetypes':['vim','sh','ruby'],
     "      \'passive_filetypes':['html','python','javascript']
     "      \}
+
+    NeoBundleLazy 'nvie/vim-flake8', {
+                \ "autoload": {"insert": 1, "filetypes": ["python", "python3"]}}
 
     " Shoe redo undo tree
     NeoBundleLazy 'Gundo', {
@@ -215,19 +240,24 @@ else
     NeoBundleLazy 'vim-coffee-script', {
                 \ "autoload": {"filetypes": ["coffee"]}}
 
-    " JavaScript Indent
-    NeoBundleLazy 'OOP-javascript-indentation', {
-                \ "autoload": {"insert": 1}, "filetypes": ["javascript"]}
-
     " Ack
     NeoBundle 'ack.vim'
 
     " ag
     NeoBundle 'rking/ag.vim'
 
-    " flake8
+    " Python indent
     NeoBundleLazy 'hynek/vim-python-pep8-indent', {
                 \ "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]},}
+
+    " JavaScript Indent
+    NeoBundleLazy 'OOP-javascript-indentation', {
+                \ "autoload": {"insert": 1}, "filetypes": ["javascript"]}
+
+    " Visible Indent Level
+    NeoBundle "nathanaelkane/vim-indent-guides"
+    let g:indent_guides_guide_size = 1
+
 
     NeoBundleCheck
 endif
@@ -310,7 +340,7 @@ noremap gk k
 nnoremap <leader>so :<C-u>ScratchOpen<CR>
 nnoremap <leader>sc :<C-u>ScratchClose<CR>
 
-" gundo
+" undo
 nnoremap <leader>gl :<C-u>GundoToggle<CR>
 
 " Use ClipBoard
