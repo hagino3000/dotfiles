@@ -115,7 +115,7 @@ else
     NeoBundle 'sudo.vim'
 
     " For Python
-    NeoBundle 'davidhalter/jedi-vim', {
+    NeoBundleLazy 'davidhalter/jedi-vim', {
             \ "autoload": {
             \   "insert": 1,
             \   "filetypes": ["python", "python3", "djangohtml"]},
@@ -123,13 +123,17 @@ else
             \   "mac"       : "git submodule update --init",
             \   "unix"      : "git submodule update --init"
             \ }}
-    let g:jedi#auto_vim_configuration = 0
-    let g:jedi#popup_select_first = 0
-    let g:jedi#completions_command = "<C-N>"
-    let g:jedi#goto_definitions_command = '<Leader>jd'
-    let g:jedi#rename_command = '<Leader>jr'
-    let g:jedi#goto_assignments_command = '<Leader>jg'
-    let g:jedi#documentation_command = '<Leader>jk'
+    let s:hooks = neobundle#get_hooks("jedi-vim")
+    function! s:hooks.on_source(bundle)
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#popup_select_first = 0
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#completions_command = "<C-N>"
+        let g:jedi#goto_definitions_command = '<Leader>jd'
+        let g:jedi#rename_command = '<Leader>jr'
+        let g:jedi#goto_assignments_command = '<Leader>jg'
+        let g:jedi#documentation_command = '<Leader>jk'
+    endfunction
 
     NeoBundle "Shougo/vimproc", {
             \ "build": {
