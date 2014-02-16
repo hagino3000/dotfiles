@@ -345,6 +345,9 @@ if [ -d "$HOME/perl5/perlbrew" ]; then
   alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 fi
 
+### Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 autoload -U promptinit
 promptinit
