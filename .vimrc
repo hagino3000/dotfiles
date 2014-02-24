@@ -326,7 +326,7 @@ nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 
 " clear highlight
-nnoremap <buffer> <ESC><ESC> :nohlsearch<CR><ESC>
+nnoremap <buffer> <ESC><ESC> :set nohlsearch<CR><ESC>
 
 " help
 nnoremap <expr> <Space>h ':<C-u>help ' . expand('<cword>') . '<CR>'
