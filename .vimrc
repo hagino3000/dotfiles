@@ -174,7 +174,7 @@ else
         " Configure keymaps
         autocmd FileType unite call s:unite_settings()
         function! s:unite_settings()
-            imap <buffer> <Esc><Esc> <Plug>(unite_exit)
+            "imap <buffer> <Esc><Esc> <Plug>(unite_exit)
             nmap <buffer> <C-w> <Plug>(unite_exit)
         endfunction
     endfunction
