@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -78,22 +83,62 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+case "${OSTYPE}" in
+freebsd*|darwin*)
+  alias ls="ls -G -w"
+  alias pst='ptree'
+  ;;
+linux*)
+  alias ls="ls --color"
+  alias pst='ps axfo "%U %p %C %z %t (%x) %c : " o args=ARGS'
+  ;;
+esac
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+alias l="ls -lh"
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -lhA"
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+alias du="du -h"
+alias df="df -h"
+
+alias su="su -l"
+
+alias u="cd ../"
+alias uu="cd ../../"
+alias uuu="cd ../../../"
+alias less="less -M"
+alias screen='screen -U'
+alias eixt='exit'
+alias sc='screen -D -RR'
+alias tm='tmux attach-session -t'
+alias cp='cp -Riva'
+alias mv='mv -iv'
+alias wl='wc -l'
+alias psa='ps aux'
+alias ag="ag --pager 'less -R'"
+
+alias listen='netstat -na | grep tcp | grep LISTEN'
+
+alias gl="git log --graph --all --pretty=format:'%x09%Cred%h%Creset %cn %x09%s %C(yellow)%d%Creset' --abbrev-commit --date=relative"
+alias gs="git status"
+alias gd="git diff"
+alias gremove_all='git status -s | awk '\''/^ D/{print "git rm "$2}'\'''
+
+alias pyserver='python -m SimpleHTTPServer'
+
+export PERL5OPT="-Mlib=extlib/lib/perl5 -Ilib"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+fi
+
+[ -f ~/.bashrc.local ]    && source ~/.bashrc.local
+
+# User specific aliases and functions
+if [[ $PS1 ]]; then
+  screen -list
 fi

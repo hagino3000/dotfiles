@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ln -s ~/dev/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dev/dotfiles/.bashrc ~/.bashrc
 os=`uname`
 
 if [ $os = "Darwin" ]; then
