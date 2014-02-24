@@ -306,7 +306,7 @@ bindkey '^m' do_enter
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.osx ]    && source ~/.zshrc.osx
-[ -f ~/.zshrc.aws ]    && source ~/.zshrc.aws
+[ -f ~/.zshrc.local ]    && source ~/.zshrc.local
 [ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
 [ -f ~/.zshrc.perl ]   && source ~/.zshrc.perl
 
