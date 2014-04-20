@@ -317,6 +317,8 @@ autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 " path
 let &path="~/dev/workspace,~"
 let main_syntax="html"
+set rtp+=/usr/local/Cellar/go/1.2/libexec/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
 " ====================================================
 " Key Mappings
@@ -511,3 +513,5 @@ augroup END
 
 " autocmd QuickFixCmdPost grep,vimgrep cw
 "
+" Reopen current file by other encoding
+" :e ++enc=cp932
