@@ -48,6 +48,7 @@ brew install R
 brew install gfortran
 brew install gnuplot
 brew install octave
+brew install swig
 
 #sudo gem install chef
 #sudo gem install knife-solo
