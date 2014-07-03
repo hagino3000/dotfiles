@@ -22,6 +22,7 @@ if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   antigen-apply
 fi
 
+
 # VCS version and branch info in RPROMPT
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -372,3 +373,5 @@ else
       tmux list-sessions
     fi
 fi
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
