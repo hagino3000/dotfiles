@@ -23,6 +23,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # node modules
 export PATH=~/node_modules/mocha/bin:$PATH
+# tex
+export PATH=/usr/texbin:$PATH
 
 #export JAVA_HOME=/Library/Java/Home
 #export CATALINA_HOME=/usr/local/tomcat
