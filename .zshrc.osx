@@ -34,3 +34,5 @@ export PATH="$HOME/.git-hook/bin:$PATH"
 if [ -d "/usr/local/Cellar/ruby/1.9.3-p286" ]; then
   export PATH=/usr/local/Cellar/ruby/1.9.3-p286/bin:$PATH
 fi
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
