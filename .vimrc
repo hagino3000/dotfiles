@@ -297,6 +297,7 @@ autocmd FileType rst        set fenc=utf-8
 autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 autocmd FileType perl       set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 autocmd FileType scss       set fenc=utf-8 tw=0 sw=4
+autocmd FileType yaml       set tabstop=2 fenc=utf-8 tw=0 sw=2
 
 " Also python settings are ftplygin/python
 
