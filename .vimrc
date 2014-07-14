@@ -143,6 +143,8 @@ else
             \   "unix"      : "make -f make_unix.mak",
             \ }}
 
+    NeoBundle "Shougo/neomru.vim"
+
     " Unite
     NeoBundle "Shougo/unite.vim"
     let s:hooks = neobundle#get_hooks("unite.vim")
