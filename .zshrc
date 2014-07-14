@@ -315,8 +315,8 @@ bindkey '^m' do_enter
 
 # For pyenv
 if [ -s "$HOME/.pyenv" ]; then
-  eval "$(pyenv init -)"
   export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
 fi
 
 function workon() {
