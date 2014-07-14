@@ -99,17 +99,17 @@ else
     nnoremap <leader>cd :<C-u>Gdiff<CR>
 
     " Octave
-    NeoBundle 'octave.vim'
+    "NeoBundle 'octave.vim'
 
     " Enable scratch buffer
     NeoBundle 'scratch'
 
     " Use SKK
-    NeoBundleLazy 'skk.vim-B', {
-                \ "autoload": {"insert": 1}}
-    let skk_jisyo = "~/Library/Application Support/AquaSKK/skk-jisyo.utf8"
-    let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
-    let skk_egg_like_newline = 1
+    "NeoBundleLazy 'skk.vim-B', {
+    "            \ "autoload": {"insert": 1}}
+    "let skk_jisyo = "~/Library/Application Support/AquaSKK/skk-jisyo.utf8"
+    "let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
+    "let skk_egg_like_newline = 1
 
     " Enable :SudoRead :SudoWrite
     NeoBundle 'sudo.vim'
@@ -243,8 +243,8 @@ else
                 \ "autoload": {"commands": ["GundoToggle"]}}
 
     " Coffee
-    NeoBundleLazy 'vim-coffee-script', {
-                \ "autoload": {"filetypes": ["coffee"]}}
+    "NeoBundleLazy 'vim-coffee-script', {
+    "            \ "autoload": {"filetypes": ["coffee"]}}
 
     " Ack
     NeoBundle 'ack.vim'
