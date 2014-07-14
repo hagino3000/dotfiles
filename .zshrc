@@ -140,7 +140,7 @@ setopt complete_aliases # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias jo="jobs -l"
-alias -g HIS='history | grep'
+alias -g HIS='history | percol'
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
