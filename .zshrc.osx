@@ -1,9 +1,6 @@
 ################################################
 # For OSX
 ################################################
-alias ant='/usr/share/ant/bin/ant'
-alias coffee='~/node_modules/coffee-script/bin/coffee'
-alias cake='~/node_modules/coffee-script/bin/cake'
 alias gosh='rlwrap gosh'
 alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
@@ -26,13 +23,7 @@ export PATH=~/node_modules/mocha/bin:$PATH
 # tex
 export PATH=/usr/texbin:$PATH
 
-#export JAVA_HOME=/Library/Java/Home
-#export CATALINA_HOME=/usr/local/tomcat
 
 export PATH="$HOME/.git-hook/bin:$PATH"
-
-if [ -d "/usr/local/Cellar/ruby/1.9.3-p286" ]; then
-  export PATH=/usr/local/Cellar/ruby/1.9.3-p286/bin:$PATH
-fi
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
