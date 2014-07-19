@@ -140,7 +140,6 @@ setopt complete_aliases # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias jo="jobs -l"
-alias -g HIS='history | percol'
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
@@ -188,6 +187,7 @@ alias -g G='| grep'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g J='| python -mjson.tool'
+alias -g P='| percol'
 
 alias pyserver='python -m SimpleHTTPServer'
 
@@ -352,6 +352,10 @@ if [ -d "$HOME/.rbenv" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
+
+export GOENVGOROOT=$HOME/.goenvs
+export GOENVTARGET=$HOME/bin
+export GOENVHOME=$HOME/dev/workspace
 
 autoload -U promptinit
 promptinit
