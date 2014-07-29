@@ -167,6 +167,7 @@ else
         nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
         nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
         nnoremap <silent> [unite]b :<C-u>Unite bookmark<CR>
+        nnoremap <silent> [unite]s :<C-u>edit ~/dev/dotfiles/snippets/general.py<ENTER>
 
         " Use vimfiler to open directory
         call unite#custom_default_action("source/bookmark/directory", "vimfiler")
@@ -328,6 +329,7 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 nnoremap <Space>w :<C-u>update<CR>
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+
 
 " clear highlight
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
@@ -517,3 +519,7 @@ augroup END
 "
 " Reopen current file by other encoding
 " :e ++enc=cp932
+"
+" Vim Tree
+" gs: Go out from safe mode
+" N: Create New file
