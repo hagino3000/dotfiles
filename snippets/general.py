@@ -1,3 +1,5 @@
+# coding=utf-8
+
 # traceback
 
 import traceback
@@ -52,9 +54,16 @@ def HogeMixin(clazz):
 
     setattr(clazz, 'methodA', methodA)
     setattr(clazz, 'propB', propB)
+    return clazz
 
 @HogeMixin
 class Base(object):
     pass
 
+# Boot point
 
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
