@@ -71,3 +71,5 @@
   # grep関連
   gr = grep
   gn = grep -n
+  # Safety reset HEAD
+  cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
