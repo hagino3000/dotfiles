@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Install homebrew
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
 brew install zsh
 brew install git
 brew install mercurial
@@ -16,7 +20,6 @@ brew install phantomjs
 brew install tig
 brew install mongo
 brew install mysql
-brew install opencv
 brew install the_silver_searcher
 brew install bvi
 brew install ruby
@@ -43,11 +46,8 @@ curl https://raw.github.com/hokaccha/nodebrew/master/nodebrew | perl - setup
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash
 
-brew install R
-
 brew install gfortran
 brew install gnuplot
-brew install octave
 brew install swig
 
 #sudo gem install chef
