@@ -41,7 +41,7 @@ pip install percol
 
 
 #nodebrew
-curl https://raw.github.com/hokaccha/nodebrew/master/nodebrew | perl - setup
+curl -L git.io/nodebrew | perl - setup
 
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash
@@ -57,3 +57,6 @@ brew install swig
 # virtualbox
 # vagrant
 # vagrant plugin install sahara
+
+# python
+#CONFIGURE_OPTS=--enable-unicode=ucs4 pyenv install 2.7.4
