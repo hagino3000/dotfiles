@@ -46,6 +46,9 @@ curl -L git.io/nodebrew | perl - setup
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash
 
+#pyenv virtualenv
+git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+
 brew install gfortran
 brew install gnuplot
 brew install swig
