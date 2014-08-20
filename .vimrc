@@ -327,6 +327,7 @@ exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 " Key Mappings
 " ====================================================
 nnoremap <Space>w :<C-u>update<CR>
+nnoremap <Space>q :<C-u>quit<CR>
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
 
