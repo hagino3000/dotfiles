@@ -170,6 +170,7 @@ alias screen='screen -U'
 alias eixt='exit'
 alias sc='screen -D -RR'
 alias tm='tmux attach-session -t'
+alias cdd='cd `find . -type d | percol`'
 alias cp='cp -Riva'
 alias mv='mv -iv'
 alias wl='wc -l'
@@ -190,6 +191,40 @@ alias -g J='| python -mjson.tool'
 alias -g P='| percol'
 
 alias pyserver='python -m SimpleHTTPServer'
+
+####################################################
+# Command line function
+function p-git-status-files () {
+    git status --porcelain | percol | awk '{ print $2 }' | xargs git $*
+}
+
+function p-search-document(){
+    DOCUMENT_DIR="\
+        $HOME/Documents
+    $HOME/Dropbox"
+    SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
+        grep -E "\.(pdf|txt|odp|odt|ods)$" | percol --match-method regex)
+    if [ $? -eq 0 ]; then
+        open $SELECTED_FILE
+    fi
+}
+alias sd='p-search-document'
+
+function age() {
+    if [ $# -eq 1 ]; then
+        ag --noheading $1 | percol | ruby -ne 'puts $_.split(":")[0..1].join(" +")' | xargs $EDITOR -nw
+    else
+        echo "Invalid argument: Ex. age WORD"
+    fi
+}
+
+function fae() {
+    find . -type f | percol | xargs $EDITOR -rw
+}
+
+function fpe() {
+    find . -type f -name "*py" | percol | xargs $EDITOR -rw
+}
 
 ####################################################
 # grep options
@@ -321,18 +356,18 @@ fi
 
 function workon() {
   source ./bin/activate
-  update_venv_prompt
+  _update_venv_prompt
 }
 
-function update_prompt_when_deactivate() {
+function _update_prompt_when_deactivate() {
   if [ "${_pre}" = "deactivate" ]; then
-    update_venv_prompt
+    _update_venv_prompt
   fi
 }
-add-zsh-hook precmd update_prompt_when_deactivate
+add-zsh-hook precmd _update_prompt_when_deactivate
 
 
-function update_venv_prompt()
+function _update_venv_prompt()
 {
   # virtualenvの情報取得
   if [ -n "$VIRTUAL_ENV" ]; then
