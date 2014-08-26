@@ -24,6 +24,7 @@ brew install the_silver_searcher
 brew install bvi
 brew install ruby
 brew install pyenv
+brew install pyenv-virtualenv
 brew install tmux
 
 # install to system python
@@ -45,9 +46,6 @@ curl -L git.io/nodebrew | perl - setup
 
 #perlbrew
 curl -kL http://xrl.us/perlbrewinstall | bash
-
-#pyenv virtualenv
-git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 
 brew install gfortran
 brew install gnuplot
