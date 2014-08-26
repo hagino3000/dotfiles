@@ -162,11 +162,11 @@ else
 
         nnoremap [unite] <Nop>
         nmap <leader>f [unite]
+        nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
         nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
         nnoremap <silent> [unite]v :<C-u>Unite file_mru buffer<CR>
         nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
         nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
-        nnoremap <silent> [unite]b :<C-u>Unite bookmark<CR>
         nnoremap <silent> [unite]s :<C-u>edit ~/dev/dotfiles/snippets/general.py<ENTER>
 
         " Use vimfiler to open directory
