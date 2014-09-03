@@ -67,3 +67,17 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# JSON dumps
+
+import json
+
+def default_serializer(obj):
+    """Default JSON serializer"""
+    if isinstance(obj, datetime):
+        return obj.strftime('%Y/%m/%d %H:%M:%S')
+    if isinstance(obj, date):
+        return obj.strftime('%Y/%m/%d')
+
+json.dumps(data, default=default_serializer, ensure_ascii=False)
