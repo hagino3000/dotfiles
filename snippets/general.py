@@ -25,7 +25,8 @@ logging.basicConfig(
 
 # Type Check
 
-isinstance(basestring, u"ああああ")
+val = u"ああああ"
+isinstance(val, basestring)
 
 # Write to File with encoding
 
