@@ -69,7 +69,6 @@ def main():
 if __name__ == '__main__':
     main()
 
-
 # JSON dumps
 
 import json
@@ -82,3 +81,32 @@ def default_serializer(obj):
         return obj.strftime('%Y/%m/%d')
 
 json.dumps(data, default=default_serializer, ensure_ascii=False)
+
+# setup.py
+
+import os
+from setuptools import setup
+
+version = '0.0.1'
+name = 'package-name'
+short_description = 'mypackage'
+
+setup(
+    name=name,
+    version=version,
+    author='Takashi Nishibayashi(hagino3000)',
+    author_email="takashi.nishibayashi@gmail.com",
+    description=short_description,
+    install_requires=open('requirements_prod.txt').read().splitlines(),
+    url='https://github.com/hagino3000/xxxxxx',
+    packages=['mypackage'],
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Topic :: Utilities",
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+    ],
+)
+
