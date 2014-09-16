@@ -12,8 +12,10 @@ print(traceback.format_exc())
 import os
 
 BASE_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '../'))
+CUR_DIR = os.path.abspath(os.path.dirname(__file__))
 
 print(BASE_DIR)
+print(CUR_DIR)
 
 # logging.basicConfig
 
