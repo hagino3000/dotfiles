@@ -37,6 +37,13 @@ import codecs
 with codecs.open("test.txt", "w", "utf-8") as file:
     file.write(u"ああああ")
 
+
+# Read file with encoding
+with codecs.open('./ad.tsv', 'r', 'utf-8') as file:
+    for line in file:
+        print(line)
+
+
 # datetime to string
 
 import datetime
