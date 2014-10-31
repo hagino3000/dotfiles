@@ -119,3 +119,6 @@ setup(
     ],
 )
 
+# replace
+
+u"これは。すごい。ですね。".replace('。', u'。<br>')
