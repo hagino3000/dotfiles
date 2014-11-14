@@ -38,6 +38,10 @@ with codecs.open("test.txt", "w", "utf-8") as file:
     file.write(u"ああああ")
 
 
+with codecs.open("test.txt", "w", "utf-8") as file:
+    file.write(json.dumps(obj, encoding='utf-8', ensure_ascii=False, indent=2)
+
+
 # Read file with encoding
 with codecs.open('./ad.tsv', 'r', 'utf-8') as file:
     for line in file:
