@@ -24,6 +24,7 @@ import logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s')
+logger = logging.getLogger(__name__)
 
 # Type Check
 
@@ -46,6 +47,11 @@ with codecs.open("test.txt", "w", "utf-8") as file:
 with codecs.open('./ad.tsv', 'r', 'utf-8') as file:
     for line in file:
         print(line)
+
+
+# write utf-8 to stdout
+sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
+sys.stdout.write(u"あああ")
 
 
 # datetime to string
