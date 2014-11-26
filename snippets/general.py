@@ -49,9 +49,16 @@ with codecs.open('./ad.tsv', 'r', 'utf-8') as file:
         print(line)
 
 
-# write utf-8 to stdout
-sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
-sys.stdout.write(u"あああ")
+# Avoid UnicodeEncodeError
+def encode_str():
+    for w in [u'ああああ', u'ううううう', u'東方永夜抄'] :
+        print(w.encode('utf-8'))
+
+def mod_stdout():
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
+    for w in [u'ああああ', u'ううううう', u'東方永夜抄'] :
+        #sys.stdout.write(w)
+        print(w)
 
 
 # datetime to string
