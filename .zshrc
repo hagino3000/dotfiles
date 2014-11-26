@@ -388,9 +388,14 @@ if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
 fi
 
-export GOENVGOROOT=$HOME/.goenvs
-export GOENVTARGET=$HOME/bin
-export GOENVHOME=$HOME/dev/workspace
+### Heroku
+if [ -d "/usr/local/heroku" ]; then
+    export PATH="/usr/local/heroku/bin:$PATH"
+fi
+
+#export GOENVGOROOT=$HOME/.goenvs
+#export GOENVTARGET=$HOME/bin
+#export GOENVHOME=$HOME/dev/workspace
 
 autoload -U promptinit
 promptinit
@@ -413,4 +418,3 @@ else
       tmux list-sessions
     fi
 fi
-
