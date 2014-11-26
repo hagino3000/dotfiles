@@ -38,9 +38,10 @@ import codecs
 with codecs.open("test.txt", "w", "utf-8") as file:
     file.write(u"ああああ")
 
+import json
 
 with codecs.open("test.txt", "w", "utf-8") as file:
-    file.write(json.dumps(obj, encoding='utf-8', ensure_ascii=False, indent=2)
+    file.write(json.dumps(obj, encoding='utf-8', ensure_ascii=False, indent=2))
 
 
 # Read file with encoding
@@ -51,14 +52,24 @@ with codecs.open('./ad.tsv', 'r', 'utf-8') as file:
 
 # Avoid UnicodeEncodeError
 def encode_str():
-    for w in [u'ああああ', u'ううううう', u'東方永夜抄'] :
+    for w in [u'ああああ', u'ううううう', u'東方永夜抄']:
         print(w.encode('utf-8'))
+
+import sys
 
 def mod_stdout():
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
-    for w in [u'ああああ', u'ううううう', u'東方永夜抄'] :
-        #sys.stdout.write(w)
+    for w in [u'ああああ', u'ううううう', u'東方永夜抄']:
+        # sys.stdout.write(w)
         print(w)
+
+
+# print unicode charactor
+import re, pprint
+def pp(obj):
+    pp = pprint.PrettyPrinter(indent=4, width=160)
+    str = pp.pformat(obj)
+    return re.sub(r"\\u([0-9a-f]{4})", lambda x: unichr(int("0x"+x.group(1), 16)), str)
 
 
 # datetime to string
@@ -110,7 +121,6 @@ json.dumps(data, default=default_serializer, ensure_ascii=False)
 
 # setup.py
 
-import os
 from setuptools import setup
 
 version = '0.0.1'
