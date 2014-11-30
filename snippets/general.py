@@ -4,7 +4,7 @@
 
 import traceback
 
-print(traceback.format_exc())
+traceback.print_exc()
 
 
 # get current dir
