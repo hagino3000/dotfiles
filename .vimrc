@@ -2,7 +2,7 @@
 " Basic settings
 " ====================================================
 "
-set nocompatible
+scriptencoding utf-8
 
 set fileencodings=iso-2022-jp,utf-8,euc-jp,cp932,ucs-bom,default,latin1
 
@@ -67,9 +67,8 @@ set splitbelow "Open new window below
 set splitright "Open new window right
 
 colorscheme ron
-syntax on
 
-let mapleader = ','
+let g:mapleader = ','
 
 " ====================================================
 " NeoBundle @see https://github.com/Shougo/neobundle.vim
@@ -269,7 +268,7 @@ else
     NeoBundleCheck
 endif
 
-
+syntax on
 filetype plugin indent on
 
 let format_join_spaces = 4
@@ -283,39 +282,43 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
-autocmd BufNewFile,BufRead *.ejs          set filetype=html
-autocmd BufNewFile,BufRead *.pm           set filetype=perl
-autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
-autocmd BufNewFile,BufRead app/**/*.rb    set ft=ruby fenc=utf-8
-autocmd BufNewFile,BufRead app/**/*.yml   set ft=ruby fenc=utf-8
-autocmd BufNewFile,BufRead *.twig         set syntax=htmldjango
+augroup vimrc
+    autocmd BufNewFile,BufRead *.ejs          set filetype=html
+    autocmd BufNewFile,BufRead *.pm           set filetype=perl
+    autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
+    autocmd BufNewFile,BufRead app/**/*.rb    set ft=ruby fenc=utf-8
+    autocmd BufNewFile,BufRead app/**/*.yml   set ft=ruby fenc=utf-8
+    autocmd BufNewFile,BufRead *.twig         set syntax=htmldjango
 
-autocmd FileType ruby       set tabstop=4 tw=0 sw=4 expandtab
-autocmd FileType eruby      set tabstop=2 tw=0 sw=2 expandtab
-autocmd FileType html       set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
-autocmd FileType javascript set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
-autocmd FileType coffee     set tabstop=4 tw=0
-autocmd FileType python     set fenc=utf-8
-autocmd FileType rst        set fenc=utf-8
-autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
-autocmd FileType perl       set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
-autocmd FileType scss       set fenc=utf-8 tw=0 sw=4
-autocmd FileType yaml       set tabstop=2 fenc=utf-8 tw=0 sw=2
+    autocmd FileType ruby       set tabstop=4 tw=0 sw=4 expandtab
+    autocmd FileType eruby      set tabstop=2 tw=0 sw=2 expandtab
+    autocmd FileType html       set tabstop=2 tw=0 sw=2 fenc=utf-8 expandtab
+    autocmd FileType javascript set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+    autocmd FileType coffee     set tabstop=4 tw=0
+    autocmd FileType python     set fenc=utf-8
+    autocmd FileType rst        set fenc=utf-8
+    autocmd FileType php        set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+    autocmd FileType perl       set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+    autocmd FileType scss       set fenc=utf-8 tw=0 sw=4
+    autocmd FileType yaml       set tabstop=2 fenc=utf-8 tw=0 sw=2
 
-" Also python settings are ftplygin/python
+    " Also python settings are ftplygin/python
 
-autocmd FileType c   hi Comment ctermfg=darkcyan
-autocmd FileType cpp hi Comment ctermfg=darkcyan
-autocmd FileType cpp set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
+    autocmd FileType c   hi Comment ctermfg=darkcyan
+    autocmd FileType cpp hi Comment ctermfg=darkcyan
+    autocmd FileType cpp set tabstop=4 tw=0 sw=4 fenc=utf-8 expandtab
 
-autocmd FileType GITCOMMIT set fenc=utf-8
+    autocmd FileType GITCOMMIT set fenc=utf-8
 
-autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
+    autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 
-"autocmd BufWrite *.* :call didSaveFile()
-"function! didSaveFile()
-"
-"endfunction
+    "autocmd BufWrite *.* :call didSaveFile()
+    "function! didSaveFile()
+    "
+    "endfunction
+
+augroup END
+
 
 
 " path
