@@ -119,6 +119,28 @@ def default_serializer(obj):
 
 json.dumps(data, default=default_serializer, ensure_ascii=False)
 
+# Pandas
+
+df = pd.DataFrame.from_records(hoge.read()), index='time')
+resampled = df.resample('10min', how='count')
+resampled.fillna(value=0, inplace=True)
+
+pd.rolling_mean(resample, 6).plot(figsize=(14, 5), title=u"10分間での獲得人数推移、60min移動平均")
+
+
+# tzinfo
+
+import pytz
+from datetime import datetime
+datetime.now(pytz.utc)
+
+# UNIX time from utc
+
+import calendar
+
+calendar.timegm(datetime.utcnow().timetuple())
+
+
 # setup.py
 
 from setuptools import setup
