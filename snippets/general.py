@@ -128,16 +128,27 @@ resampled.fillna(value=0, inplace=True)
 pd.rolling_mean(resample, 6).plot(figsize=(14, 5), title=u"10分間での獲得人数推移、60min移動平均")
 
 
-# tzinfo
+# Create utc datetime
 
 import pytz
 from datetime import datetime
 datetime.now(pytz.utc)
 
+# naive time to utc
+
+d = datetime.now()
+d.strftime('%Y-%m-%d %H:%M:%S') # 2014-08-01 16:00:00
+
+jst = pytz.timezone('Asia/Tokyo')
+localtime = jst.localize(d)
+localtime.strftime('%Y-%m-%d %H:%M:%S %Z') # 2014-08-01 16:00:00 JST
+
+utctime = localtime.astimezone(pytz.utc)
+utctime.strftime('%Y-%m-%d %H:%M:%S %Z') # 2014-08-01 07:00:00 UTC
+
 # UNIX time from utc
 
 import calendar
-
 calendar.timegm(datetime.utcnow().timetuple())
 
 
