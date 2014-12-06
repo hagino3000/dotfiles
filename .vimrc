@@ -282,7 +282,8 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
-augroup vimrc
+augroup vimrc_file_type
+    autocmd!
     autocmd BufNewFile,BufRead *.ejs          set filetype=html
     autocmd BufNewFile,BufRead *.pm           set filetype=perl
     autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
@@ -361,29 +362,35 @@ nnoremap <leader>gl :<C-u>GundoToggle<CR>
 vmap <silent> sy :!pbcopy; pbpaste<CR>
 map <silent> sp v:!pbpaste<CR>
 
-" javascript
-" autocmd FileType javascript nnoremap ,jsl :!gjslint --custom_jsdoc_tags 'xtype,event,singleton' %<CR>
-autocmd FileType javascript nnoremap ,jsl :SyntasticCheck<CR>
-autocmd FileType javascript nnoremap ,jsf :!fixjsstyle --custom_jsdoc_tags 'xtype,event,singleton' %<CR>
 
-autocmd FileType javascript inoremap <buffer> fff function(
-autocmd FileType javascript inoremap <buffer> eee assert.equal(
-autocmd FileType javascript inoremap <buffer> iie console.error();<LEFT><LEFT>
-autocmd FileType javascript inoremap <buffer> iii console.log();<LEFT><LEFT>
-autocmd FileType javascript inoremap <buffer> iid console.dir();<LEFT><LEFT>
+augroup vimrc_file_type_nmap
+    autocmd!
 
-" perl
-autocmd FileType perl       inoremap <buffer> iii use Data::Dumper; warn Dumper
+    " javascript
+    " autocmd FileType javascript nnoremap ,jsl :!gjslint --custom_jsdoc_tags 'xtype,event,singleton' %<CR>
+    autocmd FileType javascript nnoremap ,jsl :SyntasticCheck<CR>
+    autocmd FileType javascript nnoremap ,jsf :!fixjsstyle --custom_jsdoc_tags 'xtype,event,singleton' %<CR>
 
-" python
-autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
-autocmd FileType python nnoremap <leader>ln :call Flake8()<CR>
-autocmd FileType python inoremap <buffer> ccc # coding=utf-8
-autocmd FileType python inoremap <buffer> iid logger.debug()<LEFT>
-autocmd FileType python inoremap <buffer> iii logger.info()<LEFT>
-autocmd FileType python inoremap <buffer> iiw logger.warning()<LEFT>
-autocmd FileType python inoremap <buffer> iie logger.error()<LEFT>
-autocmd FileType python inoremap <buffer> iic logger.critical()<LEFT>
+    autocmd FileType javascript inoremap <buffer> fff function(
+    autocmd FileType javascript inoremap <buffer> eee assert.equal(
+    autocmd FileType javascript inoremap <buffer> iie console.error();<LEFT><LEFT>
+    autocmd FileType javascript inoremap <buffer> iii console.log();<LEFT><LEFT>
+    autocmd FileType javascript inoremap <buffer> iid console.dir();<LEFT><LEFT>
+
+    " perl
+    autocmd FileType perl       inoremap <buffer> iii use Data::Dumper; warn Dumper
+
+    " python
+    autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
+    autocmd FileType python nnoremap <leader>ln :call Flake8()<CR>
+    autocmd FileType python inoremap <buffer> ccc # coding=utf-8
+    autocmd FileType python inoremap <buffer> iid logger.debug()<LEFT>
+    autocmd FileType python inoremap <buffer> iii logger.info()<LEFT>
+    autocmd FileType python inoremap <buffer> iiw logger.warning()<LEFT>
+    autocmd FileType python inoremap <buffer> iie logger.error()<LEFT>
+    autocmd FileType python inoremap <buffer> iic logger.critical()<LEFT>
+
+augroup END
 
 " insert date
 inoremap <expr> ,df strftime('%Y-%m-%dT%H:%M:%S')
