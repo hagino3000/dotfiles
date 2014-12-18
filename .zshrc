@@ -393,6 +393,11 @@ if [ -d "/usr/local/heroku" ]; then
     export PATH="/usr/local/heroku/bin:$PATH"
 fi
 
+### GCP
+if [ -d "$HOME/google-cloud-sdk"]; then
+    export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+fi
+
 #export GOENVGOROOT=$HOME/.goenvs
 #export GOENVTARGET=$HOME/bin
 #export GOENVHOME=$HOME/dev/workspace
