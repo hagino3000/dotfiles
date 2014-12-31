@@ -2,6 +2,9 @@
 echo 'Dont run this script!!'
 exit 255
 
+# Check file size each directories
+du -d 1
+
 # Check crontab
 diff -u <(crontab -l) crontab.ini
 
