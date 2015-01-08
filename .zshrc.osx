@@ -22,7 +22,8 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=~/node_modules/mocha/bin:$PATH
 # tex
 export PATH=/usr/texbin:$PATH
-
+# java
+export JAVA_HOME=`/usr/libexec/java_home`
 
 export PATH="$HOME/.git-hook/bin:$PATH"
 
