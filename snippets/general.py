@@ -157,6 +157,30 @@ match = re.search(r'.*youtube.com/embed/([^?]+)', href)
 if match:
     youtube_video_id = match.group(1)
 
+# tornado server
+
+import tornado.ioloop
+import tornado.web
+
+
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write('Hello World')
+
+    def post(self):
+        """ echo server """
+        self.write(self.request.body)
+
+
+application = tornado.web.Application([
+    (r"/", MainHandler),
+])
+
+if __name__ == "__main__":
+    application.listen(8889)
+    tornado.ioloop.IOLoop.instance().start()
+
+
 # setup.py
 
 from setuptools import setup
