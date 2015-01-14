@@ -151,6 +151,9 @@ utctime.strftime('%Y-%m-%d %H:%M:%S %Z') # 2014-08-01 07:00:00 UTC
 import calendar
 calendar.timegm(datetime.utcnow().timetuple())
 
+# UNIX time to datetime (Use system timezone)
+datetime.fromtimestamp(1420037979)
+
 # Regexp
 
 match = re.search(r'.*youtube.com/embed/([^?]+)', href)
