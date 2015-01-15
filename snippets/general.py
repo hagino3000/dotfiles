@@ -183,6 +183,35 @@ if __name__ == "__main__":
     application.listen(8889)
     tornado.ioloop.IOLoop.instance().start()
 
+# comments
+
+def read(self, first_date, last_date=None, query={}, fields=None, with_id=False):
+    """
+    日付指定でxxxを取得する
+
+    Parameters
+    ----------
+    first_date : str or datetime.date
+        取得対象日Start
+    last_date : str or datetime.date
+        取得対象日END
+    query : dict<str: any>
+        日付以外の検索条件
+    fields : list<str>
+        取得フィールド
+
+    Returns
+    -------
+    gen : generator
+        マッチしたドキュメントを返すジェネレータ
+
+    Examples
+    --------
+    # Read one day
+    >>> read('2014/07/01', query={'action': 'pv'}, fields=['target'])
+    # Read range
+    >>> read('2014/7/1', '2014/7/31')
+    """
 
 # setup.py
 
