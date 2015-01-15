@@ -119,6 +119,10 @@ def default_serializer(obj):
 
 json.dumps(data, default=default_serializer, ensure_ascii=False)
 
+# LTSV string to dict
+
+d = dict([x.split(':', 1) for x in line.split('\t')])
+
 # Pandas
 
 df = pd.DataFrame.from_records(hoge.read()), index='time')
