@@ -534,3 +534,8 @@ augroup END
 " Vim Tree
 " gs: Go out from safe mode
 " N: Create New file
+" 
+" 一括置換
+" :args *.py
+" :args
+" :argdo %s/import/immmmm/g | update
