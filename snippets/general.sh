@@ -2,6 +2,9 @@
 echo 'Dont run this script!!'
 exit 255
 
+# move current file directory
+cd `dirname $0`
+
 # Check file size each directories
 du -d 1
 
