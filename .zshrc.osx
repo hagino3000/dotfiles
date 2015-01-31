@@ -4,6 +4,14 @@
 alias gosh='rlwrap gosh'
 alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
+# Docker
+if [ -s "$HOME/.boot2docker" ]; then
+    export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
+    export DOCKER_TLS_VERIFY=1
+    export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376
+fi
+
+alias dl='docker ps -a -q'
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 export GNUTERM=x11
