@@ -31,6 +31,12 @@ logger = logging.getLogger(__name__)
 val = u"ああああ"
 isinstance(val, basestring)
 
+# String format with zero padding
+
+print("gsutil list s3://xxxx/y=2015/m={month:0>2d}/d={day:0>2d}/\*/\* > 2015{month:0>2d}{day:0>2d}.dat".format(
+    month=month, day=day
+))
+
 # Write to File with encoding
 
 import codecs
