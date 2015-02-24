@@ -6,6 +6,12 @@ import traceback
 
 traceback.print_exc()
 
+# string format
+"File name is {year}/{month:0>2}/{day:0>2}.tar.gz".format(
+    year=2015,
+    month=1,
+    day=31
+)
 
 # get current dir
 
