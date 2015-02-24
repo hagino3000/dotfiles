@@ -539,3 +539,6 @@ augroup END
 " :args *.py
 " :args
 " :argdo %s/import/immmmm/g | update
+"
+" JSON Format
+" :%!python -m json.tool
