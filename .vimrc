@@ -134,6 +134,9 @@ else
         let g:jedi#documentation_command = '<Leader>jk'
     endfunction
 
+    NeoBundleLazy 'derekwyatt/vim-scala', {"autoload": {"filetypes": ["scala"] }}
+
+
     NeoBundle "Shougo/vimproc", {
             \ "build": {
             \   "windows"   : "make -f make_mingw32.mak",
@@ -286,6 +289,7 @@ augroup vimrc_file_type
     autocmd!
     autocmd BufNewFile,BufRead *.ejs          set filetype=html
     autocmd BufNewFile,BufRead *.pm           set filetype=perl
+    autocmd BufNewFile,BufRead *.scala        set filetype=scala
     autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
     autocmd BufNewFile,BufRead app/**/*.rb    set ft=ruby fenc=utf-8
     autocmd BufNewFile,BufRead app/**/*.yml   set ft=ruby fenc=utf-8
