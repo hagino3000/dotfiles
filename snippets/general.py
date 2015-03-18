@@ -3,8 +3,12 @@
 # traceback
 
 import traceback
+import logging
 
-traceback.print_exc()
+try:
+    traceback.print_exc()
+except Exception, e:
+    logging.exception(e)
 
 # string format
 "File name is {year}/{month:0>2}/{day:0>2}.tar.gz".format(
