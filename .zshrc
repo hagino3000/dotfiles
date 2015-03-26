@@ -158,6 +158,7 @@ alias lf="ls -F"
 alias ll="ls -lha"
 
 alias du="du -h"
+alias dsize='du -sh ./*'
 alias df="df -h"
 
 alias su="su -l"
