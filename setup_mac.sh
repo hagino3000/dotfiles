@@ -26,6 +26,7 @@ brew install ruby
 brew install pyenv
 brew install pyenv-virtualenv
 brew install tmux
+brew install yajl
 
 # install to system python
 pip install virtualenv
