@@ -545,5 +545,8 @@ augroup END
 " :args
 " :argdo %s/import/immmmm/g | update
 "
+" 改行置換(CRコードは ctrl-v ctrl-m で入力)
+" :%s/    /    /g
+"
 " JSON Format
 " :%!python -m json.tool
