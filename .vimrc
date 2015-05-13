@@ -550,3 +550,5 @@ augroup END
 "
 " JSON Format
 " :%!python -m json.tool
+" JSON veirfy
+" !cat % | json_verify
