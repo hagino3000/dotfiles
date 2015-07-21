@@ -174,6 +174,9 @@ calendar.timegm(datetime.utcnow().timetuple())
 # UNIX time to datetime (Use system timezone)
 datetime.fromtimestamp(1420037979)
 
+# UTC to UNIX time
+int(time.mktime(datetime.utcnow().timetuple()))
+
 # Regexp
 
 match = re.search(r'.*youtube.com/embed/([^?]+)', href)
