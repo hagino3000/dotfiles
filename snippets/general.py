@@ -114,6 +114,37 @@ def HogeMixin(clazz):
 class Base(object):
     pass
 
+
+# Decorator which returns decorator (required parameter)
+def retry_server_error(errors=(IOError), tries=5, delay=3, logger=None):
+    def decorator(f):
+        @functools.wraps(f)
+        def with_retry(*args, **kwargs):
+            current_try = 1
+            current_delay = delay
+            while True:
+                try:
+                    return f(*args, **kwargs)
+                except errors, e:
+                    if logger:
+                        logger.warn(e)
+                    if current_try >= tries:
+                        raise
+                    current_try += 1
+                    time.sleep(current_delay)
+                    current_delay *= 2
+        return with_retry
+    return decorator
+
+
+@retry_server_error()
+def do_something(hoge):
+    pass
+
+
+
+
+
 # Boot point
 
 def main():
