@@ -46,7 +46,7 @@ pip install percol
 curl -L git.io/nodebrew | perl - setup
 
 #perlbrew
-curl -kL http://xrl.us/perlbrewinstall | bash
+#curl -kL http://xrl.us/perlbrewinstall | bash
 
 brew install gfortran
 brew install gnuplot
