@@ -35,3 +35,8 @@ crontab ceontab.ini
 # Redirect
 command >> file 2>&1
 command 1>file 2>&1
+
+# loop
+for i in {00..23};do
+    echo $i
+done
