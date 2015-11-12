@@ -94,6 +94,8 @@ import datetime
 
 datetime.datetime.now().strftime('%Y%m%d')
 
+datetime.datetime.strptime('2015-01-01 23:59:59', '%Y-%m-d %H:%M:%d')
+
 # Inverse dictionary
 
 # Class Decorator (Mixin)
