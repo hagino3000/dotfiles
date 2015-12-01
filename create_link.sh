@@ -22,4 +22,6 @@ ln -s ~/dev/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dev/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/dev/dotfiles/.screenrc ~/.screenrc
 ln -s ~/dev/dotfiles/.tmux.conf ~/.tmux.conf
+cp ~/dev/dotfiles/.zshrc.local.template ~/.zshrc.local
+cp ~/dev/dotfiles/.zshrc.local.template ~/.bashrc.local
 
