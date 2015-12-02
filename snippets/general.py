@@ -180,6 +180,15 @@ resampled.fillna(value=0, inplace=True)
 
 pd.rolling_mean(resample, 6).plot(figsize=(14, 5), title=u"10分間での獲得人数推移、60min移動平均")
 
+# Secondary Y axis
+df.B.plot(secondary_y=True, style='g')
+
+# Legend
+df.B.plot(label='Data B', legend=True)
+
+# Pivot
+df.pivot(index=xx, column=yy, values=zz)
+
 
 # Create utc datetime
 
