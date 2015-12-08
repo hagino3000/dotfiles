@@ -128,9 +128,9 @@ else
         let g:jedi#popup_select_first = 0
         let g:jedi#popup_on_dot = 0
         let g:jedi#completions_command = "<C-N>"
-        let g:jedi#goto_definitions_command = '<Leader>jd'
-        let g:jedi#rename_command = '<Leader>jr'
-        let g:jedi#goto_assignments_command = '<Leader>jg'
+        let g:jedi#rename_command = '<Leader>r'
+        let g:jedi#goto_definitions_command = '<Leader>d'
+        let g:jedi#goto_assignments_command = '<Leader>g'
         let g:jedi#documentation_command = '<Leader>jk'
     endfunction
 
@@ -347,7 +347,7 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 nnoremap <expr> <Space>h ':<C-u>help ' . expand('<cword>') . '<CR>'
 
 " Directory Tree
-nnoremap <Leader>d :<C-u>VimFilerExplorer<CR>
+nnoremap <Leader>e :<C-u>VimFilerExplorer<CR>
 
 " line feed
 noremap j gj
@@ -539,6 +539,7 @@ augroup END
 " Vim Tree
 " gs: Go out from safe mode
 " N: Create New file
+" r: rename
 " 
 " 一括置換
 " :args *.py
@@ -552,3 +553,6 @@ augroup END
 " :%!python -m json.tool
 " JSON veirfy
 " !cat % | json_verify
+"
+" Check key binds
+" :map
