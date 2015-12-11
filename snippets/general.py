@@ -117,6 +117,16 @@ class Base(object):
     pass
 
 
+# Memoize decorator
+def memoize(f):
+  class memodict(dict):
+      __slots__ = ()
+      def __missing__(self, key):
+          self[key] = ret = f(key)
+          return ret
+  return memodict().__getitem__
+
+
 # Decorator which returns decorator (required parameter)
 def retry_server_error(errors=(IOError), tries=5, delay=3, logger=None):
     def decorator(f):
