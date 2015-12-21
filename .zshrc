@@ -16,6 +16,7 @@ colors
 if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   source $HOME/dev/dotfiles/antigen/antigen.zsh
   antigen-use oh-my-zsh
+  antigen-bundle golang
   antigen-bundle autojump
   antigen-bundle python
   antigen-bundle screen

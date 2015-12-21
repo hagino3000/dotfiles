@@ -113,6 +113,13 @@ else
     " Enable :SudoRead :SudoWrite
     NeoBundle 'sudo.vim'
 
+    " For go
+    NeoBundleLazy 'vim-jp/vim-go-extra', {
+            \ "autoload": {
+            \   "insert": 1,
+            \   "filetypes": ["go"]
+            \ }}
+
     " For Python
     NeoBundleLazy 'davidhalter/jedi-vim', {
             \ "autoload": {
