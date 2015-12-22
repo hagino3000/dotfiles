@@ -400,6 +400,8 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 fi
 
+export GOPATH="$HOME/go"
+
 ### awscli
 if [ -f "/usr/local/share/zsh/site-functions/_aws" ]; then
     source /usr/local/share/zsh/site-functions/_aws
