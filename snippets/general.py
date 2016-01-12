@@ -318,3 +318,8 @@ setup(
 # replace
 
 u"これは。すごい。ですね。".replace('。', u'。<br>')
+
+# matplotlib
+
+plt.figure(figsize=(20,10))
+plt.plot(X, Y)
