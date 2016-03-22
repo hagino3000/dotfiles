@@ -420,12 +420,6 @@ if [ "$TERM" = "screen" ]; then
     echo "In the screen/tmux sesson"
 else
     echo "You are on the" `hostname`
-    if which screen &> /dev/null
-      then
-      echo "Check screen session..."
-      screen -list
-    fi
-
     if which tmux &> /dev/null
       then
       echo "Check tmux session...."
