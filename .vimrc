@@ -453,6 +453,9 @@ nnoremap <Space>p :<C-u>tabp<CR>
 " hg
 nnoremap <leader>hd :<C-u>HgDiff<CR>
 
+" quickrun
+nnoremap <leader>q :<C-u>QuickRun<CR>
+
 
 " makefile
 nnoremap <leader>mc :<C-u>!make concat<CR>
