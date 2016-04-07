@@ -356,6 +356,9 @@ nnoremap <expr> <Space>h ':<C-u>help ' . expand('<cword>') . '<CR>'
 " Directory Tree
 nnoremap <Leader>e :<C-u>VimFilerExplorer<CR>
 
+" Quickrun
+nnoremap <Leader>q :<C-u>QuickRun<CR>
+
 " line feed
 noremap j gj
 noremap k gk
