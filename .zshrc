@@ -357,7 +357,8 @@ if [ -s "$HOME/.pyenv" ]; then
 fi
 
 function workon() {
-  source ./bin/activate
+  [ -f ./bin/activate ] && source ./bin/activate
+  [ -f ./env/bin/activate ] && source ./env/bin/activate
   _update_venv_prompt
 }
 
@@ -373,7 +374,8 @@ function _update_venv_prompt()
 {
   # virtualenvの情報取得
   if [ -n "$VIRTUAL_ENV" ]; then
-  RPROMPT=" %{${fg_bold[white]}%} (env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%} ${RPROMPT}"
+      # VIRTUALENVのパスの最期2つ
+      RPROMPT=" %{${fg_bold[white]}%} (env: %{${fg[green]}%}`basename \`dirname \"$VIRTUAL_ENV\"\``/`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%} ${RPROMPT}"
   else
   RPROMPT="%1(v|%F{green}%1v%f|)"
   fi
