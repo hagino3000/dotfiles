@@ -382,9 +382,9 @@ function _update_venv_prompt()
 }
 
 #### Perl settings
-if [ -d "$HOME/perl5/perlbrew" ]; then
-  alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
-fi
+#if [ -d "$HOME/perl5/perlbrew" ]; then
+#  alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
+#fi
 
 ### Ruby
 if [ -d "$HOME/.rbenv" ]; then
