@@ -6,8 +6,9 @@ import traceback
 import logging
 
 try:
-    traceback.print_exc()
+    pass
 except Exception, e:
+    traceback.print_exc(e)
     logging.exception(e)
 
 # string format
