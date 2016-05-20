@@ -199,6 +199,22 @@ df.B.plot(label='Data B', legend=True)
 # Pivot
 df.pivot(index=xx, column=yy, values=zz)
 
+def calc_xxx(df):
+    return df.bbb + df.aaaa
+df['xxx'] = df.apply(calc_xxx, axis=1)
+
+# Caln bernoulli error
+from scipy.stats import norm
+def calc_error(df):
+    """
+    CVRの95%信頼区間を求める
+    """
+    p = df.cvr
+    samples = df.click
+    rv = norm()
+    t = rv.ppf(0.95)
+    return t * np.sqrt(p*(1-p)/samples)
+
 
 # Create utc datetime
 
