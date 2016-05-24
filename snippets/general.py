@@ -197,7 +197,7 @@ df.B.plot(secondary_y=True, style='g')
 df.B.plot(label='Data B', legend=True)
 
 # Pivot
-df.pivot(index=xx, column=yy, values=zz)
+df.pivot(index=xx, columns=yy, values=zz)
 
 def calc_xxx(df):
     return df.bbb + df.aaaa
