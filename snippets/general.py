@@ -215,6 +215,11 @@ def calc_error(df):
     t = rv.ppf(0.95)
     return t * np.sqrt(p*(1-p)/samples)
 
+# seaborn
+import seaborn as sns
+sns.jointplot("x", "y", df, kind='reg');
+
+
 
 # Create utc datetime
 
