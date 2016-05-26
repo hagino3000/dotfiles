@@ -88,6 +88,11 @@ def pp(obj):
     return re.sub(r"\\u([0-9a-f]{4})", lambda x: unichr(int("0x"+x.group(1), 16)), str)
 
 
+# datetime using arrow
+import arrow
+arrow.get().to('Asia/Tokyo').format()
+target_date = arrow.get(self.date, 'Asia/Tokyo')
+
 # datetime to string
 
 import datetime
