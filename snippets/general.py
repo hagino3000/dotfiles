@@ -17,6 +17,13 @@ except Exception, e:
     day=31
 )
 
+# number format
+>>> "{0:,d}".format(1234567)
+'1,234,567'
+>>> "{0:.3f}".format(12.34)
+'12.340'
+
+
 # get current dir
 
 import os
