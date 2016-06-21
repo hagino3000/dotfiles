@@ -321,6 +321,9 @@ def read(self, first_date, last_date=None, query={}, fields=None, with_id=False)
     >>> read('2014/7/1', '2014/7/31')
     """
 
+# ベルヌーイ分布の信頼区間Clopper and peason
+https://gist.github.com/DavidWalz/8538435
+
 # setup.py
 
 from setuptools import setup
