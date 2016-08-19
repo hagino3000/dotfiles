@@ -321,8 +321,29 @@ def read(self, first_date, last_date=None, query={}, fields=None, with_id=False)
     >>> read('2014/7/1', '2014/7/31')
     """
 
+
+# 実行時間プロファイルの取得
+import cProfile
+import pstats
+
+def do():
+    xxx
+
+prf = cProfile.Profile()
+prf.runcall(do)
+p = pstats.Stats(prf)
+p.sort_stats('time').print_stats()
+
+
 # ベルヌーイ分布の信頼区間Clopper and peason
 https://gist.github.com/DavidWalz/8538435
+
+# alpha = 0.05の時に95%信頼区間となる
+# n = 試行回数
+# k = success
+lo = scipy.stats.beta.ppf(alpha/2, k, n-k+1)
+hi = scipy.stats.beta.ppf(1 - alpha/2, k+1, n-k)
+
 
 # setup.py
 
