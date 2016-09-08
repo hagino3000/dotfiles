@@ -15,6 +15,7 @@ colors
 
 if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   source $HOME/dev/dotfiles/antigen/antigen.zsh
+  # See ~/.antigen/repos/
   antigen-use oh-my-zsh
   antigen-bundle golang
   antigen-bundle autojump
@@ -153,7 +154,7 @@ linux*)
   ;;
 esac
 
-alias l="ls -lh"
+alias lsh="ls -lh"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -lha"
@@ -187,6 +188,7 @@ alias gd="git diff"
 alias gremove_all='git status -s | awk '\''/^ D/{print "git rm "$2}'\'''
 
 alias -g G='| grep'
+alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g J='| python -mjson.tool'
