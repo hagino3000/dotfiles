@@ -211,6 +211,13 @@ df.B.plot(label='Data B', legend=True)
 # Pivot
 df.pivot(index=xx, columns=yy, values=zz)
 
+# Query with multiple index
+g = df_A.groupby('creative_id').agg(['count', 'sum'])
+g[(g.loc[:,('count', 'count')] > 200)&(g.loc[:,('count', 'sum')] > 3000)].head()
+
+# Query with multiple value
+df_A[df_A.loc[:,'creative_id'].isin(creative_ids)]
+
 def calc_xxx(df):
     return df.bbb + df.aaaa
 df['xxx'] = df.apply(calc_xxx, axis=1)
