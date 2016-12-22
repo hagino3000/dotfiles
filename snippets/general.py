@@ -218,6 +218,28 @@ g[(g.loc[:,('count', 'count')] > 200)&(g.loc[:,('count', 'sum')] > 3000)].head()
 # Query with multiple value
 df_A[df_A.loc[:,'creative_id'].isin(creative_ids)]
 
+# Plot with confidence interval
+import scipy.stats
+
+def calc_confidence_interval(row):
+    # alpha = 0.05の時に95%信頼区間となる
+    # n = 試行回数
+    # k = success
+    alpha = 0.05
+    k = row.conversion
+    n = row.click
+    lo = scipy.stats.beta.ppf(alpha/2, k, n-k+1)
+    hi = scipy.stats.beta.ppf(1 - alpha/2, k+1, n-k)
+    return hi - lo
+
+df['error'] = df.apply(calc_confidence_interval, axis=1)
+
+df.CVR.plot(subplots=True, yerr=df.error, figsize=(15, 45))
+# OR
+df.CVR.plot(figsize=(14, 4))
+plt.fill_between(df.index, df.CVR - df.error/2, df.CVR + df.error/2, color='#AAAAAA')
+
+
 def calc_xxx(df):
     return df.bbb + df.aaaa
 df['xxx'] = df.apply(calc_xxx, axis=1)
