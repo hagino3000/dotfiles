@@ -43,4 +43,4 @@ export JAVA_HOME=`/usr/libexec/java_home`
 
 export PATH="$HOME/.git-hook/bin:$PATH"
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
