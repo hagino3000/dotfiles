@@ -233,6 +233,7 @@ def calc_confidence_interval(row):
     hi = scipy.stats.beta.ppf(1 - alpha/2, k+1, n-k)
     return hi - lo
 
+
 df['error'] = df.apply(calc_confidence_interval, axis=1)
 
 df.CVR.plot(subplots=True, yerr=df.error, figsize=(15, 45))
@@ -245,14 +246,11 @@ def calc_xxx(df):
     return df.bbb + df.aaaa
 df['xxx'] = df.apply(calc_xxx, axis=1)
 
-# Caln bernoulli error
+# Caln bernoulli error with normal approximately
 from scipy.stats import norm
 def calc_error(df):
-    """
-    CVRの95%信頼区間を求める
-    """
-    p = df.cvr
-    samples = df.click
+    p = df.x
+    samples = df.trial
     rv = norm()
     t = rv.ppf(0.95)
     return t * np.sqrt(p*(1-p)/samples)
@@ -368,11 +366,13 @@ p.sort_stats('time').print_stats()
 # ベルヌーイ分布の信頼区間Clopper and peason
 https://gist.github.com/DavidWalz/8538435
 
-# alpha = 0.05の時に95%信頼区間となる
-# n = 試行回数
-# k = success
-lo = scipy.stats.beta.ppf(alpha/2, k, n-k+1)
-hi = scipy.stats.beta.ppf(1 - alpha/2, k+1, n-k)
+def calc_clopper_peason_confidence_interval(trial, success, alpha):
+    # alpha = 0.05の時に95%信頼区間となる
+    lo = scipy.stats.beta.ppf(alpha/2, success, trial-success+1)
+    hi = scipy.stats.beta.ppf(1 - alpha/2, success+1, trial-success)
+
+# Wilson Score
+statsmodels.stats.proportion.proportion_confint(3, 100, alpha=0.05, method='wilson')
 
 
 # setup.py
