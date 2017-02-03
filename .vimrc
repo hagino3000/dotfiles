@@ -332,7 +332,6 @@ augroup vimrc_file_type
 augroup END
 
 
-
 " path
 let &path="~/dev/workspace,~"
 set rtp+=/usr/local/Cellar/go/1.2/libexec/misc/vim
@@ -345,6 +344,8 @@ nnoremap <Space>w :<C-u>update<CR>
 nnoremap <Space>q :<C-u>quit<CR>
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+
+inoremap jj <Esc>
 
 
 " clear highlight

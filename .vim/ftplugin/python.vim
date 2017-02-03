@@ -20,21 +20,25 @@ import sys, os.path
 import vim
 import commands
 
+def append_sys_path(target_dir):
+    if os.path.exists(target_dir):
+        sys.path.append(target_dir)
+
+
 project_base_dir = None
-venv_python = commands.getoutput("pyenv which python")
 
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     if os.path.exists(activate_this):
         execfile(activate_this, dict(__file__=activate_this))
 
-elif venv_python.find('/bin/python') != -1:
-    python_path = venv_python.partition('/bin/python')[0]
-    project_base_dir = python_path
-    sys.path.insert(0, project_base_dir)
-    sys.path.insert(0, project_base_dir + '/lib/python2.7/site-packages')
+    append_sys_path(os.path.join(project_base_dir, 'lib64/python3.6/site-packages'))
+    append_sys_path(os.path.join(project_base_dir, 'lib64/python3.5/site-packages'))
+    append_sys_path(os.path.join(project_base_dir, 'lib64/python2.7/site-packages'))
+    append_sys_path(os.path.join(project_base_dir, 'lib/python3.6/site-packages'))
+    append_sys_path(os.path.join(project_base_dir, 'lib/python3.5/site-packages'))
+    append_sys_path(os.path.join(project_base_dir, 'lib/python2.7/site-packages'))
 
 if project_base_dir:
     # Save virtual environment name to VIM variable
