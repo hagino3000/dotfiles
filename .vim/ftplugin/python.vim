@@ -24,7 +24,6 @@ def append_sys_path(target_dir):
     if os.path.exists(target_dir):
         sys.path.append(target_dir)
 
-
 project_base_dir = None
 
 if 'VIRTUAL_ENV' in os.environ:
@@ -33,6 +32,7 @@ if 'VIRTUAL_ENV' in os.environ:
     if os.path.exists(activate_this):
         execfile(activate_this, dict(__file__=activate_this))
 
+    sys.path.insert(0, os.getcwd())
     append_sys_path(os.path.join(project_base_dir, 'lib64/python3.6/site-packages'))
     append_sys_path(os.path.join(project_base_dir, 'lib64/python3.5/site-packages'))
     append_sys_path(os.path.join(project_base_dir, 'lib64/python2.7/site-packages'))
