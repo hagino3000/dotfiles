@@ -352,11 +352,11 @@ bindkey '^m' do_enter
 
 #### python settings
 
-# For pyenv
-if [ -s "$HOME/.pyenv" ]; then
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
+## For pyenv
+#if [ -s "$HOME/.pyenv" ]; then
+#  export PATH="$HOME/.pyenv/bin:$PATH"
+#  eval "$(pyenv init -)"
+#fi
 
 function workon() {
   [ -f ./bin/activate ] && source ./bin/activate
