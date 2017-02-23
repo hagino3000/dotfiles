@@ -234,6 +234,11 @@ def calc_confidence_interval(row):
     return hi - lo
 
 
+_df = _df.set_index('date_hour')
+ix = pd.DatetimeIndex(start=start_date, end=end_date, freq='H')
+_df = _df.reindex(ix)
+
+
 df['error'] = df.apply(calc_confidence_interval, axis=1)
 
 df.CVR.plot(subplots=True, yerr=df.error, figsize=(15, 45))
