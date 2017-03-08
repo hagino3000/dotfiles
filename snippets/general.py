@@ -233,6 +233,14 @@ def calc_confidence_interval(row):
     hi = scipy.stats.beta.ppf(1 - alpha/2, k+1, n-k)
     return hi - lo
 
+# Plot for each values
+fig = plt.figure(figsize=(14, 40))
+for idx, x in enumerate(x_values):
+    ax = fig.add_subplot(len(x_values), 1,idx + 1)
+    df[df.x == x].plot(ax=ax)
+    ax.set_title(xxxxxxxxx)
+
+
 
 _df = _df.set_index('date_hour')
 ix = pd.DatetimeIndex(start=start_date, end=end_date, freq='H')
@@ -262,8 +270,11 @@ def calc_error(df):
 
 # seaborn
 import seaborn as sns
-sns.jointplot("x", "y", df, kind='reg');
 
+plt.style.use('ggplot')
+plt.rcParams['font.family'] = 'Osaka'
+
+sns.jointplot("x", "y", df, kind='reg');
 
 
 # Create utc datetime
