@@ -222,6 +222,7 @@ df_A[df_A.loc[:,'creative_id'].isin(creative_ids)]
 # Plot with confidence interval
 import scipy.stats
 
+# Exact method
 def calc_confidence_interval(row):
     # alpha = 0.05の時に95%信頼区間となる
     # n = 試行回数
@@ -232,6 +233,21 @@ def calc_confidence_interval(row):
     lo = scipy.stats.beta.ppf(alpha/2, k, n-k+1)
     hi = scipy.stats.beta.ppf(1 - alpha/2, k+1, n-k)
     return hi - lo
+
+# wilson score
+
+import statsmodels.stats.proportion
+
+def calc_confidence_interval(row, alpha=0.05):
+    # alpha = 0.05の時に95%信頼区間となる
+    if row.click > 0:
+        lo, hi = statsmodels.stats.proportion.proportion_confint(
+            row.cv, row.click, alpha=alpha, method='wilson')
+    else:
+        lo = 0
+        hi = 1
+    return (lo, hi)
+
 
 # Plot for each values
 fig = plt.figure(figsize=(14, 40))
