@@ -232,11 +232,7 @@ function fpe() {
 
 ####################################################
 # grep options
-#if type ggrep > /dev/null 2>&1; then
-#    alias grep=ggrep
-#fi
 
-export GREP_OPTIONS
 ## Don't match binary files
 GREP_OPTIONS="--binary-files=without-match"
 ## Recursive grep if directory specified to target
@@ -250,6 +246,7 @@ GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
 GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 ## Add colors
 GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+alias grep="grep $GREP_OPTIONS"
 
 export EDITOR="vim"
 
