@@ -23,8 +23,6 @@ brew install mysql
 brew install the_silver_searcher
 brew install bvi
 brew install ruby
-brew install pyenv
-brew install pyenv-virtualenv
 brew install tmux
 brew install yajl
 
@@ -52,9 +50,6 @@ brew install gfortran
 brew install gnuplot
 brew install swig
 
-#sudo gem install chef
-#sudo gem install knife-solo
-#sudo gem install librarian-chef
 
 # virtualbox
 # vagrant
