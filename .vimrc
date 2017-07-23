@@ -145,6 +145,7 @@ if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
               \'on_map': ['<Plug>(vimfiler_switch)'],
               \'on_cmd': ["VimFilerTab", "VimFiler", "VimFilerExplorer"],
               \})
+
   function! s:vimfiler_settings()
       nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
       " Refresh (Because I want to use <C-l> to move window)
@@ -157,6 +158,7 @@ if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
   let g:vimfiler_ignore_pattern = '\%(\.DS_Store\|\.hg$\|\.git$\|\.pyc$\|\.pyo$\|\.o$\|\.swp$\|\.swo$\)'
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_enable_auto_cd = 1
+
 
 
   " Octave
@@ -177,21 +179,23 @@ if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
               \'on_ft': ['python', 'python3'],
               \'on_i': 1
               \})
-  call dein#add('davidhalter/jedi-vim', {
-              \'on_ft': ['python', 'python3', 'djangohtml']
-              \})
 
   " Refs http://qiita.com/ryo2851/items/125beff66e4106f7843c
   let g:jedi#use_tabs_not_buffers = 1
   let g:jedi#popup_select_first = 0
   let g:jedi#popup_on_dot = 0
-  let g:jedi#completions_command = '<C-N>'
+  let g:jedi#completions_command = '<C-M>'
   let g:jedi#goto_assignments_command = '<leader>g'
   let g:jedi#goto_definitions_command = '<leader>d'
   let g:jedi#documentation_command = 'K'
   let g:jedi#usages_command = '<leader>n'
   let g:jedi#rename_command = '<leader>R' "quick-runと競合しないように
   autocmd FileType python setlocal completeopt-=preview
+
+  call dein#add('davidhalter/jedi-vim', {
+              \'on_ft': ['python', 'python3', 'djangohtml']
+              \})
+
 
   " JavaScript
   call dein#add('vim-scripts/OOP-javascript-indentation', {'on_ft': 'javascript', 'on_i': 1})
