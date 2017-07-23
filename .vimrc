@@ -135,7 +135,7 @@ if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
   " Configure keymaps
   function! s:unite_settings()
       "imap <buffer> <Esc><Esc> <Plug>(unite_exit)
-      nmap <buffer> <C-w> <Plug>(unite_exit)
+      nmap <buffer> <C-W> <Plug>(unite_exit)
   endfunction
   autocmd FileType unite call s:unite_settings()
 
@@ -150,7 +150,7 @@ if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
       " Refresh (Because I want to use <C-l> to move window)
       nmap <buffer> R <Plug>(vimfiler_redraw_screen)
       " Back <C-l> to my setting
-      nnoremap <buffer> <C-l> <C-w>l
+      nnoremap <buffer> <C-L> <C-W>l
   endfunction
   autocmd FileType vimfiler call s:vimfiler_settings()
 
