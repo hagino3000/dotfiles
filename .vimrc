@@ -71,215 +71,143 @@ colorscheme ron
 let g:mapleader = ','
 
 " ====================================================
-" NeoBundle @see https://github.com/Shougo/neobundle.vim
+" Dein @see https://github.com/Shougo/dein.vim
 " ====================================================
-let s:noplugin = 0
-let s:bundle_root = expand('~/.vim/bundle')
-let s:neobundle_root = s:bundle_root . '/neobundle.vim'
-if !isdirectory(s:neobundle_root) || v:version < 702
-    " NeoBundleが存在しない、もしくはVimのバージョンが古い
-    let s:noplugin = 1
-else
-    if has('vim_starting')
-       set runtimepath+=~/.vim/bundle/neobundle.vim/
-    endif
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/dev/dotfiles/vendor/dein/repos/github.com/Shougo/dein.vim
 
-    call neobundle#rc(expand('~/.vim/bundle/'))
+if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
+  call dein#begin(expand('~/dev/dotfiles/.vim/dein'))
 
-    " Use https instead of git to fetch
-    " let g:neobundle_default_git_protocol='https'
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-    " Let NeoBundle manage NeoBundle
-    NeoBundleFetch 'Shougo/neobundle.vim'
+  call dein#add('Shougo/neocomplete.vim', {'on_i': 1})
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('vim-scripts/Gundo', {'on_cmd': 'GundoToggle'})
+  call dein#add('rking/ag.vim')
 
-    " Git commands
-    NeoBundle 'tpope/vim-fugitive'
-    nnoremap <leader>cs :<C-u>Gstatus<CR>
-    nnoremap <leader>cd :<C-u>Gdiff<CR>
+  call dein#add('thinca/vim-quickrun')
+  let g:quickrun_config={'*': {
+            \'hook/time/enable': '1',
+            \'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+            \}}
 
-    " Octave
-    "NeoBundle 'octave.vim'
+  " Git ----------------------------------------------------------------
+  call dein#add('tpope/vim-fugitive')
+  nnoremap <leader>cs :<C-u>Gstatus<CR>
+  nnoremap <leader>cd :<C-u>Gdiff<CR>
 
-    " Enable scratch buffer
-    NeoBundle 'scratch'
+  " Unite --------------------------------------------------------------
+  call dein#add('Shougo/unite.vim', {
+              \'hook_add': '
+              \" Use vimfiler to open directory
+              \call unite#custom_default_action("source/bookmark/directory", "vimfiler")
+              \call unite#custom_default_action("directory", "vimfiler")
+              \call unite#custom_default_action("directory_mru", "vimfiler")
+              \'
+              \})
 
-    " Use SKK
-    "NeoBundleLazy 'skk.vim-B', {
-    "            \ "autoload": {"insert": 1}}
-    "let skk_jisyo = "~/Library/Application Support/AquaSKK/skk-jisyo.utf8"
-    "let skk_large_jisyo = "~/Library/Application Support/AquaSKK/SKK-JISYO.L"
-    "let skk_egg_like_newline = 1
+  " Use ag to grep
+  if executable("ag")
+      let g:unite_source_grep_command = "ag"
+      let g:unite_source_grep_default_opts = "--nogroup --nocolor --column"
+      let g:unite_source_grep_recursive_opt = ""
+  endif
 
-    " Enable :SudoRead :SudoWrite
-    NeoBundle 'sudo.vim'
+  nnoremap [unite] <Nop>
+  nmap <leader>f [unite]
+  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+  nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  nnoremap <silent> [unite]r :<C-u>Unite file_mru buffer<CR>
+  nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+  nnoremap <silent> [unite]v :<C-u>UniteResume search-buffer<CR>
+  nnoremap <silent> [unite]s :<C-u>edit ~/dev/dotfiles/snippets/general.py<ENTER>
 
-    " For go
-    NeoBundleLazy 'vim-jp/vim-go-extra', {
-            \ "autoload": {
-            \   "insert": 1,
-            \   "filetypes": ["go"]
-            \ }}
+  " let g:unite_enable_start_insert = 1
+  let g:unite_enable_ignore_case = 1
+  let g:unite_enable_smart_case = 1
 
-    " For Python
-    NeoBundleLazy 'davidhalter/jedi-vim', {
-            \ "autoload": {
-            \   "insert": 1,
-            \   "filetypes": ["python", "python3", "djangohtml"]},
-            \ "build": {
-            \   "mac"       : "git submodule update --init",
-            \   "unix"      : "git submodule update --init"
-            \ }}
-    let s:hooks = neobundle#get_hooks("jedi-vim")
-    function! s:hooks.on_source(bundle)
-        let g:jedi#auto_vim_configuration = 0
-        let g:jedi#popup_select_first = 0
-        let g:jedi#popup_on_dot = 0
-        let g:jedi#completions_command = "<C-N>"
-        let g:jedi#rename_command = '<Leader>r'
-        let g:jedi#goto_definitions_command = '<Leader>d'
-        let g:jedi#goto_assignments_command = '<Leader>g'
-        let g:jedi#documentation_command = '<Leader>jk'
-    endfunction
+  " Configure keymaps
+  function! s:unite_settings()
+      "imap <buffer> <Esc><Esc> <Plug>(unite_exit)
+      nmap <buffer> <C-w> <Plug>(unite_exit)
+  endfunction
+  autocmd FileType unite call s:unite_settings()
 
-    NeoBundleLazy 'derekwyatt/vim-scala', {"autoload": {"filetypes": ["scala"] }}
+  " vimfiler -----------------------------------------------------------
+  call dein#add('Shougo/vimfiler', {
+              \'depends': ['unite.vim'],
+              \'on_map': ['<Plug>(vimfiler_switch)'],
+              \'on_cmd': ["VimFilerTab", "VimFiler", "VimFilerExplorer"],
+              \})
+  function! s:vimfiler_settings()
+      nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
+      " Refresh (Because I want to use <C-l> to move window)
+      nmap <buffer> R <Plug>(vimfiler_redraw_screen)
+      " Back <C-l> to my setting
+      nnoremap <buffer> <C-l> <C-w>l
+  endfunction
+  autocmd FileType vimfiler call s:vimfiler_settings()
 
-
-    NeoBundle "Shougo/vimproc", {
-            \ "build": {
-            \   "windows"   : "make -f make_mingw32.mak",
-            \   "cygwin"    : "make -f make_cygwin.mak",
-            \   "mac"       : "make -f make_mac.mak",
-            \   "unix"      : "make -f make_unix.mak",
-            \ }}
-
-    NeoBundle "Shougo/neomru.vim"
-
-    " Unite
-    NeoBundle "Shougo/unite.vim"
-    let s:hooks = neobundle#get_hooks("unite.vim")
-    function! s:hooks.on_source(bundle)
-        " let g:unite_enable_start_insert = 1
-        let g:unite_enable_ignore_case = 1
-        let g:unite_enable_smart_case = 1
-
-        " Use ag to grep
-        if executable('ag')
-            let g:unite_source_grep_command = 'ag'
-            let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-            let g:unite_source_grep_recursive_opt = ''
-        endif
-
-        nnoremap [unite] <Nop>
-        nmap <leader>f [unite]
-        nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-        nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-        nnoremap <silent> [unite]r :<C-u>Unite file_mru buffer<CR>
-        nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-        nnoremap <silent> [unite]v :<C-u>UniteResume search-buffer<CR>
-        nnoremap <silent> [unite]s :<C-u>edit ~/dev/dotfiles/snippets/general.py<ENTER>
-
-        " Use vimfiler to open directory
-        call unite#custom_default_action("source/bookmark/directory", "vimfiler")
-        call unite#custom_default_action("directory", "vimfiler")
-        call unite#custom_default_action("directory_mru", "vimfiler")
-
-        " Configure keymaps
-        autocmd FileType unite call s:unite_settings()
-        function! s:unite_settings()
-            "imap <buffer> <Esc><Esc> <Plug>(unite_exit)
-            nmap <buffer> <C-w> <Plug>(unite_exit)
-        endfunction
-    endfunction
+  let g:vimfiler_ignore_pattern = '\%(\.DS_Store\|\.hg$\|\.git$\|\.pyc$\|\.pyo$\|\.o$\|\.swp$\|\.swo$\)'
+  let g:vimfiler_as_default_explorer = 1
+  let g:vimfiler_enable_auto_cd = 1
 
 
-    " Complete
-    NeoBundleLazy 'Shougo/neocomplcache.vim', {
-                \ "autoload": {"insert": 1}}
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-    let g:neocomplcache_enable_underbar_completion = 1
-    inoremap <expr><C-g> neocomplcache#undo_completion()
-    inoremap <expr><C-e> neocomplcache#cancel_popup()
+  " Octave
+  call dein#add('vim-scripts/octave.vim')
 
+  " Enable scratch buffer
+  call dein#add('vim-scripts/scratch')
 
-    " Filer Viewer
-    NeoBundleLazy 'Shougo/vimfiler', {
-                \ "depends": ["Shougo/unite.vim"],
-                \ "autoload": {
-                \   "commands": ["VimFilerTab", "VimFiler", "VimFilerExplorer"],
-                \   "mappings": ['<Plug>(vimfiler_switch)'],
-                \   "explorer": 1,
-                \ }}
-    let s:hooks = neobundle#get_hooks("vimfiler")
-    function! s:hooks.on_source(bundle)
-        let g:vimfiler_ignore_pattern = '\%(\.DS_Store\|\.hg$\|\.git$\|\.pyc$\|\.pyo$\|\.o$\|\.swp$\|\.swo$\)'
-        let g:vimfiler_as_default_explorer = 1
-        let g:vimfiler_enable_auto_cd = 1
+  " Enable :SudoRead :SudoWrite
+  call dein#add('vim-scripts/sudo.vim')
 
-        " Configure keymaps
-        autocmd FileType vimfiler call s:vimfiler_settings()
-        function! s:vimfiler_settings()
-            " Move parent directory
-            nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
-            " Refresh (Because I want to use <C-l> to move window)
-            nmap <buffer> R <Plug>(vimfiler_redraw_screen)
-            " Back <C-l> to my setting
-            nnoremap <buffer> <C-l> <C-w>l
-        endfunction
-    endfunction
+  " For go
+  call dein#add('vim-jp/vim-go-extra', {'on_ft': 'go'})
 
+  " For python --------------------------------------------------------
+  call dein#add('nvie/vim-flake8', {'on_ft': ['python', 'python3']})
+  call dein#add('hynek/vim-python-pep8-indent', {
+              \'on_ft': ['python', 'python3'],
+              \'on_i': 1
+              \})
+  call dein#add('davidhalter/jedi-vim', {
+              \'on_ft': ['python', 'python3', 'djangohtml']
+              \})
 
-    " Run with ,r
-    NeoBundle 'thinca/vim-quickrun'
-    let g:quickrun_config={'*': {
-                \'hook/time/enable': '1',
-                \'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
-                \}}
+  " Refs http://qiita.com/ryo2851/items/125beff66e4106f7843c
+  let g:jedi#use_tabs_not_buffers = 1
+  let g:jedi#popup_select_first = 0
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#completions_command = '<C-N>'
+  let g:jedi#goto_assignments_command = '<leader>g'
+  let g:jedi#goto_definitions_command = '<leader>d'
+  let g:jedi#documentation_command = 'K'
+  let g:jedi#usages_command = '<leader>n'
+  let g:jedi#rename_command = '<leader>R' "quick-runと競合しないように
+  autocmd FileType python setlocal completeopt-=preview
 
-    " Syntax check
-    "NeoBundleLazy 'Syntastic', {
-    "            \ "autoload": {"insert": 1}}
-    "let g:syntastic_mode_map = {
-    "      \'mode':'passive',
-    "      \'active_filetypes':['vim','sh','ruby'],
-    "      \'passive_filetypes':['html','python','javascript']
-    "      \}
+  " JavaScript
+  call dein#add('vim-scripts/OOP-javascript-indentation', {'on_ft': 'javascript', 'on_i': 1})
 
-    NeoBundleLazy 'nvie/vim-flake8', {
-                \ "autoload": {"insert": 1, "filetypes": ["python", "python3"]}}
-
-    " Shoe redo undo tree
-    NeoBundleLazy 'Gundo', {
-                \ "autoload": {"commands": ["GundoToggle"]}}
-
-    " Coffee
-    "NeoBundleLazy 'vim-coffee-script', {
-    "            \ "autoload": {"filetypes": ["coffee"]}}
-
-    " Ack
-    NeoBundle 'ack.vim'
-
-    " ag
-    NeoBundle 'rking/ag.vim'
-
-    " Python indent
-    NeoBundleLazy 'hynek/vim-python-pep8-indent', {
-                \ "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]},}
-
-    " JavaScript Indent
-    NeoBundleLazy 'OOP-javascript-indentation', {
-                \ "autoload": {"insert": 1}, "filetypes": ["javascript"]}
-
-    " Visible Indent Level
-    NeoBundle "nathanaelkane/vim-indent-guides"
-    let g:indent_guides_guide_size = 1
-
-
-    NeoBundleCheck
+  call dein#end()
+  call dein#save_state()
 endif
 
+augroup PluginInstall
+  autocmd!
+  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+augroup END
+
+
 syntax on
-filetype plugin indent on
+syntax enable
 
 let format_join_spaces = 4
 let format_allow_over_tw = 1
@@ -294,7 +222,6 @@ filetype plugin on
 
 augroup vimrc_file_type
     autocmd!
-    autocmd BufNewFile,BufRead *.ejs          set filetype=html
     autocmd BufNewFile,BufRead *.pm           set filetype=perl
     autocmd BufNewFile,BufRead *.scala        set filetype=scala
     autocmd BufNewFile,BufRead app/*/*.rhtml  set ft=mason fenc=utf-8
@@ -323,11 +250,6 @@ augroup vimrc_file_type
     autocmd FileType GITCOMMIT set fenc=utf-8
 
     autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
-
-    "autocmd BufWrite *.* :call didSaveFile()
-    "function! didSaveFile()
-    "
-    "endfunction
 
 augroup END
 

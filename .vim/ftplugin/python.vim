@@ -15,10 +15,9 @@ setl foldlevel=99
 
 " Use virtualenv python
 let g:pythonworkon = "System"
-py << EOF
+py3 << EOF
 import sys, os.path
 import vim
-import commands
 
 def append_sys_path(target_dir):
     if os.path.exists(target_dir):
@@ -43,7 +42,6 @@ if 'VIRTUAL_ENV' in os.environ:
 if project_base_dir:
     # Save virtual environment name to VIM variable
     vim.command("let g:pythonworkon = '%s'" % os.path.basename(project_base_dir))
-
     # ref.vim
     vim.command("if !exists('g:ref_pydoc_cmd') | let g:ref_pydoc_cmd = 'python -m pydoc' | endif")
 
