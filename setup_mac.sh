@@ -5,21 +5,15 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 brew install zsh
 brew install git
-brew install mercurial
-brew install -f vim
-brew install python
+brew install -f vim --with-lua --with-python3
 brew install wget
 brew install tree
 brew install pstree
 brew install automake
-brew install ack
 brew install rlwrap
 brew install --use-llvm gauche
 brew install autojump
-brew install phantomjs
 brew install tig
-brew install mongo
-brew install mysql
 brew install the_silver_searcher
 brew install bvi
 brew install ruby
