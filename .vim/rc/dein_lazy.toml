@@ -1,0 +1,75 @@
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+
+[[plugins]]
+repo = 'vim-scripts/Gundo'
+on_cmd = 'GundoToggle'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+depends = 'unite.vim'
+on_map = ['<Plug>(vimfiler_switch)']
+on_cmd = ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
+hook_source = '''
+function! s:vimfiler_settings()
+    nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
+    " Refresh (Because I want to use <C-l> to move window)
+    nmap <buffer> R <Plug>(vimfiler_redraw_screen)
+    " Back <C-l> to my setting
+    nnoremap <buffer> <C-L> <C-W>l
+endfunction
+autocmd FileType vimfiler call s:vimfiler_settings()
+
+let g:vimfiler_ignore_pattern = '\%(\.DS_Store\|\.hg$\|\.git$\|\.pyc$\|\.pyo$\|\.o$\|\.swp$\|\.swo$\)'
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_enable_auto_cd = 1
+'''
+
+[[plugins]]
+repo = 'vim-scripts/octave.vim'
+on_ft = 'MATLAB'
+
+[[plugins]]
+repo = 'vim-jp/vim-go-extra'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'nvie/vim-flake8'
+on_ft = ['python', 'python3']
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python', 'python3']
+on_i = 1
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python', 'python3', 'djangohtml']
+on_i = 1
+hook_source = '''
+" Refs http://qiita.com/ryo2851/items/125beff66e4106f7843c
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = '<C-M>'
+let g:jedi#goto_assignments_command = '<leader>g'
+let g:jedi#goto_definitions_command = '<leader>d'
+let g:jedi#documentation_command = 'K'
+let g:jedi#usages_command = '<leader>n'
+let g:jedi#rename_command = '<leader>R' "quick-runと競合しないように
+autocmd FileType python setlocal completeopt-=preview
+'''
+
+[[plugins]]
+repo = 'vim-scripts/OOP-javascript-indentation'
+on_ft = 'javascript'
+

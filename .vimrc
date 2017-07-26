@@ -76,138 +76,29 @@ let g:mapleader = ','
 if &compatible
   set nocompatible
 endif
-set runtimepath+=~/dev/dotfiles/vendor/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state(expand('~/dev/dotfiles/.vim/dein'))
-  call dein#begin(expand('~/dev/dotfiles/.vim/dein'))
+let s:dein_dir = expand('~/dev/dotfiles/vendor/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 
-  call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-  call dein#add('Shougo/neocomplete.vim', {'on_i': 1})
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('vim-scripts/Gundo', {'on_cmd': 'GundoToggle'})
-  call dein#add('rking/ag.vim')
+  let g:rc_dir    = expand('~/dev/dotfiles/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-  call dein#add('thinca/vim-quickrun')
-  let g:quickrun_config={'*': {
-            \'hook/time/enable': '1',
-            \'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
-            \}}
-
-  " Git ----------------------------------------------------------------
-  call dein#add('tpope/vim-fugitive')
-  nnoremap <leader>cs :<C-u>Gstatus<CR>
-  nnoremap <leader>cd :<C-u>Gdiff<CR>
-
-  " Unite --------------------------------------------------------------
-  call dein#add('Shougo/unite.vim', {
-              \'hook_add': '
-              \" Use vimfiler to open directory
-              \call unite#custom_default_action("source/bookmark/directory", "vimfiler")
-              \call unite#custom_default_action("directory", "vimfiler")
-              \call unite#custom_default_action("directory_mru", "vimfiler")
-              \'
-              \})
-
-  " Use ag to grep
-  if executable("ag")
-      let g:unite_source_grep_command = "ag"
-      let g:unite_source_grep_default_opts = "--nogroup --nocolor --column"
-      let g:unite_source_grep_recursive_opt = ""
-  endif
-
-  nnoremap [unite] <Nop>
-  nmap <leader>f [unite]
-  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-  nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <silent> [unite]r :<C-u>Unite file_mru buffer<CR>
-  nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-  nnoremap <silent> [unite]v :<C-u>UniteResume search-buffer<CR>
-  nnoremap <silent> [unite]s :<C-u>edit ~/dev/dotfiles/snippets/general.py<ENTER>
-
-  " let g:unite_enable_start_insert = 1
-  let g:unite_enable_ignore_case = 1
-  let g:unite_enable_smart_case = 1
-
-  " Configure keymaps
-  function! s:unite_settings()
-      "imap <buffer> <Esc><Esc> <Plug>(unite_exit)
-      nmap <buffer> <C-W> <Plug>(unite_exit)
-  endfunction
-  autocmd FileType unite call s:unite_settings()
-
-  " vimfiler -----------------------------------------------------------
-  call dein#add('Shougo/vimfiler', {
-              \'depends': ['unite.vim'],
-              \'on_map': ['<Plug>(vimfiler_switch)'],
-              \'on_cmd': ["VimFilerTab", "VimFiler", "VimFilerExplorer"],
-              \})
-
-  function! s:vimfiler_settings()
-      nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
-      " Refresh (Because I want to use <C-l> to move window)
-      nmap <buffer> R <Plug>(vimfiler_redraw_screen)
-      " Back <C-l> to my setting
-      nnoremap <buffer> <C-L> <C-W>l
-  endfunction
-  autocmd FileType vimfiler call s:vimfiler_settings()
-
-  let g:vimfiler_ignore_pattern = '\%(\.DS_Store\|\.hg$\|\.git$\|\.pyc$\|\.pyo$\|\.o$\|\.swp$\|\.swo$\)'
-  let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_enable_auto_cd = 1
-
-
-
-  " Octave
-  call dein#add('vim-scripts/octave.vim')
-
-  " Enable scratch buffer
-  call dein#add('vim-scripts/scratch')
-
-  " Enable :SudoRead :SudoWrite
-  call dein#add('vim-scripts/sudo.vim')
-
-  " For go
-  call dein#add('vim-jp/vim-go-extra', {'on_ft': 'go'})
-
-  " For python --------------------------------------------------------
-  call dein#add('nvie/vim-flake8', {'on_ft': ['python', 'python3']})
-  call dein#add('hynek/vim-python-pep8-indent', {
-              \'on_ft': ['python', 'python3'],
-              \'on_i': 1
-              \})
-
-  " Refs http://qiita.com/ryo2851/items/125beff66e4106f7843c
-  let g:jedi#use_tabs_not_buffers = 1
-  let g:jedi#popup_select_first = 0
-  let g:jedi#popup_on_dot = 0
-  let g:jedi#completions_command = '<C-M>'
-  let g:jedi#goto_assignments_command = '<leader>g'
-  let g:jedi#goto_definitions_command = '<leader>d'
-  let g:jedi#documentation_command = 'K'
-  let g:jedi#usages_command = '<leader>n'
-  let g:jedi#rename_command = '<leader>R' "quick-runと競合しないように
-  autocmd FileType python setlocal completeopt-=preview
-
-  call dein#add('davidhalter/jedi-vim', {
-              \'on_ft': ['python', 'python3', 'djangohtml']
-              \})
-
-
-  " JavaScript
-  call dein#add('vim-scripts/OOP-javascript-indentation', {'on_ft': 'javascript', 'on_i': 1})
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
   call dein#end()
   call dein#save_state()
 endif
 
-augroup PluginInstall
-  autocmd!
-  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-augroup END
+
+if dein#check_install()
+  call dein#install()
+endif
 
 
 syntax on

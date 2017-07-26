@@ -1,0 +1,70 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config={'*': {
+            \'hook/time/enable': '1',
+            \'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+            \}}
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+nnoremap <leader>cs :<C-u>Gstatus<CR>
+nnoremap <leader>cd :<C-u>Gdiff<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+hook_add = '''
+" Use vimfiler to open directory
+call unite#custom_default_action("source/bookmark/directory", "vimfiler")
+call unite#custom_default_action("directory", "vimfiler")
+call unite#custom_default_action("directory_mru", "vimfiler")
+
+" Use ag to grep
+if executable("ag")
+    let g:unite_source_grep_command = "ag"
+    let g:unite_source_grep_default_opts = "--nogroup --nocolor --column"
+    let g:unite_source_grep_recursive_opt = ""
+endif
+
+nnoremap [unite] <Nop>
+nmap <leader>f [unite]
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]r :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]v :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> [unite]s :<C-u>edit ~/dev/dotfiles/snippets/general.py<ENTER>
+
+" let g:unite_enable_start_insert = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" Configure keymaps
+function! s:unite_settings()
+    "imap <buffer> <Esc><Esc> <Plug>(unite_exit)
+    nmap <buffer> <C-W> <Plug>(unite_exit)
+endfunction
+autocmd FileType unite call s:unite_settings()
+'''
+
+[[plugins]]
+repo = 'vim-scripts/scratch'
+
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
