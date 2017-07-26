@@ -348,13 +348,6 @@ bindkey '^m' do_enter
 [ -f ~/.zshrc.perl ]   && source ~/.zshrc.perl
 
 #### python settings
-
-## For pyenv
-#if [ -s "$HOME/.pyenv" ]; then
-#  export PATH="$HOME/.pyenv/bin:$PATH"
-#  eval "$(pyenv init -)"
-#fi
-
 function workon() {
   [ -f ./bin/activate ] && source ./bin/activate
   [ -f ./env/bin/activate ] && source ./env/bin/activate
