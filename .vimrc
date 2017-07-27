@@ -100,12 +100,17 @@ if dein#check_install()
   call dein#install()
 endif
 
-
 syntax on
 syntax enable
 
-let format_join_spaces = 4
-let format_allow_over_tw = 1
+function! EditToml()
+    execute 'edit ' . s:toml
+endfunction
+
+function! EditTomlLazy()
+    execute 'edit ' . s:lazy_toml
+endfunction
+
 
 " ====================================================
 " File type settings
