@@ -66,7 +66,7 @@ set imsearch=1
 set splitbelow "Open new window below
 set splitright "Open new window right
 
-colorscheme ron
+colorscheme antares
 
 let g:mapleader = ','
 
@@ -81,12 +81,13 @@ let s:dein_dir = expand('~/dev/dotfiles/vendor/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 
+let g:rc_dir    = expand('~/dev/dotfiles/.vim/rc')
+let s:toml      = g:rc_dir . '/dein.toml'
+let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  let g:rc_dir    = expand('~/dev/dotfiles/.vim/rc')
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
