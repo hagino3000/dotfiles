@@ -16,12 +16,12 @@ colors
 if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   source $HOME/dev/dotfiles/antigen/antigen.zsh
   # See ~/.antigen/repos/
-  antigen-use oh-my-zsh
-  antigen-bundle golang
-  antigen-bundle autojump
-  antigen-bundle python
-  antigen-bundle screen
-  antigen-apply
+  antigen use oh-my-zsh
+  antigen bundle golang
+  antigen bundle autojump
+  antigen bundle python
+  antigen bundle screen
+  antigen apply
 fi
 
 
@@ -141,7 +141,7 @@ compinit -u
 setopt complete_aliases # aliased ls needs if file/dir completions work
 
 alias where="command -v"
-alias jo="jobs -l"
+#alias jo="jobs -l"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
