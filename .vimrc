@@ -220,7 +220,21 @@ augroup vimrc_file_type_nmap
 
     " python
     autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
-    autocmd FileType python nnoremap <leader>ln :call Flake8()<CR>
+
+    function! s:snowflake_after(...)
+      execute ':QuickfixStatusEnable'
+      execute ':HierUpdate'
+    endfunction
+    let g:snowflake_callbacks = {
+      \ 'after_init': function('snowflake#run'),
+      \ 'after_run': function('s:snowflake_after')
+      \ }
+    "autocmd BufWritePost *.py call snowflake#run()
+    "autocmd InsertLeave *.py call snowflake#run()
+    autocmd FileType python nnoremap <leader>ln :call snowflake#run()<CR>
+
+    "@autocmd FileType python nnoremap <leader>ln :call Flake8()<CR>
+
     autocmd FileType python inoremap <buffer> ccc # coding=utf-8
     autocmd FileType python inoremap <buffer> iid logger.debug()<LEFT>
     autocmd FileType python inoremap <buffer> iii logger.info()<LEFT>

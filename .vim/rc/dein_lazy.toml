@@ -50,10 +50,6 @@ repo = 'vim-jp/vim-go-extra'
 on_ft = 'go'
 
 [[plugins]]
-repo = 'nvie/vim-flake8'
-on_ft = ['python', 'python3']
-
-[[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = ['python', 'python3']
 on_i = 1
@@ -75,6 +71,11 @@ let g:jedi#usages_command = '<leader>n'
 let g:jedi#rename_command = '<leader>R' "quick-runと競合しないように
 autocmd FileType python setlocal completeopt-=preview
 '''
+
+[[plugins]]
+repo = 'heavenshell/vim-snowflake'
+on_ft = ['python', 'python3']
+
 
 [[plugins]]
 repo = 'vim-scripts/OOP-javascript-indentation'
