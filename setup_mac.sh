@@ -5,6 +5,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 brew install zsh
 brew install git
+brew install python3
 brew install -f vim --with-lua --with-python3
 brew install wget
 brew install tree
@@ -16,9 +17,11 @@ brew install autojump
 brew install tig
 brew install the_silver_searcher
 brew install bvi
-brew install ruby
 brew install tmux
 brew install yajl
+brew install gfortran
+brew install gnuplot
+brew install swig
 
 # install to system python
 pip install virtualenv
@@ -33,21 +36,3 @@ pip install httpie
 pip install requests
 pip install percol
 
-
-#nodebrew
-curl -L git.io/nodebrew | perl - setup
-
-#perlbrew
-#curl -kL http://xrl.us/perlbrewinstall | bash
-
-brew install gfortran
-brew install gnuplot
-brew install swig
-
-
-# virtualbox
-# vagrant
-# vagrant plugin install sahara
-
-# python
-#CONFIGURE_OPTS=--enable-unicode=ucs4 pyenv install 2.7.4

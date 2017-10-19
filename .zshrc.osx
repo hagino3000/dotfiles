@@ -4,13 +4,6 @@
 alias gosh='rlwrap gosh'
 alias re.pl='rlwrap ~/perl5/perlbrew/perls/perl-5.10.1/bin/re.pl'
 
-# Docker
-if [ -s "$HOME/.boot2docker" ]; then
-    export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
-    export DOCKER_TLS_VERIFY=1
-    export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376
-fi
-
 if [ -s "$HOME/google-cloud-sdk" ]; then
     # The next line updates PATH for the Google Cloud SDK.
     source "$HOME/google-cloud-sdk/path.zsh.inc"
@@ -33,9 +26,9 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 # node brew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# export PATH=$HOME/.nodebrew/current/bin:$PATH
 # node modules
-export PATH=~/node_modules/mocha/bin:$PATH
+# export PATH=~/node_modules/mocha/bin:$PATH
 # tex
 export PATH=/usr/texbin:$PATH
 # java
