@@ -226,7 +226,6 @@ augroup vimrc_file_type_nmap
       execute ':HierUpdate'
     endfunction
     let g:snowflake_callbacks = {
-      \ 'after_init': function('snowflake#run'),
       \ 'after_run': function('s:snowflake_after')
       \ }
     "autocmd BufWritePost *.py call snowflake#run()
