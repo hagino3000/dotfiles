@@ -240,7 +240,6 @@ augroup vimrc_file_type_nmap
     autocmd FileType python inoremap <buffer> iiw logger.warning()<LEFT>
     autocmd FileType python inoremap <buffer> iie logger.error()<LEFT>
     autocmd FileType python inoremap <buffer> iic logger.critical()<LEFT>
-
 augroup END
 
 " insert date
@@ -252,6 +251,9 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 nnoremap gc `[v`]
 vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
+
+" memo
+nnoremap <leader>sn :<C-u>edit ~/dev/dotfiles/snippets/<Enter>
 
 " search
 nmap n nzz
