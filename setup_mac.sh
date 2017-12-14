@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # Install homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap caskroom/versions
+brew cask install java8
+brew install scala
+brew install sbt
 
 brew install zsh
 brew install git
@@ -24,15 +28,16 @@ brew install gnuplot
 brew install swig
 
 # install to system python
-pip install virtualenv
-pip install sphinx
-pip install nose
-pip install numpy
-pip install pygments
-pip install ipython
-pip install bpython
-pip install pylint
-pip install httpie
-pip install requests
-pip install percol
+pip3 install virtualenv
+pip3 install sphinx
+pip3 install nose
+pip3 install numpy
+pip3 install pygments
+pip3 install ipython
+pip3 install bpython
+pip3 install pylint
+pip3 install httpie
+pip3 install requests
+pip3 install percol
+
 
