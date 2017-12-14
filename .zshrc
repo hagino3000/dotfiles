@@ -351,6 +351,7 @@ bindkey '^m' do_enter
 function workon() {
   [ -f ./bin/activate ] && source ./bin/activate
   [ -f ./env/bin/activate ] && source ./env/bin/activate
+  [ -f ./.venv/bin/activate ] && source ./.venv/bin/activate
   _update_venv_prompt
 }
 
