@@ -1,31 +1,48 @@
 -- HANDLE SCROLLING
-local oldmousepos = {}
--- positive multiplier (== natural scrolling) makes mouse work like traditional scrollwheel
-local scrollmult = -2
 
--- The were all events logged, when using `{"all"}`
-mousetap = hs.eventtap.new({0,3,5,14,25,26,27}, function(e)
-	oldmousepos = hs.mouse.getAbsolutePosition()
-	local mods = hs.eventtap.checkKeyboardModifiers()
-    local pressedMouseButton = e:getProperty(hs.eventtap.event.properties['mouseEventButtonNumber'])
+local deferred = false
 
-    -- If OSX button 4 is pressed, allow scrolling
-    local shouldScroll = 2 == pressedMouseButton
-    if shouldScroll then
-		local dx = e:getProperty(hs.eventtap.event.properties['mouseEventDeltaX'])
-		local dy = e:getProperty(hs.eventtap.event.properties['mouseEventDeltaY'])
-		local scroll = hs.eventtap.event.newScrollEvent({dx * scrollmult, dy * scrollmult},{},'pixel')
-		scroll:post()
-		
-		-- put the mouse back
-		hs.mouse.setAbsolutePosition(oldmousepos)
-		
-        return true, {scroll}
-	else
-		return false, {}
-	end
-	-- print ("Mouse moved!")
-	-- print (dx)
-	-- print (dy)
+overrideRightMouseDown = hs.eventtap.new({ hs.eventtap.event.types.rightMouseDown }, function(e)
+    --print("down"))
+    deferred = true
+    return true
 end)
-mousetap:start()
+
+overrideRightMouseUp = hs.eventtap.new({ hs.eventtap.event.types.rightMouseUp }, function(e)
+    -- print("up"))
+    if (deferred) then
+        overrideRightMouseDown:stop()
+        overrideRightMouseUp:stop()
+        hs.eventtap.rightClick(e:location())
+        overrideRightMouseDown:start()
+        overrideRightMouseUp:start()
+        return true
+    end
+
+    return false
+end)
+
+
+local oldmousepos = {}
+-- negative multiplier makes mouse work like traditional scrollwheel
+local scrollmult = 3
+dragRightToScroll = hs.eventtap.new({ hs.eventtap.event.types.rightMouseDragged }, function(e)
+    -- print("scroll");
+
+    deferred = false
+
+    oldmousepos = hs.mouse.getAbsolutePosition()    
+
+    local dx = e:getProperty(hs.eventtap.event.properties['mouseEventDeltaX'])
+    local dy = e:getProperty(hs.eventtap.event.properties['mouseEventDeltaY'])
+    local scroll = hs.eventtap.event.newScrollEvent({dx * scrollmult, dy * scrollmult},{},'pixel')
+
+    -- put the mouse back
+    hs.mouse.setAbsolutePosition(oldmousepos)
+
+    return true, {scroll}
+end)
+
+overrideRightMouseDown:start()
+overrideRightMouseUp:start()
+dragRightToScroll:start()
