@@ -393,6 +393,8 @@ fi
 ### GCP
 if [ -d "$HOME/google-cloud-sdk" ]; then
     export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+    source $HOME/google-cloud-sdk/path.zsh.inc
+    source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
 
 export GOPATH="$HOME/go"
@@ -421,5 +423,4 @@ else
       tmux list-sessions
     fi
 fi
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+
