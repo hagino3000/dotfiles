@@ -442,3 +442,11 @@ u"これは。すごい。ですね。".replace('。', u'。<br>')
 
 plt.figure(figsize=(20,10))
 plt.plot(X, Y)
+
+
+# boto
+s3 = boto3.resource('s3')
+obj = s3.Object(bucket_name, key)
+d = json.loads(obj.get()['Body'].read().decode('utf-8'))
+
+
