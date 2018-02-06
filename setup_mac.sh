@@ -23,6 +23,7 @@ brew install the_silver_searcher
 brew install bvi
 brew install tmux
 brew install yajl
+brew install reattach-to-user-namespace
 
 # install to system python
 pip install virtualenv
