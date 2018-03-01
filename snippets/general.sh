@@ -52,4 +52,5 @@ for (( DATE=${START_DATE} ; ${DATE} < ${END_DATE} ; DATE=`date -d "${DATE} 1 day
 done
 
 
-
+# Check EC2 instance meta data
+curl http://169.254.169.254/latest/meta-data/
