@@ -2,11 +2,21 @@
 
 all: help
 
-target_file=xxx
+target_file:=xxx
 
 do:
 	# With commandline parameter
 	hoge $(target_file)
+
+# run parallel with -j option
+# $ make run -j 2
+# > python ./aaaa.py --hoge_id 2
+# > python ./aaaa.py --hoge_id 1055
+hoge_ids := 2 1055 5335 6311 7442
+run: $(hoge_ids:%=call/%)
+call/%:
+	@echo python ./aaaa.py --hoge_id $(@F)
+
 
 ############################################################################
 # Dev Commands 

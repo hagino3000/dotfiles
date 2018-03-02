@@ -450,3 +450,17 @@ obj = s3.Object(bucket_name, key)
 d = json.loads(obj.get()['Body'].read().decode('utf-8'))
 
 
+# argparse
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--target_date', dest='target_date', required=True, type=lambda d: dt.datetime.strptime(d, '%Y-%m-%d'),
+    help='Target Date of xxxx e.g. 2018-01-01')
+parser.add_argument(
+    '--hoge_id', dest='hoge_id', required=True,
+    type=int, help='ssp_id')
+args = parser.parse_args(argv)
+target_date = args.target_date
+hoge_id = args.hoge_id
+
+
