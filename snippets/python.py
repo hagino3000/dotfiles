@@ -167,11 +167,7 @@ def do_something(hoge):
     pass
 
 
-
-
-
 # Boot point
-
 def main():
     pass
 
