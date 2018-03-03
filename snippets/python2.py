@@ -327,3 +327,12 @@ target_date = args.target_date
 hoge_id = args.hoge_id
 
 
+# 逆アセンブリ
+import dis
+
+def xx():
+    return [v**2 for v in range(10)]
+
+dis.dis(xx)
+
+
