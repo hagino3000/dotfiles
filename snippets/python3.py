@@ -102,6 +102,19 @@ plt.rcParams['font.family'] = 'Osaka'
 
 sns.jointplot("x", "y", df, kind='reg');
 
+# print score
+from sklearn.metrics import log_loss, f1_score, accuracy_score
+def print_score(y, y_pred, prefix=""):
+    import pandas
+    if type(y) == pandas.core.sparse.series.SparseSeries:
+        y = y.to_dense()
+    print('{prefix}log loss {logloss:.3f}, f1 {f1:.3f}, accuracy {accuracy:.3f}'.format(
+        prefix=prefix,
+        logloss=log_loss(y, y_pred),
+        f1=f1_score(y, np.round(y_pred)),
+        accuracy=accuracy_score(y, np.round(y_pred))
+    ))
+
 
 # matplotlib
 
