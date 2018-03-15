@@ -307,10 +307,20 @@ setup(
 u"これは。すごい。ですね。".replace('。', u'。<br>')
 
 
-# boto
+# S3 boto
 s3 = boto3.resource('s3')
 obj = s3.Object(bucket_name, key)
 d = json.loads(obj.get()['Body'].read().decode('utf-8'))
+
+# GCS
+from google.cloud import storage
+
+client = storage.Client(project=config.GCP_PROJECT_NAME)
+bucket_name = "xxxx"
+bucket = client.get_bucket(bucket_name)
+blob = bucket.get_blob("yyyy")
+contents = blob.download_as_string()
+
 
 
 # argparse
