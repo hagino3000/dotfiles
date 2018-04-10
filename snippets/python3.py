@@ -5,13 +5,22 @@ with open('japanese.txt', 'r', 'utf-8') as f:
         print(f)
 
 
-# Pandas
+# Rolling Count
 
 df = pd.DataFrame.from_records(hoge.read()), index='time')
-resampled = df.resample('10min', how='count')
+resampled = df.resample('10min').count()
 resampled.fillna(value=0, inplace=True)
 
-pd.rolling_mean(resample, 6).plot(figsize=(14, 5), title=u"10分間での獲得人数推移、60min移動平均")
+resampled.rolling(6).mean().plot(figsize=(14, 5), title=u"10分間での獲得人数推移、60min移動平均")
+
+resampled.plot() # 10分毎の獲得人数推移
+
+# Rolling Value
+
+c = df_timeline.resample('1min').count()  # 1分毎のカウント
+s = df_timeline.resample('1min').sum()    # 1分毎の合計
+
+(s.rolling(5).sum()/c.rolling(5).sum()).plot() # 5分移動平均
 
 # Secondary Y axis
 df.B.plot(secondary_y=True, style='g')
