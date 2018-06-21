@@ -398,6 +398,14 @@ augroup END
 " :args
 " :argdo %s/import/immmmm/g | update
 "
+" Jump to next char
+" f<char>
+" Jump to previous char
+" F<char>
+" Delete words until white spase
+" dw
+" dW
+"
 " 改行置換(CRコードは ctrl-v ctrl-m で入力)
 " :%s/    /    /g
 "
