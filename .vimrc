@@ -374,6 +374,9 @@ augroup END
 " show messages
 " :messages
 "
+" show quickfixlist (mypy ....)
+" :copen
+"
 " Git commands
 " :Gbrame
 " :Gstatus
