@@ -76,6 +76,11 @@ for idx, x in enumerate(x_values):
     ax.set_title(xxxxxxxxx)
 
 
+fig, ax = plt.subplots(1, 3, figsize=(8, 3))
+df['aaa'].plot(ax=ax[0])
+df['bbb'].plot(ax=ax[1])
+
+
 
 _df = _df.set_index('date_hour')
 ix = pd.DatetimeIndex(start=start_date, end=end_date, freq='H')
