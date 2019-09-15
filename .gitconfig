@@ -21,6 +21,8 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
+  pager = less -cm
+  quotepath = false
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
