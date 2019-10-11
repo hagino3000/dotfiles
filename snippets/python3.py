@@ -136,6 +136,19 @@ plt.figure(figsize=(20,10))
 plt.plot(X, Y)
 
 
+# secondaly axis
+def plot_x(actual_df, plan_df, output_df, x):
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.plot(np.cumsum(actual_df[x]), label='Plan')
+    ax.plot(plan_df[x].cumsum(), label='Actual')
+
+    ax2 = ax.twinx()
+    ax2.plot(output_df[x], label='Output', linestyle='--', color='red')
+    ax2.set_ylabel('Output')
+    ax2.legend(loc='lower right')
+    ax.legend(loc='best')
+
+
 # Create utc datetime
 
 import pytz
