@@ -108,6 +108,41 @@ def calc_error(df):
     t = rv.ppf(0.95)
     return t * np.sqrt(p*(1-p)/samples)
 
+
+# plot with confidence and point estimate value
+
+## tiny sample
+x = ['a', 'b', 'c']
+y = [0.1, 0.2, 0.3]
+# 下側誤差と上側誤差
+errs = [[0.01, 0.02, 0.03], [0.02, 0.04, 0.06]]
+plt.errorbar(x, y, fmt='o', yerr=errs)
+plt.ylabel('y with confidence')
+plt.xlabel('x')
+
+
+## e.g.
+from  statsmodels.stats.proportion import proportion_confint
+
+def calc_ucb(click, cv):
+    return proportion_confint(cv, click, method='wilson')[1]
+
+def calc_lcb(click, cv):
+    return proportion_confint(cv, click, method='wilson')[0]
+
+_df_cvr = df_click.groupby('xx')[['clicked', 'converted']].sum()
+_df_cvr['cvr'] = _df_cvr['converted']/_df_cvr['clicked']
+_df_cvr['ucb'] = _df_cvr.apply(lambda df: calc_ucb(df['clicked'], df['converted']) ,axis=1)
+_df_cvr['lcb'] = _df_cvr.apply(lambda df: calc_lcb(df['clicked'], df['converted']) ,axis=1)
+_df_cvr['err1'] = _df_cvr['ucb'] - _df_cvr['cvr']
+_df_cvr['err2'] = _df_cvr['cvr'] - _df_cvr['lcb']
+err = _df_cvr[['err2', 'err1']].to_numpy()
+x = list(map(str, _d.cvr.index))
+plt.errorbar(x, _d.cvr.values, fmt='o', yerr=err.T)
+plt.xticks(rotation=50)
+
+
+
 # seaborn
 import seaborn as sns
 
