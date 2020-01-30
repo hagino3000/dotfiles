@@ -184,6 +184,18 @@ def plot_x(actual_df, plan_df, output_df, x):
     ax.legend(loc='best')
 
 
+# 時間計測
+from contextlib import contextmanager
+import datetime as dt
+
+@contextmanager
+def measure_duration_time():
+    start = dt.datetime.now()
+    yield
+    end = dt.datetime.now()
+    print((end - start).seconds)
+
+
 # Create utc datetime
 
 import pytz
