@@ -193,6 +193,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g J='| python -mjson.tool'
 alias -g P='| percol'
+alias -g C='g++ -Wall -std=c++14'
 
 alias pyserver='python -m SimpleHTTPServer'
 
