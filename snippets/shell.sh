@@ -41,14 +41,14 @@ for i in {00..23};do
     echo $i
 done
 
-#日付けをループして何かやる
-#!/bin/bash
+# 日付ループして何かやる
 START_DATE="20171010"
 END_DATE="20171023"
 
 for (( DATE=${START_DATE} ; ${DATE} < ${END_DATE} ; DATE=`date -d "${DATE} 1 day" '+%Y%m%d'` )) ; do
+    DF=`date -d ${DATE} '+%Y-%m-%d'`
     D=`date -d ${DATE} '+%Y-%m-%d'`
-    echo make run_create_training_datasets ENV=prod LUIGI_CONFIG_PATH=../conf/luigi.local.cfg TARGET_DATE=${D}
+    echo make run_hoge ENV=prod LUIGI_CONFIG_PATH=../conf/luigi.local.cfg TARGET_DATE=${D}
 done
 
 
