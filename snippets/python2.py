@@ -7,9 +7,9 @@ import logging
 
 try:
     pass
-except Exception, e:
+except Exception as e:
     traceback.print_exc(e)
-    logging.exception(e)
+    logging.exception('foo', e)
 
 # string format
 "File name is {year}/{month:0>2}/{day:0>2}.tar.gz".format(
