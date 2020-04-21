@@ -51,6 +51,5 @@ for (( DATE=${START_DATE} ; ${DATE} < ${END_DATE} ; DATE=`date -d "${DATE} 1 day
     echo make run_hoge ENV=prod LUIGI_CONFIG_PATH=../conf/luigi.local.cfg TARGET_DATE=${D}
 done
 
-
 # Check EC2 instance meta data
 curl http://169.254.169.254/latest/meta-data/
