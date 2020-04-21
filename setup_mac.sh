@@ -10,7 +10,7 @@ brew install sbt
 brew install zsh
 brew install git
 brew install python3
-brew install -f vim --with-lua --with-python3
+brew install vim
 brew install wget
 brew install tree
 brew install pstree
