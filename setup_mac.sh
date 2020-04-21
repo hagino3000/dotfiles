@@ -24,6 +24,8 @@ brew install bvi
 brew install tmux
 brew install yajl
 brew install reattach-to-user-namespace
+brew install gpg2
+brew install pinentry-mac
 
 # install to system python
 pip install virtualenv
