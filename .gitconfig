@@ -78,3 +78,7 @@
 [credential]
   helper = !aws --profile zgok-ada codecommit credential-helper $@
   UseHttpPath = true
+[gpg]
+    program = /usr/local/bin/gpg
+[commit]
+    gpgsign = true
