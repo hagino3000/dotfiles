@@ -16,7 +16,6 @@ brew install tree
 brew install pstree
 brew install automake
 brew install rlwrap
-brew install --use-llvm gauche
 brew install autojump
 brew install tig
 brew install the_silver_searcher
@@ -27,10 +26,11 @@ brew install reattach-to-user-namespace
 brew install gpg2
 brew install pinentry-mac
 
-# install to system python
-pip install virtualenv
-pip install ipython
-pip install httpie
-pip install requests
-pip install percol
+pip3 install virtualenv --user
+pip3 install ipython --user
+pip3 install httpie --user
+pip3 install requests --user
+pip3 install percol --user
+pip3 install awslogs --user
+pip3 install awscli --user
 
