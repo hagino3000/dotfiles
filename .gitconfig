@@ -1,6 +1,7 @@
 [user]
   name = Takashi Nishibayashi
   email = takashi.nishibayashi@gmail.com
+  signingkey = 3DD093F70313FF385B86B434572DB84E792854F0
 #[pager]
 #    #log =  diff-highlight | less
 #    #show = diff-highlight | less
