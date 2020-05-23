@@ -7,6 +7,8 @@ if [ $os = "Darwin" ]; then
     ln -s ~/dev/dotfiles/.zshrc.osx ~/.zshrc.osx
     mkdir -p ~/.gnupg
     ln -s ~/dev/dotfiles/.gnupg/mac-gpg-agent.conf ~/.gnupg/gpg-agent.conf
+    mkdir -p ~/.hammerspoon
+    ln -s ~/dev/dotfiles/.hammerspoon/init.lua ~/.hammerspoon/init.lua
 fi
 
 if [ $os = "Linux" ]; then

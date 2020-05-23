@@ -4,6 +4,7 @@
 # ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew tap caskroom/versions
 brew cask install java8
+brew cask install hammerspoon
 brew install scala
 brew install sbt
 
