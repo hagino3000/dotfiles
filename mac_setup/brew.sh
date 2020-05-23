@@ -7,7 +7,7 @@ brew cask install java8
 brew install scala
 brew install sbt
 
-brew install zsh
+#brew install zsh
 brew install git
 brew install python3
 brew install vim
@@ -25,12 +25,3 @@ brew install yajl
 brew install reattach-to-user-namespace
 brew install gpg2
 brew install pinentry-mac
-
-pip3 install virtualenv --user
-pip3 install ipython --user
-pip3 install httpie --user
-pip3 install requests --user
-pip3 install percol --user
-pip3 install awslogs --user
-pip3 install awscli --user
-

@@ -22,6 +22,7 @@ if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   antigen bundle autojump
   antigen bundle python
   antigen bundle screen
+  antigen bundle aws
   antigen apply
 fi
 
@@ -393,10 +394,10 @@ if [ -d "/usr/local/heroku" ]; then
 fi
 
 ### GCP
-if [ -d "$HOME/google-cloud-sdk" ]; then
-    export PATH="$HOME/google-cloud-sdk/bin:$PATH"
-    source $HOME/google-cloud-sdk/path.zsh.inc
-    source $HOME/google-cloud-sdk/completion.zsh.inc
+if [ -d "$HOME/dev/google-cloud-sdk" ]; then
+    export PATH="$HOME/dev/google-cloud-sdk/bin:$PATH"
+    source $HOME/dev/google-cloud-sdk/path.zsh.inc
+    source $HOME/dev/google-cloud-sdk/completion.zsh.inc
 fi
 
 export GOPATH="$HOME/go"
