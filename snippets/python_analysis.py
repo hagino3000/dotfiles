@@ -177,6 +177,13 @@ def plot_x(actual_df, plan_df, output_df, x):
     ax.legend(loc='best')
 
 
+# Check nan
+def check_nan(X):
+    print(X.info())
+    print('Ensure all finite:', np.isfinite(X).all().all())
+    print('NaN count:', X.isnull().values.sum())
+
+
 # 時間計測
 from contextlib import contextmanager
 import datetime as dt
