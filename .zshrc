@@ -388,6 +388,11 @@ if [ -d "$HOME/.rbenv" ]; then
     eval "$(rbenv init -)"
 fi
 
+### PIP install --user
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 ### Heroku
 if [ -d "/usr/local/heroku" ]; then
     export PATH="/usr/local/heroku/bin:$PATH"
