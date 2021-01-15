@@ -404,11 +404,14 @@ if [ -d "/usr/local/heroku" ]; then
 fi
 
 ### GCP
-if [ -d "$HOME/dev/google-cloud-sdk" ]; then
-    export PATH="$HOME/dev/google-cloud-sdk/bin:$PATH"
-    source $HOME/dev/google-cloud-sdk/path.zsh.inc
-    source $HOME/dev/google-cloud-sdk/completion.zsh.inc
+if [ -d "$HOME/google-cloud-sdk" ]; then
+    export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+    source $HOME/google-cloud-sdk/path.zsh.inc
+    source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
+
+# poetry
+[ -f ~/.poetry ] && export PATH="~/.poetry/bin:$PATH"
 
 export GOPATH="$HOME/go"
 
@@ -436,4 +439,10 @@ else
       tmux list-sessions
     fi
 fi
+
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+ }
 
