@@ -129,6 +129,11 @@ alias pyserver='python -m SimpleHTTPServer'
 
 export PERL5OPT="-Mlib=extlib/lib/perl5 -Ilib"
 
+### Poetory
+if [ -d "$HOME/.poetry/bin" ]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

@@ -410,9 +410,6 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
 
-# poetry
-[ -f ~/.poetry ] && export PATH="~/.poetry/bin:$PATH"
-
 export GOPATH="$HOME/go"
 
 ### awscli
