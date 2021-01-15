@@ -47,7 +47,7 @@ END_DATE="20171023"
 
 for (( DATE=${START_DATE} ; ${DATE} < ${END_DATE} ; DATE=`date -d "${DATE} 1 day" '+%Y%m%d'` )) ; do
     DF=`date -d ${DATE} '+%Y-%m-%d'`
-    D=`date -d ${DATE} '+%Y-%m-%d'`
+    D=`date -d ${DATE} '+%Y%m%d'`
     echo make run_hoge ENV=prod LUIGI_CONFIG_PATH=../conf/luigi.local.cfg TARGET_DATE=${D}
 done
 

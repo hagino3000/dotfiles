@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install homebrew
-# ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew tap caskroom/versions
 brew cask install java8
 brew cask install hammerspoon
