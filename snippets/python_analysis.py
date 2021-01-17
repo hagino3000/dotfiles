@@ -196,6 +196,12 @@ def measure_duration_time():
     print((end - start).seconds)
 
 
+def convert_parameter_to_scipy_lognorm(mean, median):
+    mu = np.log(medwin)
+    sigma = np.sqrt(2*(np.log(mean) - mu))
+    return scipy.stats.lognorm(sigma, 0, median)
+
+
 # Create utc datetime
 
 import pytz
