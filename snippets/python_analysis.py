@@ -233,3 +233,8 @@ def calc_clopper_peason_confidence_interval(trial, success, alpha):
 statsmodels.stats.proportion.proportion_confint(3, 100, alpha=0.05, method='wilson')
 
 
+# for Jupyter
+
+import os, sys
+sys.path.append(os.path.abspath('../src'))
+
