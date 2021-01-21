@@ -197,7 +197,7 @@ def measure_duration_time():
 
 
 def convert_parameter_to_scipy_lognorm(mean, median):
-    mu = np.log(medwin)
+    mu = np.log(median)
     sigma = np.sqrt(2*(np.log(mean) - mu))
     return scipy.stats.lognorm(sigma, 0, median)
 
