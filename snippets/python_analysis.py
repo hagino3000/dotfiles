@@ -162,6 +162,7 @@ def print_score(y, y_pred, prefix=""):
 
 plt.figure(figsize=(20,10))
 plt.plot(X, Y)
+plt.savefig("./c.png", format='png', facecolor='white', transparent=False, dpi=92)
 
 
 # secondaly axis
@@ -197,9 +198,12 @@ def measure_duration_time():
 
 
 def convert_parameter_to_scipy_lognorm(mean, median):
+    # scale parameter also the median
+    scale = median
+    # shape parameter also the standard deviation
     mu = np.log(median)
-    sigma = np.sqrt(2*(np.log(mean) - mu))
-    return scipy.stats.lognorm(sigma, 0, median)
+    shape = np.sqrt(2*(np.log(mean) - mu))
+    return scipy.stats.lognorm(shape, 0, scale)
 
 
 # Create utc datetime
@@ -231,6 +235,18 @@ def calc_clopper_peason_confidence_interval(trial, success, alpha):
 
 # Wilson Score
 statsmodels.stats.proportion.proportion_confint(3, 100, alpha=0.05, method='wilson')
+
+
+# pandas format
+NUMBER_FORMATS = {
+    'rate': '{: <10.2%}',
+    'counts': '{:,}',
+    'float_field': '{:,.0f}'
+}
+
+
+def apply_format(_df):
+    return _df.style.format(NUMBER_FORMATS)
 
 
 # for Jupyter
