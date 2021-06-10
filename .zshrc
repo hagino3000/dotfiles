@@ -189,6 +189,7 @@ alias gs="git status"
 alias gd="git diff"
 alias gremove_all='git status -s | awk '\''/^ D/{print "git rm "$2}'\'''
 
+alias -g T='2>&1 | tee'
 alias -g G='| grep'
 alias -g L='| less'
 alias -g H='| head'
