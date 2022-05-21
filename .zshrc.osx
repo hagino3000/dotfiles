@@ -25,6 +25,10 @@ export PATH=~/dev/dotfiles/knifes:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
+# python install with --user
+export PATH=$HOME/Library/Python/3.9/bin:$PATH
+
+
 # node brew
 # export PATH=$HOME/.nodebrew/current/bin:$PATH
 # node modules

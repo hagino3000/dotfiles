@@ -345,6 +345,9 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
+### brew
+export PATH="/opt/homebrew/bin:$PATH"
+
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.osx ]    && source ~/.zshrc.osx
@@ -411,6 +414,8 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     source $HOME/google-cloud-sdk/path.zsh.inc
     source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
+
+
 
 export GOPATH="$HOME/go"
 

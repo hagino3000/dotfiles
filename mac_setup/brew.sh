@@ -1,14 +1,9 @@
 #!/bin/bash
 
 # Install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew tap caskroom/versions
-brew cask install java8
-brew cask install hammerspoon
-brew install scala
-brew install sbt
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-#brew install zsh
+brew install zsh
 brew install git
 brew install python3
 brew install vim
@@ -26,3 +21,10 @@ brew install yajl
 brew install reattach-to-user-namespace
 brew install gpg2
 brew install pinentry-mac
+brew install google-cloud-sdk
+
+
+brew tap AdoptOpenJDK/openjdk
+brew install --cask adoptopenjdk8
+brew install scala
+brew install sbt
