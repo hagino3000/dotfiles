@@ -450,3 +450,4 @@ jdk() {
         java -version
  }
 
+eval "$(direnv hook zsh)"
