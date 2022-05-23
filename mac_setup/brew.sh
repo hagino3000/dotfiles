@@ -15,6 +15,7 @@ brew install rlwrap
 brew install autojump
 brew install tig
 brew install the_silver_searcher
+brew install percol
 brew install bvi
 brew install tmux
 brew install yajl
