@@ -3,6 +3,7 @@
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+brew install htop
 brew install zsh
 brew install git
 brew install python3
@@ -15,7 +16,7 @@ brew install rlwrap
 brew install autojump
 brew install tig
 brew install the_silver_searcher
-brew install percol
+brew install peco
 brew install bvi
 brew install tmux
 brew install yajl
