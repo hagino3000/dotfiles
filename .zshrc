@@ -450,4 +450,4 @@ jdk() {
         java -version
  }
 
-eval "$(direnv hook zsh)"
+export PATH="$HOME/.poetry/bin:$PATH"
