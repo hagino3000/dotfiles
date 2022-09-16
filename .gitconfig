@@ -74,6 +74,7 @@
   # grep関連
   gr = grep
   gn = grep -n
+  grr = !git rev-list main | xargs git grep --heading --line-number -10
   # Safety reset HEAD
   cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [credential]
