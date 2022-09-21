@@ -17,22 +17,16 @@ alias dl='docker ps -a -q'
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 export GNUTERM=x11
 
-# Add path
-# my knifes
-export PATH=~/dev/dotfiles/knifes:$PATH
-
 # brew
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/opt/openjdk/bin:$PATH
+
+export PATH=~/go/bin:$PATH
 
 # python install with --user
-export PATH=$HOME/Library/Python/3.9/bin:$PATH
+#export PATH=$HOME/Library/Python/3.9/bin:$PATH
 
 
-# node brew
-# export PATH=$HOME/.nodebrew/current/bin:$PATH
-# node modules
-# export PATH=~/node_modules/mocha/bin:$PATH
 # tex
 export PATH=/usr/texbin:$PATH
 # java
