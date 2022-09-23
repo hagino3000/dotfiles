@@ -160,6 +160,7 @@ alias lsh="ls -lh"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -lha"
+alias l="ls -lha"
 
 alias du="du -h"
 alias dsize='du -sh ./*'
@@ -181,6 +182,7 @@ alias mv='mv -iv'
 alias wl='wc -l'
 alias psa='ps aux'
 alias ag="ag --pager 'less -R'"
+alias history="history 1"
 
 alias listen='netstat -na | grep tcp | grep LISTEN'
 
