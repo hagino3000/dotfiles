@@ -1,4 +1,4 @@
-PHONY: setup update vim/download vim/make
+PHONY: setup update user* vendor*
 
 setup:
 	git submodule init
