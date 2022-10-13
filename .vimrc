@@ -66,7 +66,7 @@ set imsearch=1
 set splitbelow "Open new window below
 set splitright "Open new window right
 
-colorscheme antares
+colorscheme murphy
 
 let g:mapleader = ','
 
