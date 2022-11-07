@@ -201,7 +201,7 @@ alias -g J='| python -mjson.tool'
 alias -g P='| peco'
 alias -g C='g++ -Wall -std=c++14'
 
-alias pyserver='python -m SimpleHTTPServer'
+alias pyserver='python3 -m http.server'
 
 ####################################################
 # Command line function
