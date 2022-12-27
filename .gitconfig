@@ -1,7 +1,6 @@
 [user]
   name = Takashi Nishibayashi
   email = takashi.nishibayashi@gmail.com
-  signingkey = 3DD093F70313FF385B86B434572DB84E792854F0
 #[pager]
 #    #log =  diff-highlight | less
 #    #show = diff-highlight | less
@@ -77,6 +76,15 @@
   grr = !git rev-list main | xargs git grep --heading --line-number -10
   # Safety reset HEAD
   cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+
+  # qa-<commit> というタグを HEAD に付与
+  tag-qa = !git tag -a "qa-$(git rev-parse --short HEAD)" -m "qa-$(git rev-parse --short HEAD)"
+  # staging-<commit> というタグを HEAD に付与
+  tag-staging = !git tag -a "staging-$(git rev-parse --short HEAD)" -m "staging-$(git rev-parse --short HEAD)"
+  # HEAD に付与されたタグを origin に push
+  push-head-tags = !git push origin $(git tag -l --points-at HEAD)
+
+
 [credential]
   helper = !aws codecommit credential-helper $@
   UseHttpPath = true
