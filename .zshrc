@@ -453,3 +453,5 @@ jdk() {
  }
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
