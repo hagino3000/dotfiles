@@ -50,7 +50,7 @@
       "KC_RSFT",
       "OSL(2)",
       "MO(1)",
-      "KC_GRV",
+      "LCTL(KC_TAB)",
       "KC_LGUI",
       "KC_ESC",
       "KC_SPC",
@@ -59,7 +59,7 @@
       "KC_ENT",
       "KC_RGUI",
       "KC_RALT",
-      "KC_PGUP",
+      "LCTL(KC_DOWN)",
       "KC_DOWN",
       "KC_UP"
     ],
