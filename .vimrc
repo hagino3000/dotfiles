@@ -274,7 +274,7 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 " buffer control
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
-nnoremap <C-W> :bd<CR>
+" nnoremap <C-W> :bd<CR>
 
 " window move
 nnoremap <C-J> <C-W>j
