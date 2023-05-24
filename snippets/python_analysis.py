@@ -178,6 +178,10 @@ def plot_x(actual_df, plan_df, output_df, x):
     ax.legend(loc='best')
 
 
+# vertical line
+ax.axvline(x=pd.Timestamp(d), linewidth=1, color="b", linestyle='--')
+
+
 # Check nan
 def check_nan(X):
     print(X.info())
@@ -230,8 +234,8 @@ https://gist.github.com/DavidWalz/8538435
 
 def calc_clopper_peason_confidence_interval(trial, success, alpha):
     # alpha = 0.05の時に95%信頼区間となる
-    lo = scipy.stats.beta.ppf(alpha/2, success, trial-success+1)
-    hi = scipy.stats.beta.ppf(1 - alpha/2, success+1, trial-success)
+    lo = scipy.stats.beta.ppf(alpha/2, success+1, trial-success+1)
+    hi = scipy.stats.beta.ppf(1 - alpha/2, success+1, trial-success+1)
 
 # Wilson Score
 statsmodels.stats.proportion.proportion_confint(3, 100, alpha=0.05, method='wilson')
