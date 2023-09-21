@@ -258,3 +258,4 @@ def apply_format(_df):
 import os, sys
 sys.path.append(os.path.abspath('../src'))
 
+%config InlineBackend.figure_formats = {'png', 'retina'}
