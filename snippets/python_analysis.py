@@ -259,3 +259,23 @@ import os, sys
 sys.path.append(os.path.abspath('../src'))
 
 %config InlineBackend.figure_formats = {'png', 'retina'}
+
+
+# Call with api quota
+batches = generate_batches(xx, batch_size)
+
+seconds_per_job = 60 / api_calls_per_minute
+
+with ThreadPoolExecutor() as executor:
+    futures = []
+    for batch in tqdm(
+        batches, total=math.ceil(len(xx) / batch_size), position=0
+    ):
+        futures.append(
+            executor.submit(functools.partial(encode_texts_to_embeddings), batch)
+        )
+        time.sleep(seconds_per_job)
+
+    for future in futures:
+        embeddings_list.extend(future.result())
+
