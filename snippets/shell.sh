@@ -2,6 +2,12 @@
 echo 'Dont run this script!!'
 exit 255
 
+# show lines
+set -x
+
+# stop with error
+set -eu
+
 # move current file directory
 cd `dirname $0`
 
