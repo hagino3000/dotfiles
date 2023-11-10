@@ -1,3 +1,5 @@
+set -xeu
+
 echo Cleanup docker artifacts
 docker system prune
 docker volume prune
