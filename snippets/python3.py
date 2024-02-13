@@ -4,9 +4,6 @@ with open('japanese.txt', 'r', 'utf-8') as f:
         print(f)
 
 
-
-
-
 import textwrap
 from string import Template
 
@@ -25,3 +22,14 @@ def compose_msg_with_template(title: str, abstract: str) -> str:
     )
 
 
+def load_data_onmemory():
+    INLINE_DATA = \"""
+    abc,def,ghi
+    abc,def,ghi
+    """
+
+    from io import StringIO
+
+    f = StringIO(INPUTS)
+    for line in f:
+        print(line.strip())
