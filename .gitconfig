@@ -92,3 +92,5 @@
     program = /usr/local/bin/gpg
 [commit]
     #gpgsign = true
+[init]
+	defaultBranch = main
