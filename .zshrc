@@ -94,6 +94,7 @@ bindkey '^F' history-incremental-search-backward
 bindkey '^R' history-incremental-pattern-search-backward
 
 ## ctrl + r で過去に実行したコマンドを選択できるようにする。
+# via https://zenn.dev/fendo181/articles/b3e6b00e3fcaed
 function peco-select-history() {
   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
   CURSOR=$#BUFFER
