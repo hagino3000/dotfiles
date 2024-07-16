@@ -11,6 +11,7 @@ brew install rlwrap
 brew install autojump
 brew install tig
 brew install the_silver_searcher
+brew install go
 brew install peco
 brew install bvi
 brew install tmux

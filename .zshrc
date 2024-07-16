@@ -206,7 +206,7 @@ alias pyserver='python3 -m http.server'
 ####################################################
 # Command line function
 function p-git-status-files () {
-    git status --porcelain | percol | awk '{ print $2 }' | xargs git $*
+    git status --porcelain | peco | awk '{ print $2 }' | xargs git $*
 }
 
 function p-search-document(){
@@ -214,7 +214,7 @@ function p-search-document(){
         $HOME/Documents
     $HOME/Dropbox"
     SELECTED_FILE=$(echo $DOCUMENT_DIR | xargs find | \
-        grep -E "\.(pdf|txt|odp|odt|ods)$" | percol --match-method regex)
+        grep -E "\.(pdf|txt|odp|odt|ods)$" | peco --match-method regex)
     if [ $? -eq 0 ]; then
         open $SELECTED_FILE
     fi
@@ -223,18 +223,18 @@ alias sd='p-search-document'
 
 function age() {
     if [ $# -eq 1 ]; then
-        ag --noheading $1 | percol | ruby -ne 'puts $_.split(":")[0..1].join(" +")' | xargs $EDITOR -nw
+        ag --noheading $1 | peco | ruby -ne 'puts $_.split(":")[0..1].join(" +")' | xargs $EDITOR -nw
     else
         echo "Invalid argument: Ex. age WORD"
     fi
 }
 
 function fae() {
-    find . -type f | percol | xargs $EDITOR -rw
+    find . -type f | peco | xargs $EDITOR -rw
 }
 
 function fpe() {
-    find . -type f -name "*py" | percol | xargs $EDITOR -rw
+    find . -type f -name "*py" | peco | xargs $EDITOR -rw
 }
 
 ####################################################
