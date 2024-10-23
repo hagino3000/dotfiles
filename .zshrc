@@ -427,6 +427,12 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     source $HOME/google-cloud-sdk/completion.zsh.inc
 fi
 
+## uv
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+
 
 
 export GOPATH="$HOME/go"
@@ -465,3 +471,5 @@ jdk() {
 export PATH="$HOME/.poetry/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+. "$HOME/.cargo/env"
