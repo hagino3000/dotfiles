@@ -33,5 +33,6 @@ export PATH=/usr/texbin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home`
 
 export PATH="$HOME/.git-hook/bin:$PATH"
+export PATH="$HOME/dev/dotfiles/macos/cli_tools/.venv/bin:$PATH"
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
