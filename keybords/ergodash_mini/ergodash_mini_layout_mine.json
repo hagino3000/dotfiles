@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "documentation": "This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\n",
+  "notes": "",
+  "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
   "keyboard": "omkbd/ergodash/mini",
   "keymap": "ergodash_mini_layout_mine",
   "layout": "LAYOUT",
@@ -49,9 +50,9 @@
       "KC_SLSH",
       "KC_RSFT",
       "OSL(2)",
-      "KC_LEFT",
-      "LCTL(KC_TAB)",
-      "KC_LGUI",
+      "TG(1)",
+      "KC_GRV",
+      "KC_RGUI",
       "KC_ESC",
       "KC_SPC",
       "MO(1)",
@@ -59,9 +60,9 @@
       "KC_ENT",
       "KC_RGUI",
       "KC_RALT",
-      "KC_RGHT",
-      "KC_DOWN",
-      "KC_UP"
+      "RGUI(KC_TAB)",
+      "LCS(KC_TAB)",
+      "LCTL(KC_TAB)"
     ],
     [
       "KC_TAB",
@@ -107,7 +108,7 @@
       "KC_QUES",
       "KC_RSFT",
       "KC_LCTL",
-      "KC_TILD",
+      "KC_TRNS",
       "KC_GRV",
       "KC_LGUI",
       "KC_ESC",
@@ -117,9 +118,9 @@
       "KC_ENT",
       "KC_RGUI",
       "KC_TRNS",
-      "KC_END",
-      "KC_PGDN",
-      "KC_PGUP"
+      "KC_TRNS",
+      "RGUI(KC_C)",
+      "RGUI(KC_V)"
     ],
     [
       "KC_F1",
@@ -182,16 +183,16 @@
     [
       "KC_TRNS",
       "QK_BOOT",
-      "RGB_TOG",
-      "RGB_MOD",
-      "RGB_HUD",
-      "RGB_HUI",
+      "UG_TOGG",
+      "UG_NEXT",
+      "UG_HUED",
+      "UG_HUEU",
       "KC_TRNS",
       "KC_TRNS",
-      "RGB_SAD",
-      "RGB_SAI",
-      "RGB_VAD",
-      "RGB_VAI",
+      "UG_SATD",
+      "UG_SATU",
+      "UG_VALD",
+      "UG_VALU",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -238,6 +239,5 @@
       "KC_TRNS"
     ]
   ],
-  "author": "",
-  "notes": ""
+  "author": ""
 }
