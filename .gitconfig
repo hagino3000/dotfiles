@@ -17,12 +17,13 @@
 [pull]
   rebase = true
 [push]
-  default = tracking
+  default = current
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
   quotepath = false
   pager = LESSCHARSET=utf-8 less -cm
+  precomposeunicode = true
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
@@ -86,8 +87,8 @@
 
 
 [credential]
-  helper = !aws codecommit credential-helper $@
-  UseHttpPath = true
+#  helper = !aws codecommit credential-helper $@
+#  UseHttpPath = true
 [gpg]
     program = /usr/local/bin/gpg
 [commit]

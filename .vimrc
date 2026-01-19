@@ -219,7 +219,7 @@ augroup vimrc_file_type_nmap
     autocmd FileType perl       inoremap <buffer> iii use Data::Dumper; warn Dumper
 
     " python
-    autocmd FileType python nnoremap <leader>py :<C-u>!python %<Enter>
+    autocmd FileType python nnoremap <leader>py :<C-u>!python3 %<Enter>
 
     function! s:snowflake_after(...)
       execute ':QuickfixStatusEnable'
