@@ -16,13 +16,13 @@ colors
 
 if [ -s "$HOME/dev/dotfiles/antigen/antigen.zsh" ]; then
   source $HOME/dev/dotfiles/antigen/antigen.zsh
-  # See ~/.antigen/repos/
   antigen use oh-my-zsh
   antigen bundle golang
   antigen bundle autojump
   antigen bundle python
   antigen bundle screen
-  antigen bundle aws
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-autosuggestions
   antigen apply
 fi
 
@@ -212,6 +212,9 @@ alias -g P='| peco'
 alias -g C='g++ -Wall -std=c++14'
 
 alias pyserver='python3 -m http.server'
+
+# iTerm2
+alias clinicalcoding_dev='echo -ne "\033]1337;SetProfile=clinicaldev\a"'
 
 ####################################################
 # Command line function
@@ -466,10 +469,14 @@ jdk() {
         version=$1
         export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
         java -version
- }
+}
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 . "$HOME/.cargo/env"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+eval "$(~/.local/bin/mise activate zsh)"
+eval "$(starship init zsh)"

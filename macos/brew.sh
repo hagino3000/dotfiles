@@ -21,3 +21,5 @@ brew install pinentry-mac
 brew install google-cloud-sdk
 brew install openjdk
 brew install jq
+brew install mise
+brew install starship
