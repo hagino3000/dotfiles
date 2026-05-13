@@ -157,7 +157,7 @@ alias where="command -v"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
-  alias ls="ls -G -w"
+  alias ls="ls -G"
   alias pst='ptree'
   ;;
 linux*)
@@ -479,4 +479,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 eval "$(~/.local/bin/mise activate zsh)"
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
