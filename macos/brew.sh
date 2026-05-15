@@ -23,3 +23,4 @@ brew install openjdk
 brew install jq
 brew install mise
 brew install starship
+brew install volta
