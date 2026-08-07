@@ -27,3 +27,5 @@ brew install starship
 brew install volta
 brew install mise
 brew install font-hackgen
+brew install rtk
+brew install uv
