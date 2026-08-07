@@ -478,7 +478,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 . "$HOME/.cargo/env"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-eval "$(~/.local/bin/mise activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 #eval "$(starship init zsh)"
 
 # pnpm

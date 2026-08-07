@@ -4,7 +4,7 @@
 "
 scriptencoding utf-8
 
-set fileencodings=iso-2022-jp,utf-8,euc-jp,cp932,ucs-bom,default,latin1
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 set enc=utf-8
 set ambiwidth=double
@@ -73,20 +73,23 @@ let g:mapleader = ','
 " ====================================================
 " Dein @see https://github.com/Shougo/dein.vim
 " ====================================================
+
+
 if &compatible
   set nocompatible
 endif
 
-let s:dein_dir = expand('~/dev/dotfiles/vendor/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+
+let s:dein_base = expand('~/.local/share/dein')
+let s:dein_src = expand('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
+execute 'set runtimepath+=' . s:dein_src
 
 let g:rc_dir    = expand('~/dev/dotfiles/.vim/rc')
 let s:toml      = g:rc_dir . '/dein.toml'
 let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+if dein#load_state(s:dein_base)
+  call dein#begin(s:dein_base)
 
 
   call dein#load_toml(s:toml,      {'lazy': 0})

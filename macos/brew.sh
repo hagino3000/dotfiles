@@ -1,4 +1,5 @@
 #!/bin/bash
+HOMEBREW_NO_ASK=1
 brew install htop
 brew install zsh
 brew install git
@@ -24,3 +25,5 @@ brew install jq
 brew install mise
 brew install starship
 brew install volta
+brew install mise
+brew install font-hackgen

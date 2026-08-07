@@ -54,30 +54,3 @@ repo = 'hynek/vim-python-pep8-indent'
 on_ft = ['python', 'python3']
 on_i = 1
 
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['python', 'python3', 'djangohtml']
-on_i = 1
-hook_source = '''
-" Refs http://qiita.com/ryo2851/items/125beff66e4106f7843c
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#completions_command = '<C-n>'
-let g:jedi#goto_assignments_command = '<leader>g'
-let g:jedi#goto_definitions_command = '<leader>d'
-let g:jedi#documentation_command = 'K'
-let g:jedi#usages_command = '<leader>n'
-let g:jedi#rename_command = '<leader>R' "quick-runと競合しないように
-autocmd FileType python setlocal completeopt-=preview
-'''
-
-[[plugins]]
-repo = 'heavenshell/vim-snowflake'
-on_ft = ['python', 'python3']
-
-
-[[plugins]]
-repo = 'vim-scripts/OOP-javascript-indentation'
-on_ft = 'javascript'
-

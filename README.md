@@ -4,6 +4,5 @@
 
 ```
 make setup
-sh setup_mac.sh
 ```
 
