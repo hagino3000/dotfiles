@@ -91,6 +91,8 @@
 #  UseHttpPath = true
 [gpg]
     program = /usr/local/bin/gpg
+[ghq]
+  root = ~/dev/repos
 [commit]
     #gpgsign = true
 [init]

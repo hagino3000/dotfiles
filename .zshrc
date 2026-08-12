@@ -488,3 +488,15 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+#
+#
+#
+peco-cd () {
+  cd "$( ghq list --full-path | peco)"
+}
+alias rj='peco-cd'
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/takashi.nishibayashi/.lmstudio/bin"
+# End of LM Studio CLI section
+
