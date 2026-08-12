@@ -30,7 +30,9 @@ export PATH=~/go/bin:$PATH
 # tex
 export PATH=/usr/texbin:$PATH
 # java
-export JAVA_HOME=`/usr/libexec/java_home`
+if /usr/libexec/java_home &>/dev/null; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 export PATH="$HOME/.git-hook/bin:$PATH"
 export PATH="$HOME/dev/dotfiles/macos/cli_tools/.venv/bin:$PATH"
