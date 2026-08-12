@@ -1,5 +1,5 @@
 #!/bin/bash
-HOMEBREW_NO_ASK=1
+export HOMEBREW_NO_ASK=1
 brew install htop
 brew install zsh
 brew install git
@@ -29,5 +29,8 @@ brew install mise
 brew install font-hackgen
 brew install rtk
 brew install uv
+brew install ghq
+brew install herdr
+brew install direnv
 
 brew install --cask mtgto/macskk/macskk
