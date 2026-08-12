@@ -4,3 +4,7 @@
 .*.swp
 *.pyc
 *.pyo
+
+**/.claude/.cc-writes/
+
+**/.claude/settings.local.json
