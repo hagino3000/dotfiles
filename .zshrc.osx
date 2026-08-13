@@ -23,8 +23,8 @@ export PATH=/opt/homebrew/opt/openjdk/bin:$PATH
 
 export PATH=~/go/bin:$PATH
 
-# python install with --user
-#export PATH=$HOME/Library/Python/3.9/bin:$PATH
+# SKK
+export PATH=~/.yaskkserv2/bin:$PATH
 
 
 # tex
