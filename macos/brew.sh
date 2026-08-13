@@ -29,8 +29,11 @@ brew install mise
 brew install font-hackgen
 brew install rtk
 brew install uv
+brew install gh
 brew install ghq
 brew install herdr
 brew install direnv
+brew install rust
+brew install rustup
 
 brew install --cask mtgto/macskk/macskk
