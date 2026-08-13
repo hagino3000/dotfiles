@@ -6,12 +6,15 @@
     <string>yaskkserv2</string>
     <key>ProgramArguments</key>
     <array>
-      <string>yaskkserv2</string>
+      <string>__HOME__/.yaskkserv2/bin/yaskkserv2</string>
+      <string>--no-daemonize</string>
       <string>--google-suggest</string>
       <string>--google-cache-filename=/tmp/yaskkserv2.cache</string>
-      <string>/Users/takashi.nishibayashi/.yaskkserv2/dictionary.yaskkserv2</string>
+      <string>__HOME__/dev/dotfiles/macos/dict/dictionary.yaskkserv2</string>
     </array>
     <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
     <true/>
   </dict>
 </plist>
