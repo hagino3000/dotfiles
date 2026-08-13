@@ -35,5 +35,6 @@ brew install herdr
 brew install direnv
 brew install rust
 brew install rustup
+brew install postgresql
 
 brew install --cask mtgto/macskk/macskk
