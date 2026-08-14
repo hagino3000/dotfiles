@@ -26,6 +26,7 @@ link .gitconfig        ~/.gitconfig
 link .gitignore_global ~/.gitignore_global
 link .tmux.conf        ~/.tmux.conf
 link herdr_config.toml ~/.config/herdr/config.toml
+link ghostty/config    ~/.config/ghostty/config
 
 case "$(uname)" in
     Darwin)

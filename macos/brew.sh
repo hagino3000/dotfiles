@@ -38,3 +38,4 @@ brew install rustup
 brew install postgresql
 
 brew install --cask mtgto/macskk/macskk
+brew install --cask ghostty

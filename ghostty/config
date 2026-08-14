@@ -1,0 +1,48 @@
+# Ghostty config
+# docs: https://ghostty.org/docs/config/reference
+# 反映は再起動不要、cmd+shift+, でリロード
+
+# HackGen Console: 半角:全角 = 1:2 のターミナル向け版
+font-family = HackGen Console
+font-size = 12
+
+theme = Cyberpunk
+
+# カーソル: 常にブロック（点滅なし）
+# シェル統合の cursor 機能はプロンプト上でバーに変えるため無効化する
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+# 配色: iTerm2 の Default プロファイルから移植（黒背景・緑文字）
+# background = #000000
+# foreground = #14f907
+# cursor-color = #c2c2c2
+# cursor-text = #ffffff
+# selection-background = #b5d5ff
+# selection-foreground = #000000
+# palette = 0=#000000
+# palette = 1=#ff9c00
+# palette = 2=#00bb00
+# palette = 3=#bbbb00
+# palette = 4=#6bcdff
+# palette = 5=#ff73fd
+# palette = 6=#00bbbb
+# palette = 7=#d9d9d9
+# palette = 8=#999999
+# palette = 9=#ff9188
+# palette = 10=#55ff55
+# palette = 11=#fffc71
+# palette = 12=#848ae2
+# palette = 13=#eea2ee
+# palette = 14=#55ffff
+# palette = 15=#ffffff
+
+# シェル統合（プロンプト検知・カレントディレクトリ引き継ぎなど）
+shell-integration = zsh
+
+# ウィンドウ
+window-save-state = always
+
+# macOS
+macos-option-as-alt = true
