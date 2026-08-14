@@ -8,6 +8,8 @@ curl -O https://skk-dev.github.io/dict/SKK-JISYO.L.gz
 curl -O https://raw.githubusercontent.com/ymrl/SKK-JISYO.emoji-ja/master/SKK-JISYO.emoji-ja.utf8
 curl -O https://raw.githubusercontent.com/uasi/skk-emoji-jisyo/refs/heads/master/SKK-JISYO.emoji.utf8
 cp ./* ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries
+# skkeleton (vim) は gzip 辞書を読めないため展開版も置く
+gzip -dc SKK-JISYO.L.gz > ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.L
 
 cd "$SCRIPT_DIR/../yaskkserv2"
 cargo build --release

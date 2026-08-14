@@ -108,6 +108,10 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 " Undo tree
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
+" SKK input method inside Vim (requires deno)
+Plug 'vim-denops/denops.vim'
+Plug 'vim-skk/skkeleton'
+
 " Misc
 Plug 'vim-scripts/scratch'
 Plug 'vim-scripts/sudo.vim'
@@ -155,6 +159,28 @@ autocmd User asyncomplete_setup call asyncomplete#register_source(
     \ }))
 let g:asyncomplete_auto_popup = 1
 inoremap <expr><C-e> pumvisible() ? asyncomplete#cancel_popup() : "\<C-e>"
+
+" skkeleton (SKK in Vim; OS side IME should stay in ascii mode)
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+
+" Dictionaries are placed by macos/setup_skk.sh (shared with macSKK)
+function! s:skkeleton_init() abort
+  let l:dict_dir = expand('~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries')
+  call skkeleton#config({
+      \ 'globalDictionaries': [
+      \     [l:dict_dir . '/SKK-JISYO.L', 'euc-jp'],
+      \     [l:dict_dir . '/SKK-JISYO.emoji-ja.utf8', 'utf-8'],
+      \     [l:dict_dir . '/SKK-JISYO.emoji.utf8', 'utf-8'],
+      \     [l:dict_dir . '/skk-jisyo.utf8', 'utf-8'],
+      \ ],
+      \ })
+endfunction
+autocmd User skkeleton-initialize-pre call s:skkeleton_init()
+
+" Suppress asyncomplete popup while typing kana
+autocmd User skkeleton-enable-pre let b:asyncomplete_enable = 0
+autocmd User skkeleton-disable-pre let b:asyncomplete_enable = 1
 
 
 " ====================================================
