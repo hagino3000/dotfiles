@@ -71,49 +71,90 @@ colorscheme murphy
 let g:mapleader = ','
 
 " ====================================================
-" Dein @see https://github.com/Shougo/dein.vim
+" vim-plug @see https://github.com/junegunn/vim-plug
 " ====================================================
-
 
 if &compatible
   set nocompatible
 endif
 
-
-let s:dein_base = expand('~/.local/share/dein')
-let s:dein_src = expand('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
-execute 'set runtimepath+=' . s:dein_src
-
-let g:rc_dir    = expand('~/dev/dotfiles/.vim/rc')
-let s:toml      = g:rc_dir . '/dein.toml'
-let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-if dein#load_state(s:dein_base)
-  call dein#begin(s:dein_base)
-
-
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
+" Install vim-plug itself on first launch
+let s:plug_src = expand('~/.vim/autoload/plug.vim')
+if empty(glob(s:plug_src))
+  silent execute '!curl -fLo ' . s:plug_src . ' --create-dirs '
+    \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+call plug#begin('~/.local/share/vim-plugged')
 
-if dein#check_install()
-  call dein#install()
-endif
+" Fuzzy finder (files, buffers, MRU, grep)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" File explorer
+Plug 'lambdalisue/fern.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Run current buffer
+Plug 'thinca/vim-quickrun'
+
+" Auto completion
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+
+" Undo tree
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+
+" Misc
+Plug 'vim-scripts/scratch'
+Plug 'vim-scripts/sudo.vim'
+Plug 'jceb/vim-hier'
+Plug 'dannyob/quickfixstatus'
+
+" File types
+Plug 'vim-scripts/octave.vim', { 'for': 'matlab' }
+Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+
+call plug#end()
 
 syntax on
 syntax enable
 
-function! EditToml()
-    execute 'edit ' . s:toml
-endfunction
+" --- plugin settings ---
 
-function! EditTomlLazy()
-    execute 'edit ' . s:lazy_toml
-endfunction
+" quickrun
+let g:quickrun_config={
+            \'*': {
+            \    'hook/time/enable': '1',
+            \    'split': '%{winwidth(0) < winheight(0) + 200 ? "vertical" : ""}',
+            \},
+            \'python': {'command': 'python3'}
+\}
+
+" fugitive
+nnoremap <leader>cs :<C-u>Git<CR>
+nnoremap <leader>cd :<C-u>Gdiffsplit<CR>
+
+" fzf (replaces unite.vim / neomru / ag.vim)
+nnoremap <silent> <leader>fb :<C-u>Buffers<CR>
+nnoremap <silent> <leader>ff :<C-u>Files<CR>
+nnoremap <silent> <leader>fr :<C-u>History<CR>
+nnoremap <silent> <leader>fg :<C-u>Ag<CR>
+nnoremap <silent> <leader>fs :<C-u>edit ~/dev/dotfiles/snippets/general.py<CR>
+
+" asyncomplete (replaces neocomplcache)
+autocmd User asyncomplete_setup call asyncomplete#register_source(
+    \ asyncomplete#sources#buffer#get_source_options({
+    \     'name': 'buffer',
+    \     'allowlist': ['*'],
+    \     'completor': function('asyncomplete#sources#buffer#completor'),
+    \ }))
+let g:asyncomplete_auto_popup = 1
+inoremap <expr><C-e> pumvisible() ? asyncomplete#cancel_popup() : "\<C-e>"
 
 
 " ====================================================
@@ -181,7 +222,7 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 nnoremap <expr> <Space>h ':<C-u>help ' . expand('<cword>') . '<CR>'
 
 " Directory Tree
-nnoremap <Leader>e :<C-u>VimFilerExplorer<CR>
+nnoremap <Leader>e :<C-u>Fern . -drawer -toggle<CR>
 
 " Quickrun
 nnoremap <Leader>q :<C-u>QuickRun<CR>
@@ -197,7 +238,7 @@ nnoremap <leader>so :<C-u>ScratchOpen<CR>
 nnoremap <leader>sc :<C-u>ScratchClose<CR>
 
 " undo
-nnoremap <leader>gl :<C-u>GundoToggle<CR>
+nnoremap <leader>gl :<C-u>UndotreeToggle<CR>
 
 " Use ClipBoard
 vmap <silent> sy :!pbcopy; pbpaste<CR>
