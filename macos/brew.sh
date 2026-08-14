@@ -36,6 +36,7 @@ brew install direnv
 brew install rust
 brew install rustup
 brew install postgresql
+brew install rclone
 
 brew install --cask mtgto/macskk/macskk
 brew install --cask ghostty
