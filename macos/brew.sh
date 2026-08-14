@@ -39,6 +39,7 @@ brew install rustup
 brew install postgresql
 brew install rclone
 brew install deno
+brew install daipeihust/tap/im-select
 
 brew install --cask mtgto/macskk/macskk
 brew install --cask ghostty

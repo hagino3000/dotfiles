@@ -92,11 +92,12 @@ next_tab = "prefix+ctrl+n"      # tmux: bind C-n（次のウィンドウ）
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 edit_scrollback = "prefix+y"      # tmux: bind y copy-mode の代替（スクロールバック編集）
-# tmux: bind C-h/C-j/C-k/C-l（ペイン移動）。h/v は分割に使うため Ctrl 付き
-focus_pane_left = "prefix+ctrl+h"
-focus_pane_down = "prefix+ctrl+j"
-focus_pane_up = "prefix+ctrl+k"
-focus_pane_right = "prefix+ctrl+l"
+# ペイン移動は矢印キー。ctrl+j/j 等の文字キーは macSKK（IME）が
+# ターミナルより先に消費するため、IME がどのモードでも解釈しない矢印を使う
+focus_pane_left = "prefix+left"
+focus_pane_down = "prefix+down"
+focus_pane_up = "prefix+up"
+focus_pane_right = "prefix+right"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 last_pane = "prefix+t"            # tmux: bind t last-window / bind C-t の代替（直前ペインへ戻る）

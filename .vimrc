@@ -182,6 +182,23 @@ autocmd User skkeleton-initialize-pre call s:skkeleton_init()
 autocmd User skkeleton-enable-pre let b:asyncomplete_enable = 0
 autocmd User skkeleton-disable-pre let b:asyncomplete_enable = 1
 
+" Open SKK user dictionary
+nnoremap <leader>sj :<C-u>edit ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8<CR>
+
+" Keep OS IME (macSKK) out of the way while vim is running:
+" switch to ABC on enter, restore the previous input source on exit.
+" Japanese input inside vim is handled by skkeleton.
+if executable('im-select')
+  augroup ime_ascii_on_vim
+    autocmd!
+    autocmd VimEnter * let s:saved_im = trim(system('im-select'))
+          \ | call system('im-select com.apple.keylayout.ABC')
+    autocmd VimLeavePre * if exists('s:saved_im')
+          \ | call system('im-select ' . s:saved_im)
+          \ | endif
+  augroup END
+endif
+
 
 " ====================================================
 " File type settings
