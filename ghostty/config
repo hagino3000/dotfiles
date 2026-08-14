@@ -6,7 +6,7 @@
 font-family = HackGen Console
 font-size = 12
 
-theme = Cyberpunk
+theme = GitHub Dark High Contrast
 
 # カーソル: 常にブロック（点滅なし）
 # シェル統合の cursor 機能はプロンプト上でバーに変えるため無効化する
