@@ -57,6 +57,11 @@ set t_vb=
 set novisualbell
 set noerrorbells
 
+" Ghostty へのカーソル点滅問い合わせ(ESC[?12$p)を止める。
+" 応答が VimEnter の system('im-select') 中(cooked mode)に届くと
+" 画面に 12;2$y とエコーされてしまうため
+set t_RC=
+
 " set tags=~/dev/study/_vim/.tags
 
 set imdisable
@@ -94,6 +99,7 @@ Plug 'junegunn/fzf.vim'
 
 " File explorer
 Plug 'lambdalisue/fern.vim'
+let g:fern#default_hidden = 1
 
 " Git
 Plug 'tpope/vim-fugitive'
