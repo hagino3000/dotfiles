@@ -66,7 +66,7 @@ prefix = "ctrl+a"
 # Prefix-mode actions
 # help = "prefix+?"
 # settings = "prefix+s"
-detach = "prefix+d"           # tmux デフォルトの detach (prefix+d)。q は close_pane に使う
+detach = "prefix+d"           # tmux
 reload_config = "prefix+r"    # tmux: bind r（設定リロード）
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
@@ -94,15 +94,15 @@ next_tab = "prefix+ctrl+n"      # tmux: bind C-n（次のウィンドウ）
 edit_scrollback = "prefix+y"      # tmux: bind y copy-mode の代替（スクロールバック編集）
 # ペイン移動は矢印キー。ctrl+j/j 等の文字キーは macSKK（IME）が
 # ターミナルより先に消費するため、IME がどのモードでも解釈しない矢印を使う
-focus_pane_left = "prefix+left"
-focus_pane_down = "prefix+down"
-focus_pane_up = "prefix+up"
-focus_pane_right = "prefix+right"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 last_pane = "prefix+t"            # tmux: bind t last-window / bind C-t の代替（直前ペインへ戻る）
-split_vertical = "prefix+v"       # tmux: bind v split-window -h（左右に分割）
-split_horizontal = "prefix+h"     # tmux: bind h split-window -v（上下に分割）※逆に感じたら v と入れ替え
+split_vertical = "prefix+%"       # tmux
+split_horizontal = "prefix+\""     # tmux
 close_pane = "prefix+q"           # tmux: bind q（ペイン終了）
 # zoom = "prefix+z"       # legacy alias: fullscreen
 resize_mode = "prefix+shift+r"    # tmux の H/J/K/L リサイズ相当。r は reload に譲る
