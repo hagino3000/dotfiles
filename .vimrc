@@ -194,11 +194,18 @@ nnoremap <leader>sj :<C-u>edit ~/Library/Containers/net.mtgto.inputmethod.macSKK
 " Keep OS IME (macSKK) out of the way while vim is running:
 " switch to ABC on enter, restore the previous input source on exit.
 " Japanese input inside vim is handled by skkeleton.
+" VimEnter で system() を使うと端末が一時的に cooked mode になり、
+" ghostty からの起動時問い合わせ応答(Secondary DA / OSC 10,11)が
+" その隙間にエコーされてしまうため、非同期の job_start() で行う
 if executable('im-select')
+  function! s:save_im(ch, msg) abort
+    let s:saved_im = trim(a:msg)
+  endfunction
   augroup ime_ascii_on_vim
     autocmd!
-    autocmd VimEnter * let s:saved_im = trim(system('im-select'))
-          \ | call system('im-select com.apple.keylayout.ABC')
+    autocmd VimEnter * call job_start(
+          \   ['/bin/sh', '-c', 'im-select; im-select com.apple.keylayout.ABC'],
+          \   {'out_cb': function('s:save_im')})
     autocmd VimLeavePre * if exists('s:saved_im')
           \ | call system('im-select ' . s:saved_im)
           \ | endif
