@@ -43,3 +43,4 @@ brew install daipeihust/tap/im-select
 
 brew install --cask mtgto/macskk/macskk
 brew install --cask ghostty
+brew install --cask hammerspoon
